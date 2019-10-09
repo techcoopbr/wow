@@ -1,0 +1,658 @@
+
+pt-BR:
+  devise:
+    sessions:
+      user:
+        signed_in: Usuário logado com sucesso
+        unauthenticated: Voce precisa estar logado
+    titles:
+      forgot: Esqueceu sua senha?
+      sign_in: Acesso ao sistema
+      sign_up: Cadastro
+      change: Alterar minha senha
+      confirmation: Reenviar confirmação de e-mail
+    buttons:
+      sign_in: Acessar o sistema
+      sign_up: Confirmar cadastro
+      forgot: Enviar instruções de alteração de senha
+      confirmation: Enviar instruções de confirmação
+      change: Alterar minha senha
+    links:
+      sign_in: Acessar
+      sign_up: Quero me cadastrar
+      sign_out: Sair
+      forgot: Esqueci minha senha
+      confirmation: Quero receber novamente as instruções de confirmação
+      confirmations:
+      confirmed: Sua conta foi confirmada com sucesso.
+      send_instructions: "Você receberá um email para confirmar sua conta em alguns minutos."
+      send_paranoid_instructions: "Caso seu endereço de email já exista em nossa base, você receberá um email com instruções sobre como ativar sua conta."
+    failure:
+      user:
+        already_authenticated: Você já está autenticado.
+        unauthenticated: "Você precisa se autenticar antes de prosseguir."
+        unconfirmed: Você precisa confirmar sua conta antes de continuar.
+        last_attempt: "Você tem mais uma tentativa antes que sua conta seja travada."
+        locked: Sua conta está bloqueada. Entre em contato com o administrador do sistema para solicitar o desbloqueio.
+        invalid: Usuário ou senha inválidos.
+        invalid_token: Token de autenticação inválido.
+        timeout: Sua sessão expirou. Por favor, acesse o sistema novamente.
+        inactive: Sua conta ainda não está ativada.
+        not_found_in_database: Usuário ou senha inválidos.
+    mailer:
+      confirmation_instructions:
+        subject: Instruções de confirmação
+      reset_password_instructions:
+        subject: Instruções de troca de senha
+      unlock_instructions:
+        subject: Instruções de desbloqueio
+    omniauth_callbacks:
+      failure: Não foi possível autenticá-lo como %{kind} porque "%{reason}".
+      success: Autenticado com sucesso com uma conta de %{kind}.
+    passwords:
+      no_token: "Você não pode acessar essa página vindo do email para reiniciar sua senha. Se você está vindo do email para reiniciar sua senha, por favor, certifique-se de estar usando a URL correta."
+      send_instructions: Você receberá um e-mail com instruções de alteração de senha em alguns minutos.
+      send_paranoid_instructions: Se seu e-mail for encontrado em nossa base, você receberá um link de recuperação de senha em alguns minutos.
+      updated: Sua senha foi alterada com sucesso.
+      updated_not_active: Sua senha foi alterada com sucesso.
+    registrations:
+      destroyed: Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.
+      signed_up: "Bem-vindo! Você se registrou com sucesso."
+      signed_up_but_inactive: Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta não foi ativada.
+      signed_up_but_locked: Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta está bloqueada.
+      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada ao seu e-mail. Por favor, abra o link para ativar sua conta.
+      update_needs_confirmation: "Sua conta foi atualizada, mas precisamos verificar seu endereço de email. Por favor cheque seu email e clique no link de confirmação para confirmar seu novo endereço de email."
+      updated: Sua conta foi atualizada com sucesso.
+    sessions:
+      user:
+        signed_in: Você acessou o sistema com sucesso.
+        signed_out: Você saiu do sistema com sucesso. Volte sempre!
+        unauthenticated: Você precisa logar!
+    unlocks:
+      send_instructions: Dentro de minutos, você receberá um email com instruções para o desbloqueio da sua conta.
+      send_paranoid_instructions: Se sua conta existir, você receberá um e-mail com instruções para desbloqueá-la em alguns minutos.
+      unlocked: Sua conta foi desbloqueada com sucesso. Efetue login para continuar.
+  errors:
+    messages:
+      already_confirmed: já foi confirmado, experimente acessar!
+      confirmation_period_expired: "precisa ser confirmada dentro de %{period}, por favor peça uma nova"
+      expired: expirou, solicite novamente
+      not_found: não encontrado
+      not_locked: não estava bloqueado
+      not_saved:
+        one: 1 erro impediu salvar %{resource}
+        other: "%{count} erros o impediram de salvar %{resource}"
+  errors:
+    messages:
+      taken_in_past: "was used previously."
+      equal_to_current_password: "must be different than the current password."
+      password_format: "must contain big, small letters and digits"
+  devise:
+    invalid_captcha: "A entrada captcha foi inválida."
+    paranoid_verify:
+      code_required: "Digite o código que nossa equipe de suporte forneceu"
+    password_expired:
+      updated: "Sua nova senha é salva."
+      change_required: "Sua senha está expirada. Por favor, renome sua senha."
+    failure:
+      session_limited: 'Suas credenciais de login foram usadas em outro navegador. Faça login novamente para continuar neste navegador.'
+      expired: 'Sua conta expirou devido à inatividade. Entre em contato com o administrador do site.'
+  role_id:
+    admin: Administrador
+    attendance: Atendimento
+    marketing: Marketing
+    operational: Operacional
+    user: Cliente
+    api: API (sincronização)
+    manager: Moderador
+    seller: Vendedor
+    financial: Financeiro
+    commercial: Comercial
+    transport: Transporte
+    hotel: Hoteis
+    consultant: Consultor
+    titles:
+      forgot: Esqueceu sua senha?
+      sign_in: Acesso ao sistema
+      sign_up: Cadastro
+      change: Alterar minha senha
+      confirmation: Reenviar confirmação de e-mail
+    buttons:
+      sign_in: Acessar o sistema
+      sign_up: Confirmar cadastro
+      forgot: Enviar instruções de alteração de senha
+      confirmation: Enviar instruções de confirmação
+      change: Alterar minha senha
+    links:
+      sign_in: Acessar
+      sign_up: Quero me cadastrar
+      sign_out: Sair
+      forgot: Esqueci minha senha
+      confirmation: Quero receber novamente as instruções de confirmação
+      confirmations:
+      confirmed: Sua conta foi confirmada com sucesso.
+      send_instructions: "Você receberá um email para confirmar sua conta em alguns minutos."
+      send_paranoid_instructions: "Caso seu endereço de email já exista em nossa base, você receberá um email com instruções sobre como ativar sua conta."
+    failure:
+      user:
+        already_authenticated: Você já está autenticado.
+        unauthenticated: "Você precisa se autenticar antes de prosseguir."
+        unconfirmed: Você precisa confirmar sua conta antes de continuar.
+        last_attempt: "Você tem mais uma tentativa antes que sua conta seja travada."
+        locked: Sua conta está bloqueada. Entre em contato com o administrador do sistema para solicitar o desbloqueio.
+        invalid: Usuário ou senha inválidos.
+        invalid_token: Token de autenticação inválido.
+        timeout: Sua sessão expirou. Por favor, acesse o sistema novamente.
+        inactive: Sua conta ainda não está ativada.
+        not_found_in_database: Usuário ou senha inválidos.
+    mailer:
+      confirmation_instructions:
+        subject: Instruções de confirmação
+      reset_password_instructions:
+        subject: Instruções de troca de senha
+      unlock_instructions:
+        subject: Instruções de desbloqueio
+    omniauth_callbacks:
+      failure: Não foi possível autenticá-lo como %{kind} porque "%{reason}".
+      success: Autenticado com sucesso com uma conta de %{kind}.
+    passwords:
+      no_token: "Você não pode acessar essa página vindo do email para reiniciar sua senha. Se você está vindo do email para reiniciar sua senha, por favor, certifique-se de estar usando a URL correta."
+      send_instructions: Você receberá um e-mail com instruções de alteração de senha em alguns minutos.
+      send_paranoid_instructions: Se seu e-mail for encontrado em nossa base, você receberá um link de recuperação de senha em alguns minutos.
+      updated: Sua senha foi alterada com sucesso.
+      updated_not_active: Sua senha foi alterada com sucesso.
+    registrations:
+      destroyed: Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.
+      signed_up: "Bem-vindo! Você se registrou com sucesso."
+      signed_up_but_inactive: Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta não foi ativada.
+      signed_up_but_locked: Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta está bloqueada.
+      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada ao seu e-mail. Por favor, abra o link para ativar sua conta.
+      update_needs_confirmation: "Sua conta foi atualizada, mas precisamos verificar seu endereço de email. Por favor cheque seu email e clique no link de confirmação para confirmar seu novo endereço de email."
+      updated: Sua conta foi atualizada com sucesso.
+    sessions:
+      signed_in: Você acessou o sistema com sucesso.
+      signed_out: Você saiu do sistema com sucesso. Volte sempre!
+    unlocks:
+      send_instructions: Dentro de minutos, você receberá um email com instruções para o desbloqueio da sua conta.
+      send_paranoid_instructions: Se sua conta existir, você receberá um e-mail com instruções para desbloqueá-la em alguns minutos.
+      unlocked: Sua conta foi desbloqueada com sucesso. Efetue login para continuar.
+  errors:
+    messages:
+      already_confirmed: já foi confirmado, experimente acessar!
+      confirmation_period_expired: "precisa ser confirmada dentro de %{period}, por favor peça uma nova"
+      expired: expirou, solicite novamente
+      not_found: não encontrado
+      not_locked: não estava bloqueado
+      not_saved:
+        one: 1 erro impediu salvar %{resource}
+        other: "%{count} erros o impediram de salvar %{resource}"
+
+  errors:
+    messages:
+      taken_in_past: "was used previously."
+      equal_to_current_password: "must be different than the current password."
+      password_format: "must contain big, small letters and digits"
+  devise:
+    invalid_captcha: "A entrada captcha foi inválida."
+    paranoid_verify:
+      code_required: "Digite o código que nossa equipe de suporte forneceu"
+    password_expired:
+      updated: "Sua nova senha é salva."
+      change_required: "Sua senha está expirada. Por favor, renome sua senha."
+    failure:
+      session_limited: 'Suas credenciais de login foram usadas em outro navegador. Faça login novamente para continuar neste navegador.'
+      expired: 'Sua conta expirou devido à inatividade. Entre em contato com o administrador do site.'
+
+  kind:
+    normal: Normal
+    bonus: Bonificação
+    transfer: Transferência
+
+
+  views:
+    pagination:
+      first: Início
+      last: Fim
+      next: Próximo
+      previous: Anterior
+      truncate: ...
+
+  activerecord:
+    models:
+      email_type: Textos de Email
+      paylink: Link de Pagamento
+      tour_block: Lista de Bloqueios
+      waiting_list: Lista de Espera
+      interest: Interesses
+      office: Cargos
+      type_contract: Tipos de Contratos
+      contract: Contratos
+      testimony: Depoimentos
+      document: Documento
+      invoice: Duplicatas
+      issue: Fluxos de Trabalho
+      category_issue: Tipos de Ticket
+      priority_issue: Prioridade de Ticket
+      type_issue_id: Tipo do Trabalho
+      type_issue: Tipo do Trabalho
+      account: Conta
+      user: Usuário
+      license: Licença
+      system: Sistema
+      folk: Pessoas
+      product: Itens
+      featured: Destaques dos Banners
+      contact: Contatos
+      destiny: Destinos
+      attraction: Atrações Turísticas
+      local: Categorias de Passeios
+      tour: Passeios
+      carrying: Transportadores
+      extra: Extras
+      transport: Transportes
+      hotel: Hoteis
+      company: Empresa
+      contact: Contatos
+      icon: Icones
+      other: Extras Inclusos
+      tour_price: Preços Passeio
+      price: Preço
+      season: Temporada
+      car: Carrinho
+      payment: Pagamento
+      plan: Plano de Venda
+      brand: Bandeira
+      ask: Perguntas e Respostas
+      people: Pessoas
+      person: Pessoas
+      category_file: Categoria de Arquivos
+      upload: Arquivos
+      city: Cidades
+      faq_category: Categorias de FAQ
+      faq: Perguntas e Respostas
+      faq_ask: Perguntas Executadas
+    attributes:
+      email_type:
+        type: Tipo
+        title: Título
+        email_head: Cabeçalho
+        email_content: Conteúdo
+        email_detail: Detalhes
+        email_footer: Rodapé
+        email_signature: Assinatura
+      paylink:
+        issue_id: ID Fluxo
+        user_id: Usuário
+        person_id: Client
+        validity: Valido até
+        value: Valor
+        obs: Descrição
+        quota: Max. Parcelas
+        open: Visualizado
+        open_date: Data Visualizado
+      tour_block:
+        datei: Início
+        datef: Fim
+        timei: Hora
+        vacancy_day: Vagas
+        show: Exibe no Site
+      waiting_list:
+        emai: eMail
+        date: Data
+        tour: Passeio
+        tour_id: Passeio
+        number: Vagas
+      interest:
+        name: Nome
+        email: e-mail
+        tour: Passeio
+        tour_id: Passeio
+      faq_ask:
+        ask: Pergunta
+        answer: Resposta
+        term: Termo Usado
+      city:
+        name: Nome
+      faq_category:
+        descrption: Descrićão
+      office:
+        name: Descrição
+      category_file:
+        active: Ativo
+        description: Descrićão
+        name: Nome
+      upload:
+        description: Descrićão
+        category_file: Categorias
+        name: Nome
+        file: Arquivo
+        user: Usuário
+        user_id: Usuário
+        person: Pessoa
+        person_id: Pessoa
+      contract:
+        name: Nome
+        type_contract: Tipo
+        active: Ativo
+        value: Texto do Contrato
+      type_contract:
+        name: Nome
+        key: Chave
+      person:
+        name: Nome
+        lastname: Sobrenome
+        born: Nascimento
+        cpfcnpj: CPF/CNPJ
+        rgie: RG/IE
+        address: Endereco
+        number: Numero End.
+        district: Bairro
+        zip: CEP
+        city: Cidade
+        client: Cliente
+        worker: Funcionario
+        provider: Fornecedor
+        cellphone: Celular
+        phone: Telefone
+        contact: Contato
+      ask:
+        question: Pergunta
+        answer: Resposta
+        faq_category: Categoria
+      plan:
+        name: Nome
+        quota: Parcelas
+        tax: Juro %
+        minimum: Valor Mínimo
+        active: Ativo
+      brand:
+        name: Nome
+        name_api: Nome na API
+      car:
+        name:
+      payment:
+        tid: TID
+        brand: Bandeira
+        status: STATUS
+        id_payment: ID Pagamento
+        value: Valor
+        card: Numero Cartao
+        expiration: Vencimento
+        holder: Nome Cartao
+        approved_date: Aprovado em
+        query_date: Consultado em
+        cancel_date: Cancelado em
+        created_at: Criado em
+        updated_at: Atualizado em
+      category_issue:
+        description: Descrição
+      priority_issue:
+        description: Descrição
+      product:
+        descricao: Descrição
+        preco: Preço a Vista
+        estoque: Estoque
+        codigo: Código
+        custovenda: Custo Reposição
+      document:
+        name: Descrição
+        description: Descrição Detalhada
+        date: Data
+      carrying:
+        code: Código API
+        name: Razão Social
+        social_name: Fantasia
+        api_type: Tipo API
+        transport: Tipo de Transporte
+        active: Ativo
+      hotel:
+        code_api: Código API
+        code: Código
+        name: Razão Social
+        nome: Fantasia
+        api_type: Tipo API
+      invoice:
+        folk: Pessoa
+        documento: Documento
+        saldo: R$ Saldo
+        account: Conta
+        emissao: Emissão
+        vencimento: Vencimento
+        ultimabaixa: Pagamento
+        valorparcela: R$ Parcela
+      issue:
+        name: Assunto
+        description: Descrição
+        open_on: Aberto em
+        finished_on: Concluído em
+        closed_on: Fechado em
+        status: Situação
+        account: Conta
+        title: Descrição do Ticket
+        typeticket: Tipo do Ticket
+        priority_issue_id: Prioridade
+        category_issue_id: Categoria de Ticket
+      account:
+        cnpj: CPF/CNPJ
+        name: Nome
+      season:
+        description: Descrição
+        datei: Data Inicial
+        datef: Data Final
+        high: Alte Temporada?
+        active: Ativo
+      user:
+        office: Cargo
+        office_id: Cargo
+        person: Pessoa
+        person_id: Pessoa
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de Senha
+        current_password: Senha Atual
+        locked_at: Bloqueado em
+        remember_me: Lembrar credenciais
+        account: Conta
+        role_id: Papel
+      license:
+        account: Conta
+        name: Nome
+        computer: Computador
+        systems: Sistemas
+        key: Chave
+        validated_at: Último Acesso
+        version: Versão
+        addon: Data de Ativação
+        active: Ativo?
+        system_ids: Sistemas
+      system:
+        name: Nome
+      folk:
+        nome: Nome/Razão Social
+        apelido: APelido/Fantasia
+        fone01: Fone
+        fone02: Fone 02
+        fone03: Fone 03
+        fone04: Fone 04
+        cpfcnpj: CPF/CNPJ
+        rgie: RG/IE
+        endereco: Endereço
+        bairro: Bairro
+        cep: CEP
+        celular: Celular
+        contato: Contato
+      destiny:
+        name: Nome
+        description: Descrição
+        map: Mapa Google
+        active: Ativo
+        featured: Exibir na Home
+      attraction:
+        name: Nome
+        description: Descrição
+        destiny: Destino
+        local: Categoria de Passeio
+        map: Mapa Google
+        value: Valor Passeio
+        short_description: Descrição Curta
+        video: Video Destaque
+        photo: Imagem Destaque
+        imgs: Imagens do Ponto Turístico
+        active: Ativo
+        featured: Exibir na Home
+      testimony:
+        testimony: Depoimentos
+        user: Usuário
+        text: Texto
+      tour:
+        name: Nome
+        url_google: API Key Google
+        description: Descrição
+        attraction: Atração turística
+        local: Categoria de Passeio
+        map: Mapa Google
+        value: Valor Alta
+        lowvalue: Valor Baixa
+        chd_value: Valor Alta Chd.
+        chd_lowvalue: Valor Baixa Chd.
+        short_description: Descrição Curta
+        video: Video Destaque
+        photo: Imagem Destaque
+        imgs: Imagens do Passeio
+        active: Ativo
+        featured: Exibir na Home
+        transport: Transporte
+        extra: Extra
+        other: Extras Inclusos
+        sun: Domingo
+        mon: Segunda-feira
+        tue: Terça-feira
+        wed: Quarta-feira
+        thu: Quinta-feira
+        fri: Sexta-feira
+        sat: Sábado
+        limitfree: Limite Infantil
+        permitchd: Permite Crianca
+        permitfree: Permite Infantil
+        limitchd: Limite Crianca
+        textlimitchd: Texto Crianca
+        textlimitfree: Texto Infantil
+      local:
+        name: Nome
+        description: Descrição
+        photo: Foto
+        active: Ativo
+        featured: Exibir na Home
+      featured:
+        name: Nome
+        url: Link
+        text1: Texto 1
+        text2: Texto 2
+        text3: Texto 3
+        text4: Texto 4
+        text5: Texto 5
+        active: Ativo
+      extra:
+        name: Descrição
+        active: Ativo
+        featured: Exibir na Home
+        icon: Icone
+      transport:
+        name: Descrição
+        active: Ativo
+        icon: Icone
+        featured: Exibir na Home
+      company:
+        about: Sobre Nós
+        certificate: Certificado
+        image: Imagem
+        name: Nome
+        email: eMail
+        fantasy: Fantasia
+        address: Endereço
+        number: Numero
+        zip: CEP
+        city: Cidade
+        state: Estado
+        phone1: Telefone 1
+        phone2: Telefone 2
+        phone3: Telefone 3
+        email_suport: EMail Suporte
+        email_comercial: EMail Comercial
+        email_manager: EMail Gerencia
+      contact:
+        name: Nome
+        lastname: Sobrenome
+        email: EMail
+        city: Cidade
+        state: Estado
+        title: Assunto
+        content: Mensagem
+        address: Endereço
+        phone1: Telefone 1
+        phone2: Telefone 2
+        allow_call: Contato Via Fone
+      icon:
+        name: Nome
+        file: Imagem
+        bootstrap: Icone Bootstrap
+        fontawesome: Icone FontAwesome
+      other:
+        name: Nome
+        icon: Icone
+        active: Ativo
+  helpers:
+    links:
+      edit: Alterar
+      back: Voltar
+    submit:
+      create: Salvar Item
+      update: Atualizar
+    changes:
+      error: Problema ao atualizar o registrou
+      success: Informações inseridas/editadas com SUCESSO!
+
+  unauthorized:
+    manage:
+      all: 'Permissão negada'
+
+  status:
+    open: ABERTO
+    validating: EM ANÁLISE
+    pending: AGUARDANDO RESPOSTA
+    in_progress: EM EXECUÇÃO
+    finished: CONCLUÍDO
+    closed: FECHADO
+    canceled: CANCELADO
+
+  sell_status:
+    received: PEDIDO RECEBIDO
+    payment_in_progress: PROCESSANDO PAGAMENTO
+    payment_confirmed: PAGAMENTO CONFIRMADO
+    order_in_progress: PROCESSANDO PEDIDO
+    order_confirmed: PEDIDO CONFIRMADO
+
+  typeticket:
+    sell: VENDA INTERNA
+    paylink: LINK DE PAGAMENTO
+    budget: ORÇAMENTO
+    issue: TAREFA INTERNA
+    car: CARRINHO
+
+  type_email:
+    sell_try: Tentativa de Compra
+    sell_approved: Compra Aprovada
+    sell_confirmed: Compra Confirmada
+    sell_denied: Compra Negada
+    payment_try: Tentativa de Pagamento
+    payment_approved: Pagamento Aprovado
+    payment_confirmed: Pagamento Confirmado
+    payment_denied: Pagamento Recusado
+    paylink_new: Novo Link de Pagamento
+    paylink_approved: Link Aprovado
+    paylink_confirmed: Link Confirmado
+    paylink_denied: Link Recusado
+    contact_fone: Me ligue
+    contact_email: Me mande email
+    budget_new: Novo Orçamento
+    budget_responde: Resposta Orçamento

@@ -1,0 +1,96 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+pt-BR:
+  devise:
+    titles:
+      forgot: Esqueceu sua senha?
+      sign_in: Acesso ao sistema
+      sign_up: Cadastro
+      change: Alterar minha senha
+      confirmation: Reenviar confirmação de e-mail
+    buttons:
+      sign_in: Acessar o sistema
+      sign_up: Confirmar cadastro
+      forgot: Enviar instruções de alteração de senha
+      confirmation: Enviar instruções de confirmação
+      change: Alterar minha senha
+    links:
+      user:
+        sign_in: Acessar
+        sign_up: Quero me cadastrar
+        sign_out: Sair
+        forgot: Esqueci minha senha
+        confirmation: Quero receber novamente as instruções de confirmação
+        confirmations:
+          confirmed: Sua conta foi confirmada com sucesso.
+          send_instructions: "Você receberá um email para confirmar sua conta em alguns minutos."
+          send_paranoid_instructions: "Caso seu endereço de email já exista em nossa base, você receberá um email com instruções sobre como ativar sua conta."
+    failure:
+      user:
+        already_authenticated: Você já está autenticado.
+        unauthenticated: "Você precisa se autenticar antes de prosseguir."
+        unconfirmed: Você precisa confirmar sua conta antes de continuar.
+        last_attempt: "Você tem mais uma tentativa antes que sua conta seja travada."
+        locked: Sua conta está bloqueada. Entre em contato com o administrador do sistema para solicitar o desbloqueio.
+        invalid: Usuário ou senha inválidos.
+        invalid_token: Token de autenticação inválido.
+        timeout: Sua sessão expirou. Por favor, acesse o sistema novamente.
+        inactive: Sua conta ainda não está ativada.
+        not_found_in_database: Usuário ou senha inválidos.
+    mailer:
+      confirmation_instructions:
+        subject: Instruções de confirmação
+      reset_password_instructions:
+        subject: Instruções de troca de senha
+      unlock_instructions:
+        subject: Instruções de desbloqueio
+    omniauth_callbacks:
+      failure: Não foi possível autenticá-lo como %{kind} porque "%{reason}".
+      success: Autenticado com sucesso com uma conta de %{kind}.
+    passwords:
+      no_token: "Você não pode acessar essa página vindo do email para reiniciar sua senha. Se você está vindo do email para reiniciar sua senha, por favor, certifique-se de estar usando a URL correta."
+      send_instructions: Você receberá um e-mail com instruções de alteração de senha em alguns minutos.
+      send_paranoid_instructions: Se seu e-mail for encontrado em nossa base, você receberá um link de recuperação de senha em alguns minutos.
+      updated: Sua senha foi alterada com sucesso.
+      updated_not_active: Sua senha foi alterada com sucesso.
+    registrations:
+      destroyed: Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.
+      signed_up: "Bem-vindo! Você se registrou com sucesso."
+      signed_up_but_inactive: Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta não foi ativada.
+      signed_up_but_locked: Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta está bloqueada.
+      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada ao seu e-mail. Por favor, abra o link para ativar sua conta.
+      update_needs_confirmation: "Sua conta foi atualizada, mas precisamos verificar seu endereço de email. Por favor cheque seu email e clique no link de confirmação para confirmar seu novo endereço de email."
+      updated: Sua conta foi atualizada com sucesso.
+    sessions:
+      user:
+        signed_in: Você acessou o sistema com sucesso.
+        signed_out: Você saiu do sistema com sucesso. Volte sempre!
+    unlocks:
+      send_instructions: Dentro de minutos, você receberá um email com instruções para o desbloqueio da sua conta.
+      send_paranoid_instructions: Se sua conta existir, você receberá um e-mail com instruções para desbloqueá-la em alguns minutos.
+      unlocked: Sua conta foi desbloqueada com sucesso. Efetue login para continuar.
+  errors:
+    messages:
+      already_confirmed: já foi confirmado, experimente acessar!
+      confirmation_period_expired: "precisa ser confirmada dentro de %{period}, por favor peça uma nova"
+      expired: expirou, solicite novamente
+      not_found: não encontrado
+      not_locked: não estava bloqueado
+      not_saved:
+        one: 1 erro impediu salvar %{resource}
+        other: "%{count} erros o impediram de salvar %{resource}"
+
+  errors:
+    messages:
+      taken_in_past: "was used previously."
+      equal_to_current_password: "must be different than the current password."
+      password_format: "must contain big, small letters and digits"
+  devise:
+    invalid_captcha: "A entrada captcha foi inválida."
+    paranoid_verify:
+      code_required: "Digite o código que nossa equipe de suporte forneceu"
+    password_expired:
+      updated: "Sua nova senha é salva."
+      change_required: "Sua senha está expirada. Por favor, renome sua senha."
+    failure:
+      session_limited: 'Suas credenciais de login foram usadas em outro navegador. Faça login novamente para continuar neste navegador.'
+      expired: 'Sua conta expirou devido à inatividade. Entre em contato com o administrador do site.'

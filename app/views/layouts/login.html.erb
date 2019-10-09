@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+<meta name="turbolinks-visit-control" content="reload">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Login portal agregador" %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+
+    <style media="screen">
+      .remmember a{ font-size: .9em; color: #444; text-decoration: none; text-align: center; }
+    </style>
+</head>
+
+<body>
+<header>
+
+</header>
+<div class="container">
+  <%= yield %>
+</div>
+<footer>
+</footer>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4 well" style="margin-top:120px;">
+    <div class="text-center">
+      <img src="/images/logo-full.png">
+    </div>
+    <br>
+    <div class="text-center">
+      <h4>Esqueceu sua senha?</h4>
+    </div>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Solicitar instruções para recuperar senha", class: 'btn btn-success btn-block' %>
+      </div>
+    <% end %>
+    <br>
+    <div class="remmember text-center">
+      <%= render "devise/shared/links" %>
+    </div>
+</div>
+</div>
