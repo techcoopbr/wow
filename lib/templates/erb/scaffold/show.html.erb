@@ -1,0 +1,11 @@
+<%%= show_for @<%= singular_name %> do |s| %>
+<% attributes.each do |attribute| -%>
+  <%%= s.<%= attribute.reference? ? :association : :attribute %> :<%= attribute.name %> %>
+<% end -%>
+<%% end %>
+
+<p class="text-center">
+  <%%= link_to t(:'helpers.links.edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>),
+    class: 'btn btn-warning' if can?(:update, @<%= singular_table_name %>) %>
+  <%%= link_to t(:'helpers.links.back'), <%= plural_table_name %>_path, class: 'btn btn-default' %>
+</p>
