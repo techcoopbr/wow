@@ -1,4 +1,4 @@
-set :unicorn_user,    'jefferson'
+set :unicorn_user,    'wow'
 set :unicorn_workers, 2
 
 namespace :unicorn do
