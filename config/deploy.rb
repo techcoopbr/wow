@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.11.1'
+lock '3.11.2'
 
 set :application, 'wow'
 set :repo_url, 'git@github.com:techcoopbr/wow.git'
