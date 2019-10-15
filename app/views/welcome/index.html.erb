@@ -23,7 +23,7 @@
 </div>
 <% @creators.each do |creator| %>
   <% if creator.user.photo != nil %>
-  <a href="<%= creator.slug %>" target="_blank"><img style="width: 100px; height: auto;" src="<%= creator.user.photo.medium %>" alt="logo" /></a>
+    <a href="<%= creator.slug %>" target="_blank"><img style="width: 100px; height: auto;" src="<%= creator.user.photo.medium %>" alt="logo" /></a>
   <% end %>
 <% end %>
 
