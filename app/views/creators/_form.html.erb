@@ -12,12 +12,13 @@
       </div>
     <% else %>
       <div class="col-md-12">
+        <p>Fale um pouco sobre você e sua página, adicione links</p>
         <%= f.input :about %>
       </div>
-      <div class="col-md-12">
-        <%= f.input :slug %>
-      </div>
     <% end %>
+    <div class="col-md-12">
+      <%= f.input :slug %>
+    </div>
   </div>
   <div class="form-group">
     <%= f.button :submit, class: 'btn btn-primary' %>

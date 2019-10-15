@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :photo, :role_id, :about, :facebook, :twitter, :twitch, :website, :podcast, :page_name, :page_create])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :photo, :role_id, :about, :facebook, :twitter, :twitch, :website, :podcast, :page_name, :page_create])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :photo, :role_id, :about, :facebook, :twitter, :twitch, :website, :podcast, :page_name, :page_create, :youtube, :intagram])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :photo, :role_id, :about, :facebook, :twitter, :twitch, :website, :podcast, :page_name, :page_create, :youtube, :intagram])
   end
 
   private

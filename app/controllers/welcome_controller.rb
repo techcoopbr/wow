@@ -3,6 +3,11 @@ class WelcomeController < ApplicationController
   layout "dashboard"
 
   def index
+    @creators = Creator.where(approved: true)
 
+  end
+
+  def creator
+    @creator = Creator.find_by(slug: params[:slug])
   end
 end

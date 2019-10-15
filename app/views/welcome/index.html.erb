@@ -17,11 +17,9 @@
 <p>Lembre-se, é você quem faz sua diversão... quanto a nós, enquanto existir WoW estaremos ON!</p>
 <p>Quer saber mais sobre o World of Warcraft? Acompanhe os geradores de conteúdo que fazem de um tudo para o JOGO jamais morrer</p>
 <br />
-<a href="elfa.html" target="_blank"><img style="width: 100px; height: auto;" src="elfa.png" alt="logo" /></a>
-<a href="rod.html" target="_blank"><img style="width: 100px; height: auto;" src="rod.png" alt="logo" /></a>
-<a href="coja.html" target="_blank"><img style="width: 100px; height: auto;" src="coja.png" alt="logo" /></a>
-<a href="sess.html" target="_blank"><img style="width: 100px; height: auto;" src="sess.png" alt="logo" /></a>
-<a href="tri.html" target="_blank"><img style="width: 100px; height: auto;" src="tri.png" alt="logo" /></a><br/><br />
-<a href="pvplab.html" target="_blank"><img style="width: 100px; height: auto;" src="pvplab.png" alt="logo" /></a>
-<a href="g4.html" target="_blank"><img style="width: 100px; height: auto;" src="g4.png" alt="logo" /></a>
+
+<% @creators.each do |creator| %>
+  <a href="<%= creator.slug %>" target="_blank"><img style="width: 100px; height: auto;" src="<%= creator.user.photo.medium %>" alt="logo" /></a>
+<% end %>
+
 </div>

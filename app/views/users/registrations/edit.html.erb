@@ -32,9 +32,16 @@
     <%= f.label :about %>
     <%= f.text_area :about, required: true, rows: "15", class: 'form-control' %>
   </div>
-  <br>
+  <hr />
+  <p>URLs devem conter http://wwww na frente, para garantir copie do seu navegador</p>
   <div class="col-sm-12">
     <%= f.input :facebook, required: false %>
+  </div>
+  <div class="col-sm-12">
+    <%= f.input :youtube, required: false %>
+  </div>
+  <div class="col-sm-12">
+    <%= f.input :intagram, required: false %>
   </div>
   <div class="col-sm-12">
     <%= f.input :twitter, required: false %>

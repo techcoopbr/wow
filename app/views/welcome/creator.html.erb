@@ -1,0 +1,48 @@
+<br>
+<br>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <a href="#"><img style="width: 500px; height: auto;" src="<%= @creator.user.photo.thumb %>" alt="logo" /></a>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <h3 class="text-center"><%= @creator.user.page_name %></h3>
+  </div>
+  <br />
+  <hr />
+  <br />
+  <div class="col-md-12">
+    <p class="text-center"><strong>Nossas Redes</strong></p>
+  </div>
+  <div class="col-md-12 text-center">
+    <% if @creator.user.website != nil %>
+      <a href="<%= @creator.user.website %>" target="_blank"><img style="width: 100px; height: auto;" src="icons/site.png" alt="logo"></a>
+    <% end %>
+    <% if @creator.user.facebook != nil %>
+      <a href="<%= @creator.user.facebook %>" target="_blank"><img style="width: 100px; height: auto;" src="icons/facebook.png" alt="logo"></a>
+    <% end %>
+    <% if @creator.user.twitch != nil %>
+      <a href="<%= @creator.user.twitch %>" target="_blank"><img style="width: 100px; height: auto;" src="twitch.png" alt="logo"></a>
+    <% end %>
+    <% if @creator.user.twitter != nil %>
+      <a href="<%=  @creator.user.twitter %>" target="_blank"><img style="width: 100px; height: auto;" src="twitter.png" alt="logo"></a>
+    <% end %>
+    <% if @creator.user.youtube != nil %>
+      <a href="<%= @creator.user.youtube %>" target="_blank"><img style="width: 100px; height: auto;" src="icons/youtube.png" alt="logo"></a>
+    <% end %>
+    <% if @creator.user.intagram != nil %>
+      <a href="<%= @creator.user.intagram %>" target="_blank"><img style="width: 100px; height: auto;" src="icons/instagram.png" alt="logo"></a>
+    <% end %>
+  </div>
+  <hr />
+  <% if @creator.about != nil %>
+    <div class="col-md-12">
+      <p class="text-center"><strong>Sobre nós</strong></p>
+    </div>
+    <div class="col-md-12 text-center">
+      <%= @creator.about %>
+    </div>
+  <% end %>
+</div>
