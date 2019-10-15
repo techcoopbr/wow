@@ -4,6 +4,12 @@ Olá <strong><%= current_user.name %></strong><br>
 
 Ainda estamos construindo este portal.
 
+<% if current_user.admin? %>
+  <div class="col-md-12">
+    <%= link_to "Solicite login de gerador aqui", new_creator_path %>
+  </div>
+<% end %>
+
 <br>
 Seu IP atual: <strong><%= current_user.current_sign_in_ip %></strong><br>
 Seu último IP: <strong><%= current_user.last_sign_in_ip %></strong><br>
