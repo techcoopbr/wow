@@ -19,12 +19,12 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Thumb
   version :thumb do
-     process resize_to_fill: [400, 345]
+     process resize_to_limit: [400, 345]
   end
 
   # Medium
   version :medium do
-     process resize_to_fill: [245, 210]
+     process resize_to_limit: [245, 210]
   end
 
   # Tipos de extensão aceitas
