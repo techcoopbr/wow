@@ -1,24 +1,63 @@
+<br>
 <h2>Alterar <%= resource.class.model_name.human %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :name, required: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password, autocomplete: "off", hint: "Deixe em branco para não alterar", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "Sua senha atual para confirmar que é você", required: true %>
-  </div>
   <div class="form-group">
-    <%= f.label 'Imagem' %>
-    <%= f.file_field :photo, class: 'form-control'%>
+    <div class="form-group">
+      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :name, required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Imagem' %>
+      <%= f.file_field :photo, class: 'form-control'%>
+    </div>
   </div>
+
+
+  <% if current_user.creator? || current_user.admin? %>
+  <hr>
+  <br>
+  <h3>Entre com seus dados de Gerador de conteúdo</h3>
+  <div class="form-inputs">
+    <div class="row">
+  <div class="col-sm-10">
+    <%= f.input :page_name, required: true %>
+  </div>
+  <div class="col-sm-2">
+    <%= f.label :page_create %>
+    <%= date_field(:user, :page_create) %>
+  </div>
+  <div class="col-sm-12">
+    <%= f.label :about %>
+    <%= f.text_area :about, required: true, rows: "15", class: 'form-control' %>
+  </div>
+  <br>
+  <div class="col-sm-12">
+    <%= f.input :facebook, required: false %>
+  </div>
+  <div class="col-sm-12">
+    <%= f.input :twitter, required: false %>
+  </div>
+  <div class="col-sm-12">
+    <%= f.input :twitch, required: false %>
+  </div>
+  <div class="col-sm-12">
+    <%= f.input :website, required: false %>
+  </div>
+  <div class="col-sm-12">
+    <%= f.input :podcast, required: false %>
+  </div>
+  </div>
+  <% end %>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+  <% end %>
+
+  <%= f.input :password, autocomplete: "off", hint: "Deixe em branco para não alterar", required: false %>
+  <%= f.input :password_confirmation, required: false %>
+  <%= f.input :current_password, hint: "Sua senha atual para confirmar que é você", required: true %>
 
   <div class="form-actions">
     <%= f.button :submit, "Atualizar", class: 'btn btn-primary' %>

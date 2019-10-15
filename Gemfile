@@ -27,6 +27,7 @@ gem 'mini_magick'
 gem 'bootstrap', '~> 4.3.1'
 gem 'simple_form'
 gem 'devise'
+gem 'pundit'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

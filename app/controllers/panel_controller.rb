@@ -1,6 +1,6 @@
 class PanelController < ApplicationController
   before_action :authenticate_user!
-  layout "dashboard"
+  layout "application"
 
   def index
 

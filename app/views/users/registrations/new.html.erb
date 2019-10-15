@@ -9,13 +9,6 @@
       <div class="col-sm-12">
         <%= f.input :name, required: true, autofocus: true %>
       </div>
-      <div class="col-sm-10">
-        <%= f.input :page_name, required: true %>
-      </div>
-      <div class="col-sm-2">
-        <%= f.label :page_create %>
-        <%= date_field(:user, :page_create) %>
-      </div>
       <div class="col-sm-12">
         <%= f.input :email, required: true %>
       </div>
@@ -26,27 +19,7 @@
         <%= f.input :password_confirmation, required: true %>
       </div>
       <div class="col-sm-12">
-        <%= f.input :photo, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.label :about %>
-        <%= f.text_area :about, required: true, rows: "15", class: 'form-control' %>
-      </div>
-      <br>
-      <div class="col-sm-12">
-        <%= f.input :facebook, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :twitter, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :twitch, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :website, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :podcast, required: false %>
+        <%= f.file_field :photo, required: false %>
       </div>
     </div>
   </div>

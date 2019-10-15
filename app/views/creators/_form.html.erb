@@ -1,0 +1,26 @@
+<%= simple_form_for(@creator) do |f| %>
+<h4 class="text-center">Solicitação de perfil de criador</h4>
+<div class="container">
+  <div class="row">
+  <%= f.error_notification %>
+    <% if current_user.admin? %>
+      <div class="col-md-12">
+        <%= f.association :user %>
+      </div>
+      <div class="col-md-12">
+        <%= f.input :approved %>
+      </div>
+    <% else %>
+      <div class="col-md-12">
+        <%= f.input :about %>
+      </div>
+      <div class="col-md-12">
+        <%= f.input :slug %>
+      </div>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+  </div>
+<% end %>

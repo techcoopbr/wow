@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wow</title>
+    <title>Painel Criador</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body  class="col-md-12">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <img src="/wow.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <% if current_user.admin? %>
+                  <li class="nav-item">
+                    <%= link_to "Criadores", creators_path, class: "nav-link" %>
+                  </li>
+                <% end %>
+                <!--
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li> -->
+            </ul>
+        </div>
+        <div class="mx-auto order-0">
+            <a class="navbar-brand mx-auto" href="#">Painel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Meus Dados
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <% if !current_user.creator? && !current_user.admin? %>
+                    <%= link_to "Perfil Criador", new_creator_path, class: "dropdown-item" %>
+                  <% end %>
+                  <%= link_to "Meus Dados", edit_user_registration_path, class: "dropdown-item" %>
+                  <hr>
+                    <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                      <span class="glyphicon glyphicon-off" aria-hidden="true">Sair</span>
+                    <% end %>
+                </div>
+              </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

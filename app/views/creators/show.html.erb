@@ -1,0 +1,24 @@
+<br>
+<h2 class="text-center">Pedido de Criador</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      Usuário: <strong><%= @creator.user.name %></strong>
+    </div>
+    <div class="col-md-12">
+      Aprovado: <strong><%= @creator.approved %></strong>
+    </div>
+    <div class="col-md-12">
+      URL Perfil: <strong>www.wowmorreu.com.br/<%= @creator.slug %></strong>
+    </div>
+    <div class="col-md-12">
+      Sobre: <strong><%= @creator.about %></strong>
+    </div>
+  </div>
+
+  <p class="text-center">
+    <%= link_to t(:'helpers.links.edit'), edit_creator_path(@creator),
+      class: 'btn btn-warning' %>
+    <%= link_to t(:'helpers.links.back'), creators_path, class: 'btn btn-default' %>
+  </p>
+</div>

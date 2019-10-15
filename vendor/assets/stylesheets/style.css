@@ -1,0 +1,305 @@
+@import 'reset.css';
+@import 'text.css';
+
+
+/* Default
+----------------------------------------------------------------------------------------------------*/
+body {
+    background: url("../images/patterns/pat_17.png") repeat scroll 0 0 transparent;
+    color: ##070200;
+	line-height: 22px;
+	text-shadow: 1px 1px #f9f9f9;
+	font-family: 'Open Sans Condensed', 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+}
+a {
+	color: #000;
+	text-decoration: none;
+}
+a:hover, a:active, a:focus {
+    color: #4e4e4e;
+}
+input[type="text"] {
+   border: none;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px 0 0 20px;
+    color: ##070200;
+    font-size: 13px;
+	display: inline;
+    height: 21px;
+    padding: 6px 20px;
+	background: #35373F;
+	border-right: none;
+}
+input[type="submit"] {
+/* 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #35373F), color-stop(1, #474A54) );
+	background:-moz-linear-gradient( center top, #35373F 5%, #474A54 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#35373F', endColorstr='#474A54');
+	background-color:#35373F;	 */
+	background: url("../images/email.png") no-repeat scroll left center #35373F;
+	text-indent: -9999px;
+	-moz-border-radius: 0 20px 20px 0;
+	-webkit-border-radius: 0 20px 20px 0;
+    border-radius: 0 20px 20px 0;
+	border: none;
+	display: inline;
+    font: bold 13px 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+	height: 33px;
+	width: 40px;
+	text-decoration:none;
+	color: ##070200;
+	cursor: pointer;
+	vertical-align: top;
+	margin: 0 0 0 -5px;
+	border-left: none;
+}input[type="submit"]:hover {
+	color:#ccc;
+}input[type="submit"]:active {
+	position:relative;
+}
+fieldset {
+	margin-bottom: 0;
+}
+
+
+
+/* Content
+----------------------------------------------------------------------------------------------------*/
+#top {
+	background: url("../images/top.png") repeat-x scroll 0 bottom transparent;
+	text-shadow: 1px 1px #000;
+}
+#wrapper {
+    min-height: 100%;
+    width: 100%;
+	float: left;
+}
+#content {
+	display: none;
+}
+#logo, #message, #countdown, #subscribe-wrapper {
+	text-align: center;
+}
+#logo {
+	margin-bottom: 10px;
+}
+#subscribe {
+	color: #222;
+}
+#subscribe-wrapper {
+	margin-bottom: 20px;
+}
+#message {
+    font-family: 'Open Sans Condensed','Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+    font-size: 30px;
+    line-height: 42px;
+    margin-bottom: 40px;
+}
+.warning {
+	font-weight: bold;
+	color: #E50003;
+}
+
+#subscribe-title {
+    color: #333333;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+/* Tweet
+----------------------------------------------------------------------------------------------------*/
+#twitter {
+	font-size: 12px;
+	position: relative;
+	min-height: 20px;
+	line-height: 18px;
+	font-weight: bold;
+	color: #222;
+}
+#twitter p {
+	top: 0;
+	left: 0;
+	margin:0;
+	position: absolute;
+	display: none;
+	width: 100%;
+	text-align: center;		
+}
+#twitter .tweet-image {
+	background: url(../images/tweet.png) no-repeat scroll 0 1px transparent;
+    padding-left: 23px;
+}
+#twitter .tweet-spacer {
+	display: block;
+	height: 12px;
+}
+#twitter .tweet-time {
+	font-weight: normal;
+}
+#twitter a {
+	color: #666;
+}
+#twitter a:hover {
+	color: #999;
+}
+.loading-tweets {
+	display: block;
+	text-align: center;
+}
+
+
+
+/* Social
+----------------------------------------------------------------------------------------------------*/
+#socials ul {
+    margin: 10px 0;
+    text-align: center;
+}
+#socials li {
+	display: inline;
+	list-style: none;
+	padding: 10px 5px 10px 5px;
+	margin: 0;
+}
+#socials a {
+	background: url("../images/socials.png") no-repeat scroll 0 0 transparent;
+	color: #FFFFFF;
+	line-height: 26px;
+	padding: 6px 12px;
+}
+#socials .digg {
+	background-position: 0 0;
+}
+#socials .share {
+	background-position: -34px 0;
+}
+#socials .flickr {
+	background-position: -67px 0;
+}
+#socials .dribble {
+	background-position: -100px 0;
+}
+#socials .forrst {
+	background-position: -134px 0;
+}
+#socials .rss {
+	background-position: -168px 0;
+}
+#socials .google {
+	background-position: -200px 0;
+}
+#socials .vimeo {
+	background-position: -234px 0;
+}
+#socials .twitter {
+	background-position: -268px 0;
+}
+#socials .facebook {
+	background-position: -302px 0;
+}
+
+
+
+
+/* Tipsy
+----------------------------------------------------------------------------------------------------*/
+.tipsy { font-size: 10px; position: absolute; padding: 5px; z-index: 100000;text-shadow: none; }
+.tipsy-inner { background-color: #000; color: #f3f3f3; max-width: 200px; padding: 0 5px; text-align: center; }
+/* Rounded corners */
+.tipsy-inner { border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+/* Uncomment for shadow */
+/*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
+.tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed #000; }
+/* Rules to colour arrows */
+.tipsy-arrow-n { border-bottom-color: #000; }
+.tipsy-arrow-s { border-top-color: #000; }
+.tipsy-arrow-e { border-left-color: #000; }
+.tipsy-arrow-w { border-right-color: #000; }
+.tipsy-n .tipsy-arrow { top: 0px; left: 50%; margin-left: -5px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-nw .tipsy-arrow { top: 0; left: 10px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent;}
+.tipsy-ne .tipsy-arrow { top: 0; right: 10px; border-bottom-style: solid; border-top: none;  border-left-color: transparent; border-right-color: transparent;}
+.tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -5px; border-top-style: solid; border-bottom: none;  border-left-color: transparent; border-right-color: transparent; }
+.tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; border-top-style: solid; border-bottom: none;  border-left-color: transparent; border-right-color: transparent; }
+.tipsy-se .tipsy-arrow { bottom: 0; right: 10px; border-top-style: solid; border-bottom: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-e .tipsy-arrow { right: 0; top: 50%; margin-top: -5px; border-left-style: solid; border-right: none; border-top-color: transparent; border-bottom-color: transparent; }
+.tipsy-w .tipsy-arrow { left: 0; top: 50%; margin-top: -5px; border-right-style: solid; border-left: none; border-top-color: transparent; border-bottom-color: transparent; }
+
+
+
+
+/* Countdown
+----------------------------------------------------------------------------------------------------*/
+#countdown {
+    clear: both;
+    display: block;
+    overflow: hidden;
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 120px; 
+    margin-bottom: 20px;
+    padding-top: 12px;
+	color: #35373F;
+	text-shadow: none;
+	font-family: 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+}
+#countdown .container_12 div {
+	height: 135px;
+	margin-bottom: 20px;
+}
+#countdown .grid_2 {
+	width: 158px;
+}
+#countdown .grid_2.count {
+	background: url("../images/date.png") no-repeat scroll center top transparent;
+	width: 131px;
+}
+#countdown span {
+    display: block;
+	font-size: 11px;
+	margin-top: -90px;
+}
+
+
+
+
+/* Switcher
+----------------------------------------------------------------------------------------------------*/
+#switcher label {
+	display: block;
+	clear: both;
+}
+#switcher select, #switcher .colorpicker, #switcher input[type="text"] {
+	border-radius: 2px;
+}
+#option_btn {
+    background: url("../images/switcher.png") no-repeat scroll right 0 #35373F;
+	border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    height: 40px;
+    left: 0;
+    position: fixed;
+    top: 19px;
+    width: 40px;
+    z-index: 999;
+}
+
+#option_wrapper {
+	position: fixed;
+	background: none repeat scroll 0 0 #35373F;
+	top: 19px;
+	left:-245px;
+	width: 217px;
+	z-index: 99;
+	min-height: 40px;
+	color: #666666;
+}
+#option_wrapper .inner {
+    margin: 0 10px;
+}
+#option_wrapper select {
+    border: 1px solid #35373F;
+    padding: 4px;
+    width: 192px;
+}

@@ -1,5 +1,19 @@
 
 pt-BR:
+  helpers:
+    actions: "Ações"
+    links:
+      back: "Voltar"
+      cancel: "Cancelar"
+      confirm: "Voce tem certeza?"
+      destroy: "Apagar"
+      new: "Novo"
+      edit: "Alterar"
+    titles:
+      edit: "Alterando %{model}"
+      save: "Salvando %{model}"
+      new: "Novo %{model}"
+      delete: "Apagando %{model}"
   devise:
     sessions:
       user:
@@ -102,7 +116,7 @@ pt-BR:
     attendance: Atendimento
     marketing: Marketing
     operational: Operacional
-    user: Cliente
+    user: Usuários
     api: API (sincronização)
     manager: Moderador
     seller: Vendedor
@@ -271,7 +285,14 @@ pt-BR:
       faq_category: Categorias de FAQ
       faq: Perguntas e Respostas
       faq_ask: Perguntas Executadas
+      creator: Criadores
     attributes:
+      creator:
+        user: Usuário
+        user_id: Usuário
+        approved: Aprovado
+        about: Sobre você
+        slug: URL Perfil
       email_type:
         type: Tipo
         title: Título
@@ -442,6 +463,7 @@ pt-BR:
         high: Alte Temporada?
         active: Ativo
       user:
+        name: Seu nome pessoal
         office: Cargo
         office_id: Cargo
         person: Pessoa
@@ -454,6 +476,15 @@ pt-BR:
         remember_me: Lembrar credenciais
         account: Conta
         role_id: Papel
+        photo: Logo/Foto
+        about: Sobre você
+        facebook: Seu Facebook
+        twitter: Seu Twitter
+        twitch: Twitch
+        website: Seu site/blog
+        podcast: PodCast
+        page_name: Nome da sua page/marca
+        page_create: Data de Criação
       license:
         account: Conta
         name: Nome
@@ -602,15 +633,19 @@ pt-BR:
         icon: Icone
         active: Ativo
   helpers:
+    actions: "Ações"
     links:
-      edit: Alterar
-      back: Voltar
-    submit:
-      create: Salvar Item
-      update: Atualizar
-    changes:
-      error: Problema ao atualizar o registrou
-      success: Informações inseridas/editadas com SUCESSO!
+      back: "Voltar"
+      cancel: "Cancelar"
+      confirm: "Voce tem certeza?"
+      destroy: "Apagar"
+      new: "Novo"
+      edit: "Alterar"
+    titles:
+      edit: "Alterando %{model}"
+      save: "Salvando %{model}"
+      new: "Novo %{model}"
+      delete: "Apagando %{model}"
 
   unauthorized:
     manage:

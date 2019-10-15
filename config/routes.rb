@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'panel/index'
+  resources :creators
+  default_url_options :host => "wowmorreu.com.br"  
+  resources :panel
 
   root to: 'welcome#index'
 
