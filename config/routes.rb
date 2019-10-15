@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :creators
-  default_url_options :host => "wowmorreu.com.br"
+  default_url_options :host => "elfabandida.com.br"
   resources :panel
 
   root to: 'welcome#index'
-  get '/:slug', :to => 'welcome#creator', as: :public_creator  
+  get '/:slug', :to => 'welcome#creator', as: :public_creator
 
 
   devise_for :users

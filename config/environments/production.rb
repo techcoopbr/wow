@@ -78,8 +78,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.assets.raise_runtime_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.asset_host = 'wowmorreu.com.br'
-  config.action_mailer.default_url_options = { :host => "wowmorreu.com.br" }
+  config.action_mailer.asset_host = 'elfabandida.com.br'
+  config.action_mailer.default_url_options = { :host => "elfabandida.com.br" }
   #config.action_mailer.delivery_method = :sendmail
 
   # Raises error for missing translations
