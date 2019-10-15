@@ -2,7 +2,7 @@
 <br>
 <div class="row">
   <div class="col-md-12 text-center">
-    <a href="#"><img style="width: 500px; height: auto;" src="<%= @creator.user.photo.thumb %>" alt="logo" /></a>
+    <a href="#"><img style="width: 500px; height: auto;" src="<%= @creator.user.photo %>" alt="logo" /></a>
   </div>
 </div>
 <hr>
@@ -36,7 +36,9 @@
       <a href="<%= @creator.user.intagram %>" target="_blank"><img style="width: 100px; height: auto;" src="icons/instagram.png" alt="logo"></a>
     <% end %>
   </div>
-  <hr />
+</div>
+<hr />
+<div class="row">
   <% if @creator.about != nil %>
     <div class="col-md-12">
       <p class="text-center"><strong>Sobre nós</strong></p>

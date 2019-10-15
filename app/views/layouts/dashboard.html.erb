@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wow</title>
+    <title>O WoW Morreu? <% if params[:slug] != nil %> - [<%= params[:slug] %>]<% end %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'favicon.png', :rel => 'shortcut ico', :type => 'image/png' %>
 
     <style>
     .countup {
@@ -64,7 +65,7 @@
         </script>
   </head>
 
-  <body>
+  <body background="../patterns/pat_17.png">
     <div class="container">
       <%= yield %>
     </div>

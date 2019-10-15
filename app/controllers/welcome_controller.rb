@@ -4,10 +4,12 @@ class WelcomeController < ApplicationController
 
   def index
     @creators = Creator.where(approved: true)
-
   end
 
   def creator
     @creator = Creator.find_by(slug: params[:slug])
+    if @creator.nil?
+      redirect_to root_path
+    end
   end
 end
