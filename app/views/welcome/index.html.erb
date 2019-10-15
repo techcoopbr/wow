@@ -22,7 +22,9 @@
   <p>Este geradores abaixo não deixam o WoW Morrer!!!<p> Quer ser um também? <a href="panel">Clique aqui!</a>
 </div>
 <% @creators.each do |creator| %>
-  <a href="<%= creator.slug %>" target="_blank"><img style="width: 100px; height: auto;" src="<%= creator.user.photo %>" alt="logo" /></a>
+  <% if creator.user.photo != nil %>
+  <a href="<%= creator.slug %>" target="_blank"><img style="width: 100px; height: auto;" src="<%= creator.user.photo.thumb %>" alt="logo" /></a>
+  <% end %>
 <% end %>
 
 </div>
