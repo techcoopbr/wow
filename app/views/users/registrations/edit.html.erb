@@ -33,9 +33,11 @@
     <%= f.text_area :about, required: true, rows: "15", class: 'form-control' %>
   </div>
   <hr />
-  <p>URLs devem conter http://wwww na frente, para garantir copie do seu navegador</p>
+  <div class="col-sm-12 text-center">
+    <p>URLs devem conter http:// ou https:// na frente, para garantir copie do seu navegador</p>
+  </div>
   <div class="col-sm-12">
-    <%= f.input :facebook, required: false %>
+    <%= f.input :facebook, required: false, type: 'url' %>
   </div>
   <div class="col-sm-12">
     <%= f.input :youtube, required: false %>
