@@ -52,6 +52,7 @@ class CreatorsController < ApplicationController
             @user = User.find(@creator.user_id)
             if !@user.admin?
               @user.role_id = "creator"
+              CreatorMailer.confirm(@user).deliver_now              
             end
             @user.save!
           end

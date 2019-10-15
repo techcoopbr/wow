@@ -38,7 +38,7 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.asset_host = 'localhost:3000'
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }  
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
   #config.action_mailer.delivery_method = :sendmail
 
   # Raises error for missing translations
@@ -50,7 +50,6 @@ Rails.application.configure do
       :address              => 'smtp.weblink.com.br',
       :port                 => 587,
       :domain               => 'wowmorreu.com.br',
-      :authentication       => :login,
       :user_name            => 'site@wowmorreu.com.br',
       :password             => '2311maje2311',
       :tsl                  => true,
