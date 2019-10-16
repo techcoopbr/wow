@@ -5,7 +5,7 @@ class CreatorsController < ApplicationController
   # GET /creators
   # GET /creators.json
   def index
-    @creators = Creator.all
+    @creators = Creator.all.order(id: :desc)
   end
 
   # GET /creators/1
@@ -52,7 +52,7 @@ class CreatorsController < ApplicationController
             @user = User.find(@creator.user_id)
             if !@user.admin?
               @user.role_id = "creator"
-              CreatorMailer.confirm(@user).deliver_now              
+              CreatorMailer.confirm(@user).deliver_now
             end
             @user.save!
           end

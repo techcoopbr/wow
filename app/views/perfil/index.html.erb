@@ -1,17 +1,17 @@
   <div class="container">
     <%= render 'about' %>
-    <% if @creator.stream_embed != nil %>
+    <% if @creator.stream_embed.size >= 10 %>
       <%= render 'stream' %>
     <% end %>
-    <% if @creator.facebook_embed != nil %>
+    <% if @creator.facebook_embed.size >= 10 %>
       <%= render 'facebook' %>
     <% end %>
-    <% if @creator.youtube_embed != nil %>
+    <% if @creator.youtube_embed.size >= 10 %>
       <%= render 'youtube' %>
     <% end %>
-    <% if @creator.instagram_embed != nil %>
+    <% if @creator.instagram_embed.size >= 10 %>
       <%= render 'instagram' %>
-    <% end %>    
-    <% if @creator.twitter_embed != nil %>
+    <% end %>
+    <% if @creator.twitter_embed.size >= 10 %>
       <%= render 'twitter' %>
     <% end %>

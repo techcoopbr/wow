@@ -22,7 +22,7 @@ class CreatorPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin?
+    user.admin? || creator.user_id == user.id
   end
 
   def edit?
