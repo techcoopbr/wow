@@ -10,18 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191015165150) do
+ActiveRecord::Schema.define(version: 20191016193019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "creators", force: :cascade do |t|
     t.integer  "user_id"
-    t.boolean  "approved",   default: false
+    t.boolean  "approved",          default: false
     t.text     "about"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "slug"
+    t.string   "contact_address"
+    t.string   "contact_email"
+    t.string   "contact_phone"
+    t.string   "contact_file"
+    t.string   "short_description"
+    t.string   "publi_file"
+    t.string   "stream_embed"
+    t.string   "youtube_embed"
+    t.string   "twitter_embed"
+    t.string   "facebook_embed"
+    t.string   "instagram_embed"
     t.index ["user_id"], name: "index_creators_on_user_id", using: :btree
   end
 

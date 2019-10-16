@@ -1,0 +1,93 @@
+<section class="about-sec mt-180 mt-sm-120  mb-30">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="mdl-card mdl-shadow--2dp">
+        <div class="row">
+          <div class="col-md-5 col-xs-12 mb-30">
+            <div class="candidate-img mb-35">
+              <img style="height: 230px; width: 230px; border-radius: 50%;" src="<%= @creator.user.photo.thumb %>" alt="logo" />
+            </div>
+            <ul class="social-icons">
+              <li>
+                <a class="facebook-link" href="<%= @creator.user.facebook %>">
+                  <i id="tt1" class="zmdi zmdi-facebook"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt1">
+                    facebook
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="twitter-link" href="<%= @creator.user.twitter %>">
+                  <i id="tt2" class="zmdi zmdi-twitter"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt2">
+                    twitter
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="youtube-link" href="<%= @creator.user.youtube %>">
+                  <i id="tt3" class="zmdi zmdi-youtube"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt3">
+                    YouTube
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="twitch-link" href="<%= @creator.user.twitch %>">
+                  <i id="tt4" class="zmdi zmdi-twitch"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt4">
+                    Twitch
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="instagram-link" href="<%= @creator.user.intagram %>">
+                  <i id="tt5" class="zmdi zmdi-instagram"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt5">
+                    instagram
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <br>
+              <pre class="text-center"><br><%= @creator.user.about.first(200) %><pre>
+          </div>
+          <div class="col-md-7 col-xs-12">
+            <div class="info-wrap">
+              <h1><%= @creator.user.page_name %></h1>
+              <h5 class="mt-20 font-grey"><%= @creator.short_description %></h5>
+              <div class="mt-30">
+                <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="#">Download Publi</a>
+                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="#contact_sec" data-scroll>Contato</a>
+              </div>
+            </div>
+            <ul class="profile-wrap mt-50">
+              <li>
+                <div class="profile-title">Idade</div>
+                <div class="profile-desc"><%= ((Time.zone.now - @creator.user.page_create.to_time) / 1.year.seconds).floor %></div>
+              </li>
+              <li>
+                <div class="profile-title">Endereço</div>
+                <div class="profile-desc">
+                  <%= @creator.contact_address %>
+                </div>
+              </li>
+              <li>
+                <div class="profile-title">email</div>
+                <div class="profile-desc">
+                  <%= @creator.contact_email %>
+                </div>
+              </li>
+              <li>
+                <div class="profile-title">Fone</div>
+                <div class="profile-desc">
+                  <%= @creator.contact_phone %>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

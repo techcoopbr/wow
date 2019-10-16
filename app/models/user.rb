@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
-  #validates :facebook, :youtube, :twitch, :intagram, :twitter, :website, :podcast, format: URI::regexp(%w[http https])  
+  belongs_to :creator
+  #validates :facebook, :youtube, :twitch, :intagram, :twitter, :website, :podcast, format: URI::regexp(%w[http https])
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :rememberable, :trackable, :validatable,
@@ -41,6 +42,10 @@ class User < ApplicationRecord
 
   def creator?
     role_id == 'creator'
+  end
+
+  def creator
+    Creator.find_by(user_id: id)
   end
 
   def role_name

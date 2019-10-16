@@ -1,0 +1,17 @@
+  <div class="container">
+    <%= render 'about' %>
+    <% if @creator.stream_embed != nil %>
+      <%= render 'stream' %>
+    <% end %>
+    <% if @creator.facebook_embed != nil %>
+      <%= render 'facebook' %>
+    <% end %>
+    <% if @creator.youtube_embed != nil %>
+      <%= render 'youtube' %>
+    <% end %>
+    <% if @creator.instagram_embed != nil %>
+      <%= render 'instagram' %>
+    <% end %>    
+    <% if @creator.twitter_embed != nil %>
+      <%= render 'twitter' %>
+    <% end %>

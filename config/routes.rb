@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
   get '/:slug', :to => 'welcome#creator', as: :public_creator
+  get 'perfil/:slug', :to => 'perfil#index', as: :public_perfil
 
 
   devise_for :users

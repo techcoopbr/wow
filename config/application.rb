@@ -26,14 +26,14 @@ module Wow
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.assets.compile = true    
+    config.assets.compile = true
 
     config.to_prepare do
         Devise::SessionsController.layout "login"
-        Devise::RegistrationsController.layout "login"
-        Devise::ConfirmationsController.layout "login"
+        #Devise::RegistrationsController.layout "login"
+        #Devise::ConfirmationsController.layout "login"
         Devise::UnlocksController.layout "login"
-        Devise::PasswordsController.layout "login"
+        #Devise::PasswordsController.layout "login"
     end
 
   end
