@@ -70,6 +70,9 @@
 
 
     <div class="tab-pane fade" id="pills-image" role="tabpanel" aria-labelledby="pills-image-tab">
+      <div class="col-sm-12 text-center">
+        <p>Os tamanhos são sugestões de como utilizar</p>
+      </div>
       <div class="col-md-6">
         <%= f.label 'Foto Perfil (230 x 230)' %>
         <%= f.file_field :photo, class: 'form-control'%>
@@ -89,7 +92,7 @@
         <%= f.label 'Logo / Arte da page' %>
         <%= f.file_field :publi_file, class: 'form-control'%>
       </div>
-      <br>      
+      <br>
     </div>
 
     <div class="tab-pane fade" id="pills-social" role="tabpanel" aria-labelledby="pills-social-tab">
@@ -116,6 +119,9 @@
       </div>
       <div class="col-sm-12">
         <%= f.input :podcast, required: false %>
+      </div>
+      <div class="col-sm-12">
+        <%= f.input :linkdin, required: false %>
       </div>
     </div>
 

@@ -11,7 +11,7 @@ Ainda estamos construindo este portal.
 </div>
 <% end %>
 <div class="col-md-12">
-Você pode editar seus dados <%= link_to "aqui", edit_user_registration_path %><% if current_user.creator? %>, inclusive seus dados de gerador de conteúdo<% end %>
+Você pode editar seus dados <%= link_to "aqui", edit_creator_path(current_user.creator) %><% if current_user.creator? %>, inclusive seus dados de gerador de conteúdo<% end %>
 </div>
 <br>
 <div class="col-md-12">
