@@ -1,26 +1,36 @@
 class CreatorsController < ApplicationController
   before_action :set_creator, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_creator
 
   # GET /creators
   # GET /creators.json
   def index
     @creators = Creator.all.order(id: :desc)
+    authorize @creators
   end
 
   # GET /creators/1
   # GET /creators/1.json
   def show
-
+    @creator = Creator.find(params[:id])
+    authorize @creator
   end
 
   # GET /creators/new
   def new
-    @creator = Creator.new
+    @creator = Creator.find_by(user_id: current_user.id)
+
+    if @creator.nil?
+      @creator = Creator.new
+      authorize @creator
+    else
+      redirect_to panel_index_path
+    end
   end
 
   # GET /creators/1/edit
   def edit
+    @creator = Creator.find(params[:id])
+    authorize @creator
   end
 
   # POST /creators
@@ -80,9 +90,6 @@ class CreatorsController < ApplicationController
   end
 
   private
-    def authorize_creator
-      authorize Creator
-    end
     # Use callbacks to share common setup or constraints between actions.
     def set_creator
       @creator = Creator.find(params[:id])

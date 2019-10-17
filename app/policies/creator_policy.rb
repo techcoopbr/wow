@@ -1,8 +1,13 @@
-class CreatorPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope
-    end
+class CreatorPolicy
+  attr_reader :user, :creator
+
+  def initialize(user, creator)
+    @user = user
+    @creator = creator
+  end
+
+  def update?
+    user.admin? || creator.user_id == user.id
   end
 
   def index?
@@ -10,7 +15,7 @@ class CreatorPolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin?
+    user.admin? || creator.user_id == user.id
   end
 
   def create?
@@ -21,15 +26,11 @@ class CreatorPolicy < ApplicationPolicy
     create?
   end
 
-  def update?
-    user.admin? || creator.user_id == user.id
-  end
-
   def edit?
     update?
   end
 
   def destroy?
-    user.admin?
+    user.admin? 
   end
 end

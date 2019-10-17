@@ -7,9 +7,11 @@ class WelcomeController < ApplicationController
   end
 
   def creator
-    @creator = Creator.find_by(slug: params[:slug])
-    if @creator.nil?
-      redirect_to root_path
+    if params[:slug] != 'routes'
+      @creator = Creator.find_by(slug: params[:slug])
+      if @creator.nil?
+        redirect_to root_path
+      end
     end
   end
 end

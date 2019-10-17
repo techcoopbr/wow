@@ -6,16 +6,18 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+        <%= favicon_link_tag 'favicon.png', :rel => 'shortcut ico', :type => 'image/png' %>
   </head>
 
   <body  class="col-md-12">
     <% if user_signed_in? %>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <img src="/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../panel">Home</a>
+                    <a class="nav-link" href="panel">Home</a>
                 </li>
                 <% if current_user.admin? %>
                   <li class="nav-item">
