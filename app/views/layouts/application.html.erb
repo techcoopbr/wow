@@ -9,6 +9,7 @@
   </head>
 
   <body  class="col-md-12">
+    <% if user_signed_in? %>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <img src="/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -64,6 +65,7 @@
             </ul>
         </div>
     </nav>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>
