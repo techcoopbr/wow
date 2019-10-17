@@ -14,12 +14,12 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :showimg do
-     process resize_to_limit: [1200, 768]
+     process resize_to_fill: [1200, 768]
   end
 
   # Thumb
   version :thumb do
-     process resize_to_limit: [600, 600]
+     process resize_to_limit: [900, 600]
   end
 
   # Medium
