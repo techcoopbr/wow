@@ -5,11 +5,11 @@
         <div class="row">
           <div class="col-md-5 col-xs-12 mb-30">
             <div class="candidate-img mb-35">
-              <img style="height: 230px; width: 230px; border-radius: 50%;" src="<%= @creator.user.photo.thumb %>" alt="logo" />
+              <img style="height: 230px; width: 230px; border-radius: 50%;" src="<%= @creator.photo.thumb %>" alt="logo" />
             </div>
             <ul class="social-icons">
               <li>
-                <a class="facebook-link" href="<%= @creator.user.facebook %>">
+                <a class="facebook-link" href="<%= @creator.facebook %>">
                   <i id="tt1" class="zmdi zmdi-facebook"></i>
                   <div class="mdl-tooltip" data-mdl-for="tt1">
                     facebook
@@ -17,7 +17,7 @@
                 </a>
               </li>
               <li>
-                <a class="twitter-link" href="<%= @creator.user.twitter %>">
+                <a class="twitter-link" href="<%= @creator.twitter %>">
                   <i id="tt2" class="zmdi zmdi-twitter"></i>
                   <div class="mdl-tooltip" data-mdl-for="tt2">
                     twitter
@@ -25,7 +25,7 @@
                 </a>
               </li>
               <li>
-                <a class="youtube-link" href="<%= @creator.user.youtube %>">
+                <a class="youtube-link" href="<%= @creator.youtube %>">
                   <i id="tt3" class="zmdi zmdi-youtube"></i>
                   <div class="mdl-tooltip" data-mdl-for="tt3">
                     YouTube
@@ -33,7 +33,7 @@
                 </a>
               </li>
               <li>
-                <a class="twitch-link" href="<%= @creator.user.twitch %>">
+                <a class="twitch-link" href="<%= @creator.twitch %>">
                   <i id="tt4" class="zmdi zmdi-twitch"></i>
                   <div class="mdl-tooltip" data-mdl-for="tt4">
                     Twitch
@@ -41,7 +41,7 @@
                 </a>
               </li>
               <li>
-                <a class="instagram-link" href="<%= @creator.user.intagram %>">
+                <a class="instagram-link" href="<%= @creator.instagram %>">
                   <i id="tt5" class="zmdi zmdi-instagram"></i>
                   <div class="mdl-tooltip" data-mdl-for="tt5">
                     instagram
@@ -52,18 +52,22 @@
           </div>
           <div class="col-md-7 col-xs-12">
             <div class="info-wrap">
-              <h1><%= @creator.user.page_name %></h1>
+              <h1><%= @creator.page_name %></h1>
               <h5 class="mt-20 font-grey"><%= @creator.short_description %></h5>
               <div class="mt-30">
-                <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="#">Download Publi</a>
-                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="#contact_sec" data-scroll>Contato</a>
+                <% if @creator.publi_file != nil %>
+                  <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="<%= @creator.publi_file %>">Download Publi</a>
+                <% end %>
+                <% if @creator.contact_file != nil %>
+                  <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="<%= @creator.contact_file %>" data-scroll>Portfólio</a>
+                <% end %>
               </div>
             </div>
             <ul class="profile-wrap mt-50">
               <li>
-                <div class="profile-title">Idade</div>
-                <% if @creator.user.page_create != nil %>
-                  <div class="profile-desc"><%= ((Time.zone.now - @creator.user.page_create.to_time) / 1.year.seconds).floor %></div>
+                <div class="profile-title">Tempo de Gerador</div>
+                <% if @creator.page_create != nil %>
+                  <div class="profile-desc"><%= ((Time.zone.now - @creator.page_create.to_time) / 1.year.seconds).floor %></div> ano(s)
                 <% end %>
               </li>
               <li>
@@ -88,9 +92,9 @@
           </div>
           <div class="col-md-12 col-xs-12">
             <br>
-              <% if @creator.user.about != nil %>
-                <pre class="text-center"><br><%= @creator.user.about.first(200) %><pre>
-              <% end %>            
+              <% if @creator.about != nil %>
+                <pre class="text-center"><br><%= @creator.about.first(200) %><pre>
+              <% end %>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191016193019) do
+ActiveRecord::Schema.define(version: 20191017200621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20191016193019) do
     t.string   "twitter_embed"
     t.string   "facebook_embed"
     t.string   "instagram_embed"
+    t.string   "cover"
+    t.string   "linkdin"
+    t.string   "photo"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "twitch"
+    t.string   "website"
+    t.string   "podcast"
+    t.string   "page_name"
+    t.date     "page_create"
+    t.string   "youtube"
+    t.string   "instagram"
     t.index ["user_id"], name: "index_creators_on_user_id", using: :btree
   end
 

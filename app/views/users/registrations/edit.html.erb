@@ -8,58 +8,7 @@
       <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :name, required: true %>
     </div>
-    <div class="form-group">
-      <%= f.label 'Imagem' %>
-      <%= f.file_field :photo, class: 'form-control'%>
-    </div>
   </div>
-
-
-  <% if current_user.creator? || current_user.admin? %>
-  <hr>
-  <br>
-  <h3>Entre com seus dados de Gerador de conteúdo</h3>
-  <div class="form-inputs">
-    <div class="row">
-  <div class="col-sm-10">
-    <%= f.input :page_name, required: true %>
-  </div>
-  <div class="col-sm-2">
-    <%= f.label :page_create %>
-    <%= date_field(:user, :page_create) %>
-  </div>
-  <div class="col-sm-12">
-    <%= f.label :about %>
-    <%= f.text_area :about, required: true, rows: "15", class: 'form-control' %>
-  </div>
-  <hr />
-  <div class="col-sm-12 text-center">
-    <p>URLs devem conter http:// ou https:// na frente, para garantir copie do seu navegador</p>
-  </div>
-  <div class="col-sm-12">
-    <%= f.input :facebook, required: false, type: 'url' %>
-  </div>
-  <div class="col-sm-12">
-    <%= f.input :youtube, required: false %>
-  </div>
-  <div class="col-sm-12">
-    <%= f.input :intagram, required: false %>
-  </div>
-  <div class="col-sm-12">
-    <%= f.input :twitter, required: false %>
-  </div>
-  <div class="col-sm-12">
-    <%= f.input :twitch, required: false %>
-  </div>
-  <div class="col-sm-12">
-    <%= f.input :website, required: false %>
-  </div>
-  <div class="col-sm-12">
-    <%= f.input :podcast, required: false %>
-  </div>
-  </div>
-  <% end %>
-
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
   <% end %>
