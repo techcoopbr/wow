@@ -66,7 +66,9 @@
             <ul class="profile-wrap mt-50">
               <li>
                 <div class="profile-title">Idade</div>
-                <div class="profile-desc"><%= ((Time.zone.now - @creator.user.page_create.to_time) / 1.year.seconds).floor %></div>
+                <% if @creator.user.page_create != nil %>
+                  <div class="profile-desc"><%= ((Time.zone.now - @creator.user.page_create.to_time) / 1.year.seconds).floor %></div>
+                <% end %>
               </li>
               <li>
                 <div class="profile-title">Endereço</div>
