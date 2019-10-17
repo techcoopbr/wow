@@ -50,7 +50,9 @@
               </li>
             </ul>
             <br>
-              <pre class="text-center"><br><%= @creator.user.about.first(200) %><pre>
+              <% if @creator.user.about != nil %>
+                <pre class="text-center"><br><%= @creator.user.about.first(200) %><pre>
+              <% end %>
           </div>
           <div class="col-md-7 col-xs-12">
             <div class="info-wrap">
