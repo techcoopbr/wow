@@ -23,9 +23,9 @@
 </div>
 <% contador = 0 %>
 <% @creators.each do |creator| %>
-  <% if creator.user.photo.size >= 3 %>
+  <% if creator.photo.size >= 3 %>
   <% contador = contador + 1 %>
-    <a href="<%= creator.slug %>" target="_blank"><img style="width: 100px; height: auto;" src="<%= creator.user.photo.medium %>" alt="logo" /></a>
+    <a href="<%= creator.slug %>" target="_blank"><img style="width: 100px; height: auto;" src="<%= creator.photo.medium %>" alt="logo" /></a>
   <% if contador == 6 %>
     <% contador = 0 %>
     <br>
