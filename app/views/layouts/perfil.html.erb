@@ -37,20 +37,30 @@
   						<div class="mdl-layout-spacer"></div>
   						<ul class="nav mdl-navigation mdl-layout--large-screen-only">
   							<li><a class="mdl-navigation__link" data-scroll href="#body">Sobre</a></li>
-                <% if @creator.stream_embed.size >= 10 %>
-  							  <li><a class="mdl-navigation__link" data-scroll href="#skills_sec">Stream</a></li>
+                <% if @creator.stream_embed != nil %>
+                  <% if @creator.stream_embed.size >= 10 %>
+  							         <li><a class="mdl-navigation__link" data-scroll href="#skills_sec">Stream</a></li>
+                  <% end %>
                 <% end %>
-                <% if @creator.facebook_embed.size >= 10 %>
-  							  <li><a class="mdl-navigation__link" data-scroll href="#portfolio_sec">Facebook</a></li>
+                <% if @creator.facebook_embed != nil %>
+                  <% if @creator.facebook_embed.size >= 10 %>
+    							  <li><a class="mdl-navigation__link" data-scroll href="#portfolio_sec">Facebook</a></li>
+                  <% end %>
                 <% end %>
-                <% if @creator.instagram_embed.size >= 10 %>
-  							   <li><a class="mdl-navigation__link" data-scroll href="#experience_sec">Instagram</a></li>
+                <% if @creator.instagram_embed != nil %>
+                  <% if @creator.instagram_embed.size >= 10 %>
+    							   <li><a class="mdl-navigation__link" data-scroll href="#experience_sec">Instagram</a></li>
+                   <% end %>
                 <% end %>
-                <% if @creator.youtube_embed.size >= 10 %>
-                  <li><a class="mdl-navigation__link" data-scroll href="#education_sec">YoutTube</a></li>
+                <% if @creator.youtube_embed != nil %>
+                  <% if @creator.youtube_embed.size >= 10 %>
+                    <li><a class="mdl-navigation__link" data-scroll href="#education_sec">YoutTube</a></li>
+                  <% end %>
                 <% end %>
-                <% if @creator.twitter_embed.size >= 10 %>
-                  <li><a class="mdl-navigation__link" data-scroll href="#references_sec">Twitter</a></li>
+                <% if @creator.twitter_embed != nil %>
+                  <% if @creator.twitter_embed.size >= 10 %>
+                    <li><a class="mdl-navigation__link" data-scroll href="#references_sec">Twitter</a></li>
+                  <% end %>
                 <% end %>
   						<!--	<li><span id="blog_drp" class="mdl-navigation__link">blog</span>
   								<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"

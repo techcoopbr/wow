@@ -63,11 +63,15 @@
               <h1><%= @creator.page_name %></h1>
               <h5 class="mt-20 font-grey"><%= @creator.short_description %></h5>
               <div class="mt-30">
-                <% if @creator.publi_file.size >= 10  %>
-                  <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="<%= @creator.publi_file %>">Download Publi</a>
+                <% if @creator.publi_file != nil  %>
+                  <% if @creator.publi_file.size >= 10  %>
+                    <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="<%= @creator.publi_file %>">Download Publi</a>
+                  <% end %>
                 <% end %>
-                <% if @creator.contact_file.size >= 10 %>
-                  <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="<%= @creator.contact_file %>" data-scroll>Portfólio</a>
+                <% if @creator.contact_file != nil %>
+                  <% if @creator.contact_file.size >= 10 %>
+                    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="<%= @creator.contact_file %>" data-scroll>Portfólio</a>
+                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -98,10 +102,9 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-12 col-xs-12">
-            <br>
+          <div class="col-md-12 col-xs-12 text-center">
               <% if @creator.about != nil %>
-                <pre class="text-center"><br><%= @creator.about.first(200) %><pre>
+                <%= @creator.about.html_safe %>
               <% end %>
           </div>
         </div>

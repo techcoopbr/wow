@@ -1,3 +1,5 @@
+<%= tinymce_assets %>
+<%= tinymce %>
 <%= simple_form_for(@creator) do |f| %>
 <h4 class="text-center">Perfil de criador</h4>
 <div class="container">
@@ -49,8 +51,8 @@
         <%= f.input :slug %>
       </div>
       <div class="col-md-12">
-        <%= f.label 'Resumo sobre você' %>
-        <%= f.input :about, label: false %>
+        <%= f.label 'Bio' %>
+        <%= f.text_area :about, label: false, rows: 5, cols: 25, class: "tinymce" %>
       </div>
       <div class="col-md-12">
         <%= f.label 'Seu endereço de correspondencia (*dado público)' %>
