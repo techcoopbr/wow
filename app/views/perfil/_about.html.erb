@@ -79,7 +79,9 @@
               <li>
                 <div class="profile-title">Tempo de Gerador</div>
                 <% if @creator.page_create != nil %>
-                  <div class="profile-desc"><%= ((Time.zone.now - @creator.page_create.to_time) / 1.year.seconds).floor %></div> ano(s)
+                  <div class="profile-desc">
+                    <%= distance_of_time_in_words(@creator.page_create.to_time, Time.now) %>
+                  </div>
                 <% end %>
               </li>
               <li>

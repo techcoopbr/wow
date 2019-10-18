@@ -9,12 +9,12 @@
       Aprovado: <strong><%= @creator.approved %></strong>
     </div>
     <div class="col-md-12">
-      URL Perfil: <strong>www.gamershall.gg/<%= @creator.slug %></strong>
+      URL Perfil: <a href="http://www.gamershall.gg/<%= @creator.slug %>" target="_blank"><strong>www.gamershall.gg/<%= @creator.slug %></strong></a>
     </div>
     <div class="col-md-12">
-      Sobre: <strong><%= @creator.about %></strong>
+      Sobre: <strong><% if @creator.about != nil %><%= @creator.about.html_safe %><% end %></strong>
     </div>
-    <p><small>Tags: <%= raw @creator.games.map(&:name).map { |t| link_to t, game_path(t) }.join(', ') %></small</p>    
+    <p><small>Tags: <%= raw @creator.games.map(&:name).map { |t| link_to t, game_path(t) }.join(', ') %></small</p>
   </div>
 
   <p class="text-center">
