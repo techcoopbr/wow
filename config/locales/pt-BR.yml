@@ -293,6 +293,28 @@ pt-BR:
         approved: Aprovado
         about: Sobre você
         slug: URL Perfil
+        name: Seu nome pessoal
+        office: Cargo
+        office_id: Cargo
+        person: Pessoa
+        person_id: Pessoa
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de Senha
+        current_password: Senha Atual
+        locked_at: Bloqueado em
+        remember_me: Lembrar credenciais
+        account: Conta
+        role_id: Papel
+        photo: Logo/Foto
+        about: Sobre você
+        facebook: Seu Facebook
+        twitter: Seu Twitter
+        twitch: Twitch
+        website: Seu site/blog
+        podcast: PodCast
+        page_name: Nome da sua page/marca
+        page_create: Data de Criação        
       email_type:
         type: Tipo
         title: Título
