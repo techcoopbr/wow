@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   get 'perfil/:slug', :to => 'welcome#creator', as: :public_creator
   get '/:slug', :to => 'perfil#index', as: :public_perfil
+  get 'games/:game', to: 'creators#index', as: :game  
 
 
   devise_for :users

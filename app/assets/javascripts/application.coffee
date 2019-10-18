@@ -4,6 +4,7 @@
 #= require jquery3
 #= require tinymce
 #= require tinymce-jquery
+#= require chosen-jquery
 #= require popper
 #= require bootstrap-sprockets
 #= require_tree .

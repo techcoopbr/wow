@@ -4,7 +4,7 @@ class CreatorsController < ApplicationController
   # GET /creators
   # GET /creators.json
   def index
-    @creators = Creator.all.order(id: :desc)
+    params[:game] ? @creators = Creator.game_with(params[:game]) : @creators = Creator.all.order(id: :desc)
     authorize @creators
   end
 
