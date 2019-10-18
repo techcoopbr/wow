@@ -1,0 +1,2 @@
+module ControlUserHelper
+end

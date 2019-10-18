@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   resources :creators
   default_url_options :host => "elfabandida.com.br"
   resources :panel
+  resources :control_user
 
   root to: 'welcome#index'
   get 'perfil/:slug', :to => 'welcome#creator', as: :public_creator
   get '/:slug', :to => 'perfil#index', as: :public_perfil
-  get 'games/:game', to: 'creators#index', as: :game  
+  get 'games/:game', to: 'creators#index', as: :game
 
 
   devise_for :users

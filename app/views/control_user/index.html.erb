@@ -1,0 +1,28 @@
+<% if current_user.admin? %>
+<br>
+<div class="page-header text-center">
+  <h2>Usuários</h2>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th data-data="user">ID</th>
+      <th data-data="user">Nome</th>
+      <th data-data="approved">Email</th>
+      <th data-data="about">Data</th>
+      <th data-data="about">Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @control_users.each do |control_user| %>
+      <tr>
+        <td><%= control_user.id %></td>
+        <td><%= control_user.name %></td>
+        <td><%= control_user.email %></td>
+        <td><%=l control_user.created_at %></td>
+        <td><%= control_user.creator.try(:page_name) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

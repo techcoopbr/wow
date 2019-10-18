@@ -6,8 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-        <%= favicon_link_tag 'favicon.png', :rel => 'shortcut ico', :type => 'image/png' %>
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut ico', :type => 'image/ico' %>
   </head>
 
   <body  class="col-md-12">
@@ -20,6 +19,9 @@
                     <a class="nav-link" href="panel">Home</a>
                 </li>
                 <% if current_user.admin? %>
+                  <li class="nav-item">
+                    <%= link_to "Usuários", control_user_index_path, class: "nav-link" %>
+                  </li>
                   <li class="nav-item">
                     <%= link_to "Criadores", creators_path, class: "nav-link" %>
                   </li>
@@ -79,5 +81,5 @@
         width: '100%'
       })
     });
-  </script>  
+  </script>
 </html>
