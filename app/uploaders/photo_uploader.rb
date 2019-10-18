@@ -24,7 +24,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Medium
   version :medium do
-     process resize_to_fit: [230, 230]
+     process resize_to_limit: [230, 230]
   end
 
   # Tipos de extensão aceitas
