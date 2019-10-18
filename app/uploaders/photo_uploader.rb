@@ -14,17 +14,17 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :showimg do
-     process resize_to_fit: [1200, 768]
+     process resize_to_limit: [1200, 768]
   end
 
   # Thumb
   version :thumb do
-     process resize_to_fit: [900, 600]
+     process resize_to_limit: [900, 600]
   end
 
   # Medium
   version :medium do
-     process resize_to_fit: [300, 300]
+     process resize_to_limit: [300, 300]
   end
 
   # Tipos de extensão aceitas
