@@ -17,7 +17,7 @@
       <div class="mdl-card mdl-shadow--2dp pa-0">
         <div class="mdl-card__title pa-0">
           <div class="blog-img blog-1">
-            <a href="post/<%= blog.slug %>">
+            <a href="/post/<%= blog.slug %>">
               <img src="<%= blog.cover.thumb %>" width="460" height="272" alt="">
             </a>
           </div>
@@ -25,9 +25,9 @@
         <div class="mdl-card__supporting-text relative">
           <!-- <span class="blog-cat">photography</span> -->
           <% if @creator.nil? %>
-            <a href="post/<%= blog.slug %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
+            <a href="/post/<%= blog.slug %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
           <% else %>
-            <a href="<%= @creator.slug %>/<%= blog.slug %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
+            <a href="/<%= @creator.slug %>/post/<%= blog.slug %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
           <% end %>
           <p><%= blog.short_description  %></p>
           <a href="image-blog-post.html" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect bg-blue mdl-shadow--8dp">

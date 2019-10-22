@@ -47,31 +47,31 @@
   						<ul class="nav mdl-navigation mdl-layout--large-screen-only">
 
                 <% if is_creator %>
-    							<li><a class="mdl-navigation__link" data-scroll href="#body">Sobre</a></li>
-                    <li><a class="mdl-navigation__link" data-scroll href="<%= @creator.slug %>/blog">Blog</a></li>
+    							<li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#body">Sobre</a></li>
+                    <li><a href="/blog/<%= @creator.slug %>">Blog</a></li>
                   <% if @creator.stream_embed != nil %>
                     <% if @creator.stream_embed.size >= 10 %>
-    							         <li><a class="mdl-navigation__link" data-scroll href="#skills_sec">Stream</a></li>
+    							         <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#skills_sec">Stream</a></li>
                     <% end %>
                   <% end %>
                   <% if @creator.facebook_embed != nil %>
                     <% if @creator.facebook_embed.size >= 10 %>
-      							  <li><a class="mdl-navigation__link" data-scroll href="#portfolio_sec">Facebook</a></li>
+      							  <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#portfolio_sec">Facebook</a></li>
                     <% end %>
                   <% end %>
                   <% if @creator.instagram_embed != nil %>
                     <% if @creator.instagram_embed.size >= 10 %>
-      							   <li><a class="mdl-navigation__link" data-scroll href="#experience_sec">Instagram</a></li>
+      							   <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#experience_sec">Instagram</a></li>
                      <% end %>
                   <% end %>
                   <% if @creator.youtube_embed != nil %>
                     <% if @creator.youtube_embed.size >= 10 %>
-                      <li><a class="mdl-navigation__link" data-scroll href="#education_sec">YoutTube</a></li>
+                      <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#education_sec">YoutTube</a></li>
                     <% end %>
                   <% end %>
                   <% if @creator.twitter_embed != nil %>
                     <% if @creator.twitter_embed.size >= 10 %>
-                      <li><a class="mdl-navigation__link" data-scroll href="#references_sec">Twitter</a></li>
+                      <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#references_sec">Twitter</a></li>
                     <% end %>
                   <% end %>
                 <% end %>

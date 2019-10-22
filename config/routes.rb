@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'blog', to: 'perfil#blog', as: :public_blog
   get 'blog/:slug', to: 'perfil#blog', as: :public_creator_blog
   #postagens
-  get ':creator/:slug', to: 'perfil#post', as: :public_creator_post
+  get ':creator/post/:slug', to: 'perfil#post', as: :public_creator_post
   get 'post/:slug', to: 'perfil#post', as: :public_post
 
   get 'perfil/:slug', :to => 'welcome#creator', as: :public_creator
