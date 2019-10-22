@@ -65,12 +65,12 @@
               <div class="mt-30">
                 <% if @creator.publi_file != nil  %>
                   <% if @creator.publi_file.size >= 10  %>
-                    <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="<%= @creator.publi_file %>">Download Publi</a>
+                    <a target="_blank" id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="<%= @creator.publi_file %>">Download Publi</a>
                   <% end %>
                 <% end %>
                 <% if @creator.contact_file != nil %>
                   <% if @creator.contact_file.size >= 10 %>
-                    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="<%= @creator.contact_file %>" data-scroll>Portfólio</a>
+                    <a target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="<%= @creator.contact_file %>" data-scroll>Portfólio</a>
                   <% end %>
                 <% end %>
               </div>

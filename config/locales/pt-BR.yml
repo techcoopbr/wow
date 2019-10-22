@@ -233,6 +233,7 @@ pt-BR:
 
   activerecord:
     models:
+      blog: Blog/Artigos
       email_type: Textos de Email
       paylink: Link de Pagamento
       tour_block: Lista de Bloqueios
@@ -287,6 +288,14 @@ pt-BR:
       faq_ask: Perguntas Executadas
       creator: Criadores
     attributes:
+      blog:
+        cover: Imagem de Destaque
+        title: Título
+        short_description: Texto de Chamada
+        body: Conteúdo
+        tags: tag
+        admin_published: Aprovado por Admin
+        creator_published: Publicado
       creator:
         user: Usuário
         user_id: Usuário
@@ -314,7 +323,7 @@ pt-BR:
         website: Seu site/blog
         podcast: PodCast
         page_name: Nome da sua page/marca
-        page_create: Data de Criação        
+        page_create: Data de Criação
       email_type:
         type: Tipo
         title: Título

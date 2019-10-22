@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut ico', :type => 'image/ico' %>
+    <%= javascript_include_tag Ckeditor.cdn_url %>
   </head>
 
   <body  class="col-md-12">
@@ -27,6 +28,9 @@
                   </li>
                 <% end %>
                 <% if current_user.creator? || current_user.admin? %>
+                  <li class="nav-item">
+                    <%= link_to "Blog", blogs_path, class: "nav-link" %>
+                  </li>
                   <li class="nav-item">
                     <%= link_to "Meu Perfil", edit_creator_path(current_user.creator), class: "nav-link" %>
                   </li>
@@ -74,6 +78,8 @@
       <%= yield %>
     </div>
   </body>
+
+
   <script>
     $(document).on('ready page:load', function () {
       $('#post_tag_ids').chosen({

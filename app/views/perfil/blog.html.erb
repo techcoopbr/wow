@@ -1,0 +1,65 @@
+<div class="container">
+<section id="blog_sec" class="blog-sec mt-180 mt-sm-120">
+  <h2 class="mb-30 font-white">blog</h2>
+  <% contador = 0 %>
+  <% @blogs.each do |blog| %>
+    <% if contador == 0 %>
+      <div class="row">
+    <% end %>
+
+    <% contador = contador + 1 %>
+    <div class="col-sm-6 mb-30">
+      <div class="mdl-card mdl-shadow--2dp pa-0">
+        <div class="mdl-card__title pa-0">
+          <div class="blog-img blog-1">
+            <a href="post/<%= blog.slug %>">
+              <img src="<%= blog.cover.thumb %>" width="460" height="272" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="mdl-card__supporting-text relative">
+          <!-- <span class="blog-cat">photography</span> -->
+          <% if @creator.nil? %>
+            <a href="post/<%= blog.slug %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
+          <% else %>
+            <a href="<%= @creator.slug %>/<%= blog.slug %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
+          <% end %>
+          <p><%= blog.short_description  %></p>
+          <a href="image-blog-post.html" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect bg-blue mdl-shadow--8dp">
+            <i class="zmdi zmdi zmdi-image-o"></i>
+          </a>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <span class="blog-post-date inline-block"><%= blog.created_at.strftime("%d/%m/%Y") %></span>
+          <div class="mdl-layout-spacer"></div>
+          <!--
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect mr-5">
+            <i class="zmdi zmdi-favorite"></i>
+          </button>
+          <button id ="share_menu_1" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="zmdi zmdi-share"></i>
+          </button> -->
+        <!--  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+            data-mdl-for="share_menu_1">
+            <li class="mdl-menu__item">Facebook</li>
+            <li class="mdl-menu__item">Twitter</li>
+            <li class="mdl-menu__item">LinkedIn</li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+
+
+    <% if contador == 0 %>
+      <% contador = 0 %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="navigation-block mb-30">
+    <a href="#" class="inline-block pull-left prev"><i class="zmdi zmdi-arrow-left font-blue"></i></a>
+    <a href="#" class="inline-block pull-right next"><i class="zmdi zmdi-arrow-right font-blue"></i></a>
+    <div class="clearfix"></div>
+  </div>
+</section>
+</div>

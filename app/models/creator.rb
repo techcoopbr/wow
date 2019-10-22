@@ -9,8 +9,7 @@ class Creator < ApplicationRecord
   mount_uploader :publi_file, FileUploader
   mount_uploader :contact_file, FileUploader
 
-
-
+  validates :photo, :page_name, :about, presence: true
 
   def self.game_with(name)
     Game.find_by!(name: name).creators

@@ -6,6 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails-assets-tether'
+gem 'ckeditor'
+gem 'slim-rails', '3.1.1'
+gem 'friendly_id', '~> 5.2.4'
 # add the line below
 gem 'chosen-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

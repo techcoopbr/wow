@@ -7,6 +7,7 @@
 #= require chosen-jquery
 #= require popper
 #= require bootstrap-sprockets
+
 #= require_tree .
 
 @onReady = (fn) ->
