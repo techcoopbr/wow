@@ -41,7 +41,7 @@ class User < ApplicationRecord
   end
 
   def creator?
-    role_id == 'creator'
+    role_id == 'creator' || role_id == 'admin'
   end
 
   def creator
