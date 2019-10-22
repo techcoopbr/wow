@@ -30,8 +30,9 @@
   			<div class="bg-struct text-center">
           <% if is_creator %>
             <img src="<%= @creator.cover.showimg %>" width="100%" height="600" alt="">
-          <% end %>
+          <% else %>
             <img src="/img/abstract-bg-1.jpg" width="100%" height="600" alt="">
+          <% end %>
         </div>
   			<!--/Bg Image-->
 
@@ -47,6 +48,7 @@
 
                 <% if is_creator %>
     							<li><a class="mdl-navigation__link" data-scroll href="#body">Sobre</a></li>
+                    <li><a class="mdl-navigation__link" data-scroll href="<%= @creator.slug %>/blog">Blog</a></li>
                   <% if @creator.stream_embed != nil %>
                     <% if @creator.stream_embed.size >= 10 %>
     							         <li><a class="mdl-navigation__link" data-scroll href="#skills_sec">Stream</a></li>
