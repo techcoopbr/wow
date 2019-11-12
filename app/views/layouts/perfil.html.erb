@@ -29,7 +29,7 @@
           <% if is_creator %>
             <img src="<%= @creator.cover.showimg %>" width="100%" height="600" alt="">
           <% else %>
-            <img src="/img/abstract-bg-1.jpg" width="100%" height="600" alt="">
+            <img src="/img/abstract-bg-2.jpg" width="100%" height="600" alt="">
           <% end %>
         </div>
   			<!--/Bg Image-->
@@ -72,18 +72,9 @@
                       <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#references_sec">Twitter</a></li>
                     <% end %>
                   <% end %>
+                <% else %>
+                  <li><a href="<%= public_blog_path %>">Blog</a></li>
                 <% end %>
-  						<!--	<li><span id="blog_drp" class="mdl-navigation__link">blog</span>
-  								<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
-  									data-mdl-for="blog_drp">
-  									<li class="mdl-menu__item"><a href="blog-list.html">Blog List</a></li>
-  									<li class="mdl-menu__item"><a href="image-blog-post.html">Image Blog Post</a></li>
-  									<li class="mdl-menu__item"><a href="gallery-blog-post.html">Gallery Blog Post</a></li>
-  									<li class="mdl-menu__item"><a href="youtube-blog-post.html">Youtube Blog Post</a></li>
-  									<li class="mdl-menu__item"><a href="vimeo-blog-post.html">Vimeo Blog Post</a></li>
-  									<li class="mdl-menu__item"><a href="audio-blog-post.html">Audio Blog Post</a></li>
-  								</ul>
-  							</li> -->
   							<li><a class="mdl-navigation__link" data-scroll href="#contact_sec">Contato</a></li>
   						</ul>
   						<!-- Right aligned menu below button -->
@@ -97,7 +88,7 @@
     <%= yield %>
 
     <footer class="footer-sec sec-pad-top-sm sec-pad-bottom text-center">
-      <h4>obrigado por vir.</h4>
+      <h4>THX and GG</h4>
       <p class="mt-10">Technology and Cooperation Sistemas Ltda</p>
         <ul class="social-icons mt-10">
           <li>

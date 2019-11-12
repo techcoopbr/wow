@@ -11,10 +11,14 @@ Rails.application.routes.draw do
 
 
   constraints DomainConstraint.new('gamershall.gg') do
-    root :to => 'welcome#index'
+    root :to => 'perfil#home'
+  end
+
+  constraints DomainConstraint.new('localhost:3000') do
+    root :to => 'perfil#home'
   end
   #constraints DomainConstraint.new('wowmorreu.com') do
-  root :to => 'welcome#morreu'
+  root :to => 'perfil#home'
   #end
 
 

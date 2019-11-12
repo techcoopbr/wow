@@ -9,6 +9,10 @@ class PerfilController < ApplicationController
     end
   end
 
+  def home
+    #@creators = Creator.where(approved: true)
+  end
+
   def blog
     @creator = Creator.find_by(slug: params[:slug])
     if @creator.nil?
