@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
   get 'blog', to: 'perfil#blog', as: :public_blog
-  get 'blog/:slug', to: 'perfil#blog', as: :public_creator_blog
+  get ':slug/blog', to: 'perfil#blog', as: :public_creator_blog
   #postagens
   get ':creator/post/:slug', to: 'perfil#post', as: :public_creator_post
   get 'post/:slug', to: 'perfil#post', as: :public_post
