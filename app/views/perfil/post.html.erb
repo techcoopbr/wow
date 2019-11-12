@@ -7,8 +7,8 @@
           <div class="mdl-card__title pa-0">
             <% if @blog.cover != nil %>
               <% if @blog.cover.size > 0 %>
-                <div class="main-blogpost-img blog-img">
-                  <img src="<%= @blog.cover.showimg %>" alt="">
+                <div class="img-fluid">
+                  <img class="img-fluid" style="width: 100%" src="<%= @blog.cover.showimg %>" alt="">
                 </div>
               <% end %>
             <% end %>
