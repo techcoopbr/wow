@@ -13,7 +13,10 @@ Rails.application.routes.draw do
     root :to => 'welcome#morreu'
   end
 
-  root :to => 'welcome#index'
+  constraints DomainConstraint.new('gamershall.gg') do
+    root :to => 'welcome#index'
+  end
+
 
   #root to: 'welcome#index'
   get 'blog', to: 'perfil#blog', as: :public_blog
