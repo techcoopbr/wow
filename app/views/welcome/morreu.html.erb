@@ -1,0 +1,36 @@
+<br>
+<div class="text-center"><a href="#"><img class="img-fluid" src="logo.png" alt="logo" /></a></div>
+<hr>
+<div class="col-sm text-center">
+  <p><strong>O World of Warcraft morreu?</strong></p>
+</div>
+<br>
+<div class="col-sm text-center">
+  <h1 class="text-danger"><span class="timeel timeRefDays"><strong>NÃO</strong></span></h1>
+</div>
+<hr />
+<div class="countup" id="countup1">
+<div class="col-sm text-center"><p>Estamos a <span class="days"></span> dias vivos e com melhor jogo já feito</p></div>
+</div>
+<hr />
+<div class="col-sm text-center">
+<p>Lembre-se, é você quem faz sua diversão... quanto a nós, enquanto existir WoW estaremos ON!</p>
+<p>Quer saber mais sobre o World of Warcraft? Acompanhe os geradores de conteúdo que fazem de um tudo para o JOGO jamais morrer</p>
+<br />
+<hr />
+<div class="col-sm text-center">
+  <p>Este geradores abaixo não deixam o WoW Morrer!!!<p> Quer ser um também? <a href="panel">Clique aqui!</a>
+</div>
+<% contador = 0 %>
+<% @creators.each do |creator| %>
+  <% if creator.photo.size >= 3 %>
+  <% contador = contador + 1 %>
+    <a href="<%= creator.slug %>" target="_blank"><img style="width: 100px; height: auto;" src="<%= creator.photo.medium %>" alt="logo" /></a>
+  <% if contador == 6 %>
+    <% contador = 0 %>
+    <br>
+  <% end %>
+  <% end %>
+<% end %>
+
+</div>

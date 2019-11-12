@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :control_user
 
   constraints(host: 'wowmorrel.com.br') do
-    root to: 'perfil#blog'
+    root to: 'welcome#morreu'
   end
 
   constraints(host: 'gamershall.gg') do
