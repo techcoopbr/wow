@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   constraints DomainConstraint.new('gamershall.gg') do
     root :to => 'welcome#index'
   end
-  constraints DomainConstraint.new('wowmorreu.com') do
-    root :to => 'welcome#morreu'
-  end
+  #constraints DomainConstraint.new('wowmorreu.com') do
+  root :to => 'welcome#morreu'
+  #end
 
 
   #root to: 'welcome#index'
