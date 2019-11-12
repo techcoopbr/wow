@@ -35,6 +35,8 @@ Ckeditor.setup do |config|
   # config.picture_model { Ckeditor::Picture }
   # config.attachment_file_model { Ckeditor::AttachmentFile }
 
+  # //cdn.ckeditor.com/<version.number>/<distribution>/ckeditor.js
+  config.cdn_url = "//cdn.ckeditor.com/4.13.0/full/ckeditor.js"
   # Paginate assets
   # By default: 24
   # config.default_per_page = 24
@@ -51,5 +53,5 @@ Ckeditor.setup do |config|
   # JS config url
   # Used when CKEditor CDN enabled
   # By default: "ckeditor/config.js"
-  # config.js_config_url = 'ckeditor/config.js'
+  #config.js_config_url = 'ckeditor/config.js'
 end
