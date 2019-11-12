@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :panel
   resources :control_user
 
-  constraints DomainConstraint.new('wowmorreu.com.br') do
+  constraints DomainConstraint.new('wowmorreu') do
     root :to => 'welcome#morreu'
   end
 
