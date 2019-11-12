@@ -8,13 +8,11 @@ Rails.application.routes.draw do
   resources :panel
   resources :control_user
 
-  constraints(host: 'www.wowmorrel.com.br') do
-    root to: 'welcome#morreu'
+  constraints DomainConstraint.new('wowmorreu.com.br') do
+    root :to => 'welcome#morreu'
   end
 
-  constraints(host: 'gamershall.gg') do
-    root to: 'welcome#index'
-  end
+  root :to => 'welcome#index'
 
   #root to: 'welcome#index'
   get 'blog', to: 'perfil#blog', as: :public_blog
