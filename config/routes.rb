@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :control_user
 
   constraints(host: 'wowmorrel.com.br') do
-    get 'blog', to: 'perfil#blog', as: :public_blog
+    get 'blog', to: 'perfil#blog'
   end
 
   root to: 'welcome#index'
