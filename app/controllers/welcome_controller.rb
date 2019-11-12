@@ -6,6 +6,10 @@ class WelcomeController < ApplicationController
     @creators = Creator.where(approved: true)
   end
 
+  def morreu
+    @creators = Creator.where(approved: true)
+  end
+
   def creator
     if params[:slug] != 'routes'
       @creator = Creator.find_by(slug: params[:slug])

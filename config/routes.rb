@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :panel
   resources :control_user
 
-  constraints(host: 'wowmorrel.com.br') do
+  constraints(host: 'www.wowmorrel.com.br') do
     root to: 'welcome#morreu'
   end
 
