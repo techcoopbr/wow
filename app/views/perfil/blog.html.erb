@@ -16,20 +16,24 @@
     <div class="col-sm-6 mb-30">
       <div class="mdl-card mdl-shadow--2dp pa-0">
         <div class="mdl-card__title pa-0">
-          <div class="blog-img blog-1">
-            <% if @creator.nil? %>
-              <a href="<%= public_creator_blog_path(blog.slug) %>">
-            <% else %>
-              <a href="<%= public_creator_post_path(@creator.slug, blog.slug) %>">
+          <% if blog.cover != nil %>
+            <% if blog.cover.size > 0 %>
+              <div class="blog-img">
+                <% if @creator.nil? %>
+                  <a href="<%= public_post_path(blog.slug) %>">
+                <% else %>
+                  <a href="<%= public_creator_post_path(@creator.slug, blog.slug) %>">
+                <% end %>
+                <img src="<%= blog.cover.thumb %>" width="460" height="272" alt="">
+                </a>
+              </div>
             <% end %>
-              <img src="<%= blog.cover.thumb %>" width="460" height="272" alt="">
-            </a>
-          </div>
+          <% end %>
         </div>
         <div class="mdl-card__supporting-text relative">
           <!-- <span class="blog-cat">photography</span> -->
           <% if @creator.nil? %>
-            <a href="<%= public_creator_blog_path(blog.slug) %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
+            <a href="<%= public_post_path(blog.slug) %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
           <% else %>
             <a href="<%= public_creator_post_path(@creator.slug, blog.slug) %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
           <% end %>

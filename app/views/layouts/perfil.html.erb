@@ -8,8 +8,6 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
 
     <%= favicon_link_tag 'favicon.png', :rel => 'shortcut ico', :type => 'image/png' %>
 		<!--CSS-->
@@ -150,6 +148,7 @@
 <!--/Main Wrapper-->
 
 <!-- Scripts -->
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 <script src="../js/jquery-1.12.4.min.js"></script>
 <script src="../js/angular.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
