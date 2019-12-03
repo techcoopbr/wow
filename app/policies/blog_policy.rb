@@ -7,7 +7,7 @@ class BlogPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? || creator.id == user.creator.id
+    user.admin? || @blog.creator_id == @user.creator.id
   end
 
   def index?
@@ -15,7 +15,7 @@ class BlogPolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? || creator.id == user.creator.id
+    user.admin? || @blog.creator_id == @user.creator.id
   end
 
   def create?
@@ -31,6 +31,6 @@ class BlogPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin? || creator.id == user.creator.id
+    user.admin? || @blog.creator_id == @user.creator.id
   end
 end
