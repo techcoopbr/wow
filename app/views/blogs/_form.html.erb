@@ -1,6 +1,7 @@
 <br>
 <%= simple_form_for(@blog) do |f| %>
 <h4 class="text-center">Criar Artigo/Blog</h4>
+<p class="text-center">todos os campos são obrigatórios</p>
 <div class="container">
 <%= f.error_notification %>
 <div class="form-inputs">
@@ -29,7 +30,8 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <%= f.input :tags %>
+      <%= f.label 'Tags (separar com vírgulas)' %>
+      <%= f.input :tags, label: false %>
     </div>
   </div>
   <div class="row">
