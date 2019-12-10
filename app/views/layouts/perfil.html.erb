@@ -9,7 +9,7 @@
       gtag('js', new Date());
 
       gtag('config', 'UA-152402311-1');
-    </script>    
+    </script>
     <% if @creator != nil
          is_creator = true
        end %>
@@ -24,129 +24,10 @@
 		<!--CSS-->
 		<link rel="stylesheet" type="text/css" href="/css/style.css" />
     </head>
-  	<body id="body" data-ng-app="contactApp">
+  	<body>
 
-  		<!--Preloader-->
-
-  		<!--/Preloader-->
-
-  		<!--Main Wrapper-->
-  		<div class="main-wrapper">
-
-  			<!--Bg Image-->
-  			<div class="bg-struct text-center">
-          <% if is_creator %>
-            <img src="<%= @creator.cover.showimg %>" width="100%" height="600" alt="">
-          <% else %>
-            <img src="/img/abstract-bg-2.jpg" width="100%" height="600" alt="">
-          <% end %>
-        </div>
-  			<!--/Bg Image-->
-
-  			<div class="mdl-js-layout mdl-layout--fixed-header">
-
-  				<!--Top Header-->
-  				<header class="mdl-layout__header">
-  					<div class="mdl-layout__header-row mdl-scroll-spy-1">
-  						<!-- Title -->
-  						<a href="../"><img src="/logo.png" width="100" height="100%" class="d-inline-block align-top" alt=""></a>
-  						<div class="mdl-layout-spacer"></div>
-  						<ul class="nav mdl-navigation mdl-layout--large-screen-only">
-
-                <% if is_creator %>
-    							<li><a href="/<%= @creator.slug %>">Sobre</a></li>
-                    <li><a href="<%= public_creator_blog_path(@creator.slug) %>">Blog</a></li>
-                  <% if @creator.stream_embed != nil %>
-                    <% if @creator.stream_embed.size >= 10 %>
-    							         <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#skills_sec">Stream</a></li>
-                    <% end %>
-                  <% end %>
-                  <% if @creator.facebook_embed != nil %>
-                    <% if @creator.facebook_embed.size >= 10 %>
-      							  <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#portfolio_sec">Facebook</a></li>
-                    <% end %>
-                  <% end %>
-                  <% if @creator.instagram_embed != nil %>
-                    <% if @creator.instagram_embed.size >= 10 %>
-      							   <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#experience_sec">Instagram</a></li>
-                     <% end %>
-                  <% end %>
-                  <% if @creator.youtube_embed != nil %>
-                    <% if @creator.youtube_embed.size >= 10 %>
-                      <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#education_sec">YoutTube</a></li>
-                    <% end %>
-                  <% end %>
-                  <% if @creator.twitter_embed != nil %>
-                    <% if @creator.twitter_embed.size >= 10 %>
-                      <li><a class="mdl-navigation__link" data-scroll href="/<%= @creator.slug %>#references_sec">Twitter</a></li>
-                    <% end %>
-                  <% end %>
-                <% else %>
-                  <li><a href="<%= public_blog_path %>">Blog</a></li>
-                <% end %>
-  							<li><a class="mdl-navigation__link" data-scroll href="#contact_sec">Contato</a></li>
-  						</ul>
-  						<!-- Right aligned menu below button -->
-  					</div>
-  				</header>
-  				<!--/Top Header-->
-
-
-
-	<div class="main-content relative">
     <%= yield %>
 
-    <footer class="footer-sec sec-pad-top-sm sec-pad-bottom text-center">
-      <h4>THX and GG</h4>
-      <p class="mt-10">Technology and Cooperation Sistemas Ltda</p>
-        <ul class="social-icons mt-10">
-          <li>
-            <a class="facebook-link" href="https://www.facebook.com/techcoopsistemas/">
-              <i id="tt6" class="zmdi zmdi-facebook"></i>
-              <div class="mdl-tooltip" data-mdl-for="tt6">
-                facebook
-              </div>
-            </a>
-          </li>
-      <!--    <li>
-            <a class="twitter-link" href="#">
-              <i id="tt7" class="zmdi zmdi-twitter"></i>
-              <div class="mdl-tooltip" data-mdl-for="tt7">
-                twitter
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="linkedin-link" href="#">
-              <i id="tt8" class="zmdi zmdi-linkedin"></i>
-              <div class="mdl-tooltip" data-mdl-for="tt8">
-                linkedin
-              </div>
-            </a>
-          </li> -->
-          <li>
-            <a class="dribbble-link" href="http://techcoop.com.br/">
-              <i id="tt9" class="zmdi zmdi-dribbble"></i>
-              <div class="mdl-tooltip" data-mdl-for="tt9">
-                Site
-              </div>
-            </a>
-          </li>
-        <!--  <li>
-            <a class="instagram-link" href="#">
-              <i id="tt10" class="zmdi zmdi-instagram"></i>
-              <div class="mdl-tooltip" data-mdl-for="tt10">
-                instagram
-              </div>
-            </a>
-          </li> -->
-        </ul>
-
-    </footer>
-  </div>
-
-</div>
-</div>
 <!--/Main Wrapper-->
 
 <!-- Scripts -->

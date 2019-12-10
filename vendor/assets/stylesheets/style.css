@@ -125,7 +125,7 @@ fieldset {
 	position: absolute;
 	display: none;
 	width: 100%;
-	text-align: center;		
+	text-align: center;
 }
 #twitter .tweet-image {
 	background: url(../images/tweet.png) no-repeat scroll 0 1px transparent;
@@ -237,7 +237,7 @@ fieldset {
     overflow: hidden;
 	font-size: 40px;
 	font-weight: bold;
-	line-height: 120px; 
+	line-height: 120px;
     margin-bottom: 20px;
     padding-top: 12px;
 	color: #35373F;
