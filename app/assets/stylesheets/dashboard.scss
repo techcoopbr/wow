@@ -1,8 +1,28 @@
  @import "bootstrap";
+@import "font-awesome";
  body {
-    background: url("../patterns/pat_17.png") repeat scroll 0 0 transparent;
-    color: #070200;
+    color: #333333;
+    font-size: 14px;
   	line-height: 22px;
-  	text-shadow: 1px 1px #f9f9f9;
   	font-family: 'Open Sans Condensed', 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+  }
+  .countup {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .countup .timeel {
+    display: inline-block;
+    padding: 10px;
+    background: #151515;
+    margin: 0;
+    color: white;
+    min-width: 2.6rem;
+    margin-left: 13px;
+    border-radius: 10px 0 0 10px;
+  }
+  .countup span[class*="timeRef"] {
+    border-radius: 0 10px 10px 0;
+    margin-left: 0;
+    background: #e8c152;
+    color: black;
   }
