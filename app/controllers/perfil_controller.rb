@@ -10,7 +10,9 @@ class PerfilController < ApplicationController
   end
 
   def home
-    #@creators = Creator.where(approved: true)
+    @creators = Creator.where(approved: true).order("RANDOM()")
+    @creators = @creators.first(6)
+    @blogs = Blog.where(admin_published: true, creator_published: true).order("RANDOM()")
   end
 
   def blog

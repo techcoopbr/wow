@@ -5,6 +5,7 @@ class Creator < ApplicationRecord
   has_many :games, through: :game_creators
 
   mount_uploader :photo, PhotoUploader
+  mount_uploader :photo_box, PhotoBoxUploader
   mount_uploader :cover, CoverUploader
   mount_uploader :publi_file, FileUploader
   mount_uploader :contact_file, FileUploader
