@@ -36,8 +36,10 @@
       <meta name="googlebot" content="index,follow" />
       <meta name="robots" content="index,follow">
     <% end %>
-    <% if @creator.script_google != nil %>
-      <%= @creator.script_google.html_safe %>
+    <% if @creator != nil %>
+      <% if @creator.script_google != nil %>
+        <%= @creator.script_google.html_safe %>
+      <% end %>
     <% end %>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152402311-1"></script>
