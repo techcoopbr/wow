@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @metum.title
+p
+  strong Description:
+  = @metum.description
+p
+  strong Photo:
+  = @metum.photo
+p
+  strong Creator:
+  = @metum.creator
+
+= link_to 'Edit', edit_metum_path(@metum)
+'|
+= link_to 'Back', meta_path

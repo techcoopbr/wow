@@ -1,0 +1,21 @@
+= form_for @metum do |f|
+  - if @metum.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@metum.errors.count, "error")} prohibited this metum from being saved:"
+      ul
+        - @metum.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :photo
+    = f.text_field :photo
+  .field
+    = f.label :creator
+    = f.text_field :creator
+  .actions = f.submit

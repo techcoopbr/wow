@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191219143428) do
+ActiveRecord::Schema.define(version: 20200114214358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20191219143428) do
     t.string   "short_description"
     t.string   "slug"
     t.string   "cover"
+    t.integer  "views"
     t.index ["creator_id"], name: "index_blogs_on_creator_id", using: :btree
     t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
   end
@@ -74,6 +75,10 @@ ActiveRecord::Schema.define(version: 20191219143428) do
     t.string   "youtube"
     t.string   "instagram"
     t.string   "photo_box"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.string   "meta_photo"
+    t.string   "script_google"
     t.index ["user_id"], name: "index_creators_on_user_id", using: :btree
   end
 
@@ -101,6 +106,16 @@ ActiveRecord::Schema.define(version: 20191219143428) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "meta", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "photo"
+    t.integer  "creator_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["creator_id"], name: "index_meta_on_creator_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -146,4 +161,5 @@ ActiveRecord::Schema.define(version: 20191219143428) do
   add_foreign_key "creators", "users"
   add_foreign_key "game_creators", "creators"
   add_foreign_key "game_creators", "games"
+  add_foreign_key "meta", "creators"
 end

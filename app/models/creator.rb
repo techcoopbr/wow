@@ -9,6 +9,7 @@ class Creator < ApplicationRecord
   mount_uploader :cover, CoverUploader
   mount_uploader :publi_file, FileUploader
   mount_uploader :contact_file, FileUploader
+  mount_uploader :meta_photo, PhotoUploader
 
   validates :photo, :page_name, :about, presence: true
 

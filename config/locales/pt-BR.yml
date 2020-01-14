@@ -324,6 +324,10 @@ pt-BR:
         podcast: PodCast
         page_name: Nome da sua page/marca
         page_create: Data de Criação
+        meta_title: Título do Perfil
+        meta_description: Descrição
+        meta_photo: Foto Metadados
+        script_google: Script Google Analytics
       email_type:
         type: Tipo
         title: Título

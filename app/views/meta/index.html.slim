@@ -1,0 +1,27 @@
+h1 Listing meta
+
+table
+  thead
+    tr
+      th Title
+      th Description
+      th Photo
+      th Creator
+      th
+      th
+      th
+
+  tbody
+    - @meta.each do |metum|
+      tr
+        td = metum.title
+        td = metum.description
+        td = metum.photo
+        td = metum.creator
+        td = link_to 'Show', metum
+        td = link_to 'Edit', edit_metum_path(metum)
+        td = link_to 'Destroy', metum, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Metum', new_metum_path
