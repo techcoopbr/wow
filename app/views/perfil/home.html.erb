@@ -27,7 +27,7 @@
 
     <div class="blocks">
       <div class="block-blogs">
-        <h4><i class="far fa-caret-square-down"></i> PERFIS DESTAQUES</h4>
+        <h4><i class="far fa-caret-square-down"></i><strong> PERFIS DESTAQUES</strong></h4>
         <ul class="carousel-blogs">
           <% @creators.each do |creator| %>
             <li>
@@ -40,21 +40,21 @@
                   <% end %>
 
               </div>
-              <h6><%= creator.page_name %></h6></a>
+              <h6><strong><%= creator.page_name %></strong></h6></a>
             </li>
           <% end %>
         </ul>
       </div>
       <div class="clearfix"></div>
       <div class="block-posts">
-        <h4><i class="far fa-caret-square-down"></i> POSTS MAIS VISITADOS</h4>
+        <h4 style="color: #000000;"><i class="far fa-caret-square-down"></i><strong> POSTS MAIS VISITADOS</strong></h4>
         <ul class="carousel-posts">
           <% @blogs.each do |blog| %>
             <li>
               <a href="post/<%= blog.slug %>"><div class="col col-lg-12 box">
                 <img src="<%= blog.cover.thumb %>" width="460" height="272" alt="">
               </div>
-              <h6><%= blog.title %></h6></a>
+              <h6><strong><%= blog.title %></strong></h6></a>
             </li>
           <% end %>
         </ul>

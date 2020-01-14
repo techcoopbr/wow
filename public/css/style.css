@@ -219,7 +219,7 @@ header .menu-top li a{
 #main h4{
   font-family: Roboto;
   font-size: 1em;
-  color: #444444;
+  color: #ffffff;
 }
 #main .blocks{
   padding: 0px;
@@ -232,9 +232,9 @@ header .menu-top li a{
   list-style: none;
 }
 #main .blocks .block-blogs .carousel-blogs li h6{
-  font-size: .9em;
+  font-size: 13px;
   font-family: Roboto;
-  color: #333;
+  color: #ffffff;
   font-weight: 300;
   text-align: center;
 }
@@ -269,9 +269,9 @@ header .menu-top li a{
   list-style: none;
 }
 #main .blocks .block-posts .carousel-posts li h6{
-  font-size: .9em;
+  font-size: 15px;
   font-family: Roboto;
-  color: #333;
+  color: #000000;
   font-weight: 300;
   text-align: center;
 }
