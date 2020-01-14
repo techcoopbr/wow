@@ -53,7 +53,7 @@ html, body {
   height: inherit;
   width: inherit;
   min-height: inherit;
-  background: #f0f0f0;
+  background: url(../../img/bg_body.png) repeat-x bottom;
 }
 
 strong {
@@ -271,4 +271,248 @@ header .menu-top li a{
 #main .blocks .block-posts .carousel-posts .box:hover{
   box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+.about {
+  padding: 30px;
+  background: #FFFFFF;
+}
+.p-10{
+  padding: 10px;
+}
+.p-20{
+  padding: 20px;
+}
+.p-30{
+  padding: 30px;
+}
+.pv-20{
+  padding: 20px 0px;
+}
+.mt-10{
+  margin: 10px 0px;
+}
+.mt-40{
+  margin: 40px 0px;
+}
+.mh-20{
+  margin: 0px 20px;
+}
+
+
+.blog-header{
+  background: transparent;
+}
+
+.blog-header input[type=search]{
+  position: relative;
+  padding: 3px;
+  background: rgba(0,0,0,0.4);
+  border:none;
+  border-radius: 50px;
+  font-size: 13px;
+  text-indent: 4px;
+  width: 100%;
+}
+.blog-header #search button{
+  position: absolute;
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  right: 20px;
+  top: 2px;
+}
+.blog-header input[type=search]::-webkit-input-placeholder { /* Edge */
+  color: #EEEEEE;
+}
+
+.blog-header input[type=search]:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #EEEEEE;
+}
+
+.blog-header input[type=search]::placeholder {
+  color: #EEEEEE;
+}
+
+.blog-content .about ul.social-icons{
+  position: relative;
+  display: inline;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+.blog-content .about ul.social-icons li{
+  position: relative;
+  display: inline;
+  text-align: center;
+  padding: 8px;
+}
+.blog-content .about ul.social-icons li a{
+  position: relative;
+  text-align: center;
+  font-size: 22px;
+}
+.blog-content .about h1{
+  color: #222;
+  margin: 20px 0px;
+}
+.blog-content .about h5{
+  color: #888;
+}
+.blog-content .about ul.profile-wrap li{
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  font-size: 1.2em;
+}
+.blog-content .about ul.profile-wrap .profile-title{
+  float: left;
+  margin-right: 10px;
+  color: #333;
+}
+.blog-content .about ul.profile-wrap .profile-desc{
+  float: left;
+}
+.blog-content .about .declaration {
+  font-size: 1.4em;
+}
+
+.blog-content .nav-menu {
+  background: #FFF;
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+  border-top: 2px #FFC300 solid;
+}
+.blog-content .nav-menu .nav{
+  margin: auto;
+}
+.blog-content .nav-menu .nav li{
+  text-transform: uppercase;
+  margin: auto;
+}
+
+.blog-content .box-content {
+  position: relative;
+  padding: 20px 0px 50px 0px;
+  background: #FFFFFF;
+  margin-top: 8px;
+}
+.blog-content .box-content h2 {
+  padding: 30px;
+  font-size: 2.em;
+  color: #777777;
+}
+
+.blog-content .box-content .twitter-box {
+  width: 100%;
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+}
+.blog-content .box-content .not-found {
+  position: relative;
+  padding: 30px;
+  font-size: 2.em;
+  color: #777777;
+  min-height: 400vh;
+}
+
+.blog-content .nav-menu-blog {
+  background: #FFFFFF;
+  padding: 10px;
+  margin-top: 20px;
+  text-align: right;
+  border-top: 2px #FFC300 solid;
+}
+.blog-content .nav-menu-blog .name {
+  float: left;
+  padding: 8px;
+}
+.blog-content .nav-menu-blog .name i{
+  margin-right: 6px;
+}
+.blog-content .nav-menu-blog .name a{
+  font-size: 1.1em;
+  color: #777777;
+}
+
+.blog-content h2.title-blog {
+  padding: 30px;
+  font-size: 2.3em;
+  color: #777777;
+}
+#blog .item-blog{
+  position: relative;
+  background: #FFFFFF;
+  padding: 15px;
+}
+#blog a.button-ico-blog{
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background:  #0091d0;
+  float: right;
+  border-radius: 50%;
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: -115px;
+  margin-right: 15px;
+}
+#blog a.button-ico-blog:hover{
+  background:  #015e87 ;
+}
+#blog .box-image{
+  z-index: 0;
+}
+
+#blog .box-texts{
+  z-index: 2;
+  padding: 10px;
+}
+#blog .share-blog-item{
+  position: relative;
+  display: inline;
+  text-align: center;
+  float: right;
+  font-size: .9em;
+}
+
+#blog .share-blog-item li{
+  position: relative;
+  display: inline;
+  padding: 10px;
+}
+#blog .share-blog-item li a:hover{
+  COLOR: #0091d0;
+}
+.pgnavigation{
+  position: relative;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+#post{
+  position: relative;
+  background: #FFFFFF;
+}
+#post ul.datecredits{
+  position: relative;
+  margin: auto;
+  display: inline;
+  text-align: center;
+  font-size: .9em;
+}
+#post ul.datecredits li{
+  position: relative;
+  display: inline;
+  text-align: center;
+  padding: 0px 10px;
+}
+#post ul.datecredits li i{
+  margin-right: 8px;
+}
+#post .read{
+  position: relative;
+  margin-top: 30px;
 }

@@ -1,27 +1,57 @@
-  <div class="container">
-    <%= render 'about' %>
-    <% if @creator.stream_embed != nil %>
-      <% if @creator.stream_embed.size >= 10 %>
-        <%= render 'stream' %>
-      <% end %>
-    <% end %>
-    <% if @creator.facebook_embed != nil %>
-      <% if @creator.facebook_embed.size >= 10 %>
-        <%= render 'facebook' %>
-      <% end %>
-    <% end %>
-    <% if @creator.youtube_embed != nil %>
-      <% if @creator.youtube_embed.size >= 10 %>
-        <%= render 'youtube' %>
-      <% end %>
-    <% end %>
-    <% if @creator.instagram_embed != nil %>
-      <% if @creator.instagram_embed.size >= 10 %>
-        <%= render 'instagram' %>
-      <% end %>
-    <% end %>
-    <% if @creator.twitter_embed != nil %>
-      <% if @creator.twitter_embed.size >= 10 %>
-        <%= render 'twitter' %>
-      <% end %>
-    <% end %>
+<%= render 'header_perfil' %>
+<section class="blog-content container">
+  <div class="mt-40">
+      <%= render 'about' %>
+      <nav class="nav-menu nav-bar text-center">
+        <ul class="nav">
+          <li><a href="/elfabandida">Sobre</a></li>
+          <li><a href="/elfabandida/blog">Blog</a></li>
+          <li><a class="active in" data-target="#stream" data-toggle="tab" href="#stream">Stream</a></li>
+          <li><a data-target="#facebook" data-toggle="tab" href="#facebook">Facebook</a></li>
+          <li><a data-target="#youtube" data-toggle="tab" href="#youtube"">YoutTube</a></li>
+          <li><a data-target="#instagram" data-toggle="tab" href="#instagram"">Instagram</a></li>
+          <li><a data-target="#twitter" data-toggle="tab" href="#twitter">Twitter</a></li>
+          <li><a data-target="#contact" data-toggle="tab" href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+     <div id="tabsContent" class="tab-content box-content mdl-shadow--2dp">
+       <div id="stream" class="tab-pane fade active show in">
+        <% if @creator.stream_embed != nil %>
+          <% if @creator.stream_embed.size >= 10 %>
+            <%= render 'stream' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div id="facebook" class="tab-pane fade">
+        <% if @creator.facebook_embed != nil %>
+          <% if @creator.facebook_embed.size >= 10 %>
+            <%= render 'facebook' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div id="youtube" class="tab-pane fade">
+        <% if @creator.youtube_embed != nil %>
+          <% if @creator.youtube_embed.size >= 10 %>
+            <%= render 'youtube' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div id="instagram" class="tab-pane fade">
+        <% if @creator.instagram_embed != nil %>
+          <% if @creator.instagram_embed.size >= 10 %>
+            <%= render 'instagram' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div id="twitter" class="tab-pane fade">
+        <% if @creator.twitter_embed != nil %>
+          <% if @creator.twitter_embed.size >= 10 %>
+            <%= render 'twitter' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div id="contact" class="tab-pane fade">
+        <%= render 'contact' %>
+      </div>
+  </div>
+</section>

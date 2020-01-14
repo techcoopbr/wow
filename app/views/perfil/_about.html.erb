@@ -1,117 +1,115 @@
-<section class="about-sec mt-180 mt-sm-120  mb-30">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="mdl-card mdl-shadow--2dp">
-        <div class="row">
-          <div class="col-md-5 col-xs-12 mb-30">
-            <div class="candidate-img">
-              <img style="width: 230px; height: 230px; object-fit: cover;  border-radius: 50%;" src="<%= @creator.photo.thumb %>" alt="logo" />
-            </div>
-            <br>
-            <ul class="social-icons">
-              <li>
-                <a class="facebook-link" href="<%= @creator.facebook %>">
-                  <i id="tt1" class="zmdi zmdi-facebook"></i>
-                  <div class="mdl-tooltip" data-mdl-for="tt1">
-                    facebook
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="twitter-link" href="<%= @creator.twitter %>">
-                  <i id="tt2" class="zmdi zmdi-twitter"></i>
-                  <div class="mdl-tooltip" data-mdl-for="tt2">
-                    twitter
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="youtube-link" href="<%= @creator.youtube %>">
-                  <i id="tt3" class="zmdi zmdi-youtube"></i>
-                  <div class="mdl-tooltip" data-mdl-for="tt3">
-                    YouTube
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="twitch-link" href="<%= @creator.twitch %>">
-                  <i id="tt4" class="zmdi zmdi-twitch"></i>
-                  <div class="mdl-tooltip" data-mdl-for="tt4">
-                    Twitch
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="instagram-link" href="<%= @creator.instagram %>">
-                  <i id="tt5" class="zmdi zmdi-instagram"></i>
-                  <div class="mdl-tooltip" data-mdl-for="tt5">
-                    instagram
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="linkedin-link" href="<%= @creator.linkdin %>">
-                  <i id="tt5" class="zmdi zmdi-linkedin"></i>
-                  <div class="mdl-tooltip" data-mdl-for="tt5">
-                    linkedin
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-7 col-xs-12">
-            <div class="info-wrap">
-              <h1><%= @creator.page_name %></h1>
-              <h5 class="mt-20 font-grey"><%= @creator.short_description %></h5>
-              <div class="mt-30">
-                <% if @creator.publi_file != nil  %>
-                  <% if @creator.publi_file.size >= 10  %>
-                    <a target="_blank" id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="<%= @creator.publi_file %>">Download Publi</a>
-                  <% end %>
-                <% end %>
-                <% if @creator.contact_file != nil %>
-                  <% if @creator.contact_file.size >= 10 %>
-                    <a target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="<%= @creator.contact_file %>" data-scroll>Portfólio</a>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-            <ul class="profile-wrap mt-50">
-              <li>
-                <div class="profile-title">Tempo de Gerador</div>
-                <% if @creator.page_create != nil %>
-                  <div class="profile-desc">
-                    <%= distance_of_time_in_words(@creator.page_create.to_time, Time.now) %>
-                  </div>
-                <% end %>
-              </li>
-              <li>
-                <div class="profile-title">Endereço</div>
-                <div class="profile-desc">
-                  <%= @creator.contact_address %>
+<section class="row">
+  <div class="col col-12 mdl-shadow--2dp about p-20">
+    <div class="row">
+      <div class="col-md-5 col-xs-12">
+        <div class="text-center p-10">
+          <img style="width: 260px; height: 260px; object-fit: cover;  border-radius: 50%;" src="<%= @creator.photo.thumb %>" alt="logo" />
+        </div>
+        <br>
+        <div class="text-center">
+          <ul class="social-icons">
+            <li>
+              <a class="facebook-link" href="<%= @creator.facebook %>">
+                <i id="tt1" class="zmdi zmdi-facebook"></i>
+                <div class="mdl-tooltip" data-mdl-for="tt1">
+                  facebook
                 </div>
-              </li>
-              <li>
-                <div class="profile-title">email</div>
-                <div class="profile-desc">
-                  <%= @creator.contact_email %>
+              </a>
+            </li>
+            <li>
+              <a class="twitter-link" href="<%= @creator.twitter %>">
+                <i id="tt2" class="zmdi zmdi-twitter"></i>
+                <div class="mdl-tooltip" data-mdl-for="tt2">
+                  twitter
                 </div>
-              </li>
-              <li>
-                <div class="profile-title">Fone</div>
-                <div class="profile-desc">
-                  <%= @creator.contact_phone %>
+              </a>
+            </li>
+            <li>
+              <a class="youtube-link" href="<%= @creator.youtube %>">
+                <i id="tt3" class="zmdi zmdi-youtube"></i>
+                <div class="mdl-tooltip" data-mdl-for="tt3">
+                  YouTube
                 </div>
-              </li>
-            </ul>
-          </div>
-          <br>
-          <div class="col-md-12 col-xs-12 text-center">
-              <% if @creator.about != nil %>
-                <%= @creator.about.html_safe %>
+              </a>
+            </li>
+            <li>
+              <a class="twitch-link" href="<%= @creator.twitch %>">
+                <i id="tt4" class="zmdi zmdi-twitch"></i>
+                <div class="mdl-tooltip" data-mdl-for="tt4">
+                  Twitch
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="instagram-link" href="<%= @creator.instagram %>">
+                <i id="tt5" class="zmdi zmdi-instagram"></i>
+                <div class="mdl-tooltip" data-mdl-for="tt5">
+                  instagram
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="linkedin-link" href="<%= @creator.linkdin %>">
+                <i id="tt6" class="zmdi zmdi-linkedin"></i>
+                <div class="mdl-tooltip" data-mdl-for="tt6">
+                  linkedin
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-7 col-xs-12">
+        <div class="info-wrap">
+          <h1><%= @creator.page_name %></h1>
+          <h5><%= @creator.short_description %></h5>
+          <div class="pv-20">
+            <% if @creator.publi_file != nil  %>
+              <% if @creator.publi_file.size >= 10  %>
+                <a target="_blank" id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="<%= @creator.publi_file %>">Download Publi</a>
               <% end %>
+            <% end %>
+            <% if @creator.contact_file != nil %>
+              <% if @creator.contact_file.size >= 10 %>
+                <a target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue mh-20 font-white" href="<%= @creator.contact_file %>" data-scroll>Portfólio</a>
+              <% end %>
+            <% end %>
           </div>
         </div>
+        <ul class="profile-wrap mt-10">
+          <li>
+            <div class="profile-title">Tempo de Gerador</div>
+            <% if @creator.page_create != nil %>
+              <div class="profile-desc">
+                <%= distance_of_time_in_words(@creator.page_create.to_time, Time.now) %>
+              </div>
+            <% end %>
+          </li>
+          <li>
+            <div class="profile-title">Endereço</div>
+            <div class="profile-desc">
+              <%= @creator.contact_address %>
+            </div>
+          </li>
+          <li>
+            <div class="profile-title">email</div>
+            <div class="profile-desc">
+              <%= @creator.contact_email %>
+            </div>
+          </li>
+          <li>
+            <div class="profile-title">Fone</div>
+            <div class="profile-desc">
+              <%= @creator.contact_phone %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <div class="col-md-12 col-xs-12 text-center declaration">
+          <% if @creator.about != nil %>
+            <%= @creator.about.html_safe %>
+          <% end %>
       </div>
     </div>
   </div>

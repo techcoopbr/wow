@@ -3,21 +3,21 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
 
 development:
   adapter: postgresql
   encoding: unicode
   database: wow_development
   pool: 5
+  username: postgres
+  password: 123456
+  host: 127.0.0.1
+  port: 5432
 
-test:
-  <<: *default
-  database: wow_test
-
-
+#
 production:
   <<: *default
   database: wow_production
-  username: wow
-  password: <%= ENV['WOW_DATABASE_PASSWORD'] %>
+  username: web
+  password: <%= ENV['APPTEST_DATABASE_PASSWORD'] %>
