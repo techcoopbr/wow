@@ -53,7 +53,9 @@ html, body {
   height: inherit;
   width: inherit;
   min-height: inherit;
-  background: url(../../img/bg_body.png) repeat-x bottom;
+  background-image: url(../../img/bg_body.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
 }
 
 footer {
