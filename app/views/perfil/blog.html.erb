@@ -2,9 +2,9 @@
 <section class="blog-content container">
   <div class="mt-40">
     <nav class="nav-menu-blog nav-bar">
-      <div class="name"><a href="<% if !@creator.nil? %><%= @creator.slug %><% end %>"><i class="fas fa-user"></i><% if !@creator.nil? %><%= @creator.page_name %><% end %></a></div>
+      <div class="name"><a href="/<% if !@creator.nil? %><%= @creator.slug %><% end %>"><i class="fas fa-user"></i><% if !@creator.nil? %><%= @creator.page_name %><% end %></a></div>
       <ul class="nav justify-content-end">
-        <li><a data-scroll href="#blog">BLOG</a></li>
+        <li><a href="<% if !@creator.nil? %>/<%= @creator.slug %>/blog<% else %>/blog<% end %>">BLOG</a></li>
       </ul>
     </nav>
   </div>
