@@ -4,8 +4,8 @@
       <%= render 'about' %>
       <nav class="nav-menu nav-bar text-center">
         <ul class="nav">
-          <li><a href="/elfabandida">Sobre</a></li>
-          <li><a href="/elfabandida/blog">Blog</a></li>
+          <li><a href="<%= @creator.slug %>">Sobre</a></li>
+          <li><a href="<%= @creator.slug %>/blog">Blog</a></li>
           <li><a class="active in" data-target="#stream" data-toggle="tab" href="#stream">Stream</a></li>
           <li><a data-target="#facebook" data-toggle="tab" href="#facebook">Facebook</a></li>
           <li><a data-target="#youtube" data-toggle="tab" href="#youtube"">YoutTube</a></li>

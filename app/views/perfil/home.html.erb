@@ -3,8 +3,8 @@
     <a href="#"><img src=".\img\logo.svg" width="80" title="World of Warcraft" alt="World of Warcraft"></a>
   </div>
   <ul class="menu-top inline">
-    <li><a href="#">BLOG</a></li>
-    <li><a href="#">CONTATO</a></li>
+    <li><a href="<%= public_blog_path %>">BLOG</a></li>
+    <li><a href="http://www.techcoop.com.br">CONTATO</a></li>
   </ul>
   <div class="clearfix"></div>
 </header>
@@ -31,16 +31,16 @@
         <ul class="carousel-blogs">
           <% @creators.each do |creator| %>
             <li>
+              <a href="<%= creator.slug %>" target="_blank">
               <div class="col col-lg-12 align-self-center box">
-                <a href="<%= creator.slug %>" target="_blank">
                   <% if creator.photo_box.nil? %>
-                    <img src="<%= creator.photo.thumb %>" alt="<%= creator.slug %>" />
+                    <img src="<%= creator.photo.medium %>" alt="<%= creator.slug %>" />
                   <% else %>
                     <img src="<%= creator.photo_box.perfil %>" alt="<%= creator.slug %>" />
                   <% end %>
-                </a>
+
               </div>
-              <h6><%= creator.page_name %></h6>
+              <h6><%= creator.page_name %></h6></a>
             </li>
           <% end %>
         </ul>
@@ -51,10 +51,10 @@
         <ul class="carousel-posts">
           <% @blogs.each do |blog| %>
             <li>
-              <div class="col col-lg-12 box">
+              <a href="post/<%= blog.slug %>"><div class="col col-lg-12 box">
                 <img src="<%= blog.cover.thumb %>" width="460" height="272" alt="">
               </div>
-              <h6><%= blog.title %></h6>
+              <h6><%= blog.title %></h6></a>
             </li>
           <% end %>
         </ul>
