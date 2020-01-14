@@ -2,11 +2,19 @@ class PerfilController < ApplicationController
   skip_before_filter :authenticate_user!
   layout "perfil"
 
+  has_scope :search
+
   def index
     @creator = Creator.find_by(slug: params[:slug])
     if @creator.nil?
       redirect_to root_path
     end
+  end
+
+  def result
+    param_txt = '%' + params[:search] + '%'
+    @creators = Creator.where("page_name ilike ? or slug ilike ? or about ilike ?", param_txt, param_txt, param_txt)
+
   end
 
   def home

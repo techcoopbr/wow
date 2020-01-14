@@ -36,6 +36,7 @@ gem 'font_awesome5_rails'
 gem 'simple_form'
 gem 'devise'
 gem 'pundit'
+gem 'has_scope'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

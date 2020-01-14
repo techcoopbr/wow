@@ -13,14 +13,17 @@
   <div class="container">
     <div class="box-search">
       <div class="col col-lg-1">
-        <img src=".\img\iconlogo.svg" width="35" title="World of Warcraft" alt="World of Warcraft">
+        <img src=".\img\iconlogo.svg" width="35" title="GamersHall" alt="GamersHall">
       </div>
+      <%= simple_form_for OpenStruct.new(current_scopes), as: :search, url:  public_result_path, method: :get do |f| %>
       <div class="col col-lg-10">
-        <input type="text" name="" value="">
+        <%= f.input_field :search, name: :search, autofocus: true %>
       </div>
       <div class="col col-lg-1">
         <button type="button" name="button"><i class="fas fa-arrow-right"></i></button>
       </div>
+      <% end %>
+
       <div class="clearfix"></div>
     </div>
     <div class="clearfix"></div>

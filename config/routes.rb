@@ -19,14 +19,15 @@ Rails.application.routes.draw do
   end
   #constraints DomainConstraint.new('wowmorreu.com') do
   #show wowmorreu
-  root :to => 'welcome#index'
+  #root :to => 'welcome#index'
   #show garmeshall
-  #root :to => 'perfil#home'
+  root :to => 'perfil#home'
   #end
 
 
   #root to: 'welcome#index'
   get 'blog', to: 'perfil#blog', as: :public_blog
+  get 'result', to: 'perfil#result', as: :public_result
   get ':slug/blog', to: 'perfil#blog', as: :public_creator_blog
   #postagens
   get ':creator/post/:slug', to: 'perfil#post', as: :public_creator_post
