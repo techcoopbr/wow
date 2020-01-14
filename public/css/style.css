@@ -219,7 +219,7 @@ header .menu-top li a{
 #main h4{
   font-family: Roboto;
   font-size: 1em;
-  color: #ffffff;
+  color: #000000;
 }
 #main .blocks{
   padding: 0px;
@@ -234,7 +234,7 @@ header .menu-top li a{
 #main .blocks .block-blogs .carousel-blogs li h6{
   font-size: 13px;
   font-family: Roboto;
-  color: #ffffff;
+  color: #000000;
   font-weight: 300;
   text-align: center;
 }
@@ -269,7 +269,7 @@ header .menu-top li a{
   list-style: none;
 }
 #main .blocks .block-posts .carousel-posts li h6{
-  font-size: 15px;
+  font-size: 16px;
   font-family: Roboto;
   color: #000000;
   font-weight: 300;
