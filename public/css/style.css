@@ -56,6 +56,10 @@ html, body {
   background: url(../../img/bg_body.png) repeat-x bottom;
 }
 
+footer {
+  bottom: 0;
+}
+
 strong {
   font-weight: bold; }
 
