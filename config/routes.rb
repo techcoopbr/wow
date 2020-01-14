@@ -18,8 +18,8 @@ Rails.application.routes.draw do
     root :to => 'perfil#home'
   end
   #constraints DomainConstraint.new('wowmorreu.com') do
-  #root :to => 'welcome#index'
-  root :to => 'perfil#home'
+  root :to => 'welcome#index'
+  #root :to => 'perfil#home'
   #end
 
 
