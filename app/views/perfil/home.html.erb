@@ -34,9 +34,9 @@
               <a href="<%= creator.slug %>" target="_blank">
               <div class="col col-lg-12 align-self-center box">
                   <% if creator.photo_box.nil? %>
-                    <img src="<%= creator.photo.medium %>" alt="<%= creator.slug %>" />
+                    <img class="embed-responsive" src="<%= creator.photo.medium %>" alt="<%= creator.slug %>" />
                   <% else %>
-                    <img src="<%= creator.photo_box.perfil %>" alt="<%= creator.slug %>" />
+                    <img class="embed-responsive" src="<%= creator.photo_box.perfil %>" alt="<%= creator.slug %>" />
                   <% end %>
 
               </div>
