@@ -28,10 +28,13 @@
       <%= f.cktext_area :body, rows: 40 %>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-md-12">
-      <%= f.label 'Tags (separar com vírgulas)' %>
-      <%= f.input :tags, label: false %>
+      <div class="large-10 large-centered columns">
+        <%= f.label 'tag - Separe as tags com ","' %><br>
+        <%= f.text_field :all_tags, placeholder: "Separe as tags com ','" %>
+      </div>
     </div>
   </div>
   <div class="row">

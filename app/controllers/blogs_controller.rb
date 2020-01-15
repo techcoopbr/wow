@@ -4,11 +4,14 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    if current_user.admin?
+    if params[:tag]
+      @blogs = Blog.tagged_with(params[:tag])
+    else
       @blogs = Blog.all.order(created_at: :desc)
     end
+
     if current_user.creator?
-      @blogs = Blog.where(creator_id: current_user.creator.id).order(created_at: :desc)
+      @blogs = @blogs.where(creator_id: current_user.creator.id).order(created_at: :desc)
     end
     authorize @blogs
   end
@@ -43,9 +46,11 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
+        #format.js # Will search for create.js.erb
         format.html { redirect_to @blog, notice: 'Artigo criado com sucesso' }
         format.json { render :show, status: :created, location: @blog }
       else
+        #format.html { render root_path }
         format.html { render :new }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end

@@ -1,0 +1,4 @@
+var new_blog = $("<%= escape_javascript(render(partial: @blog))%>").hide();
+$('#blogs').prepend(new_blog);
+$('#blog_<%= @blog.id %>').fadeIn('slow');
+$('#new_blog')[0].reset();

@@ -1,0 +1,12 @@
+<%= div_for blog do %>
+  <div class="large-12 columns border border-box glassy-bg mt pt">
+    <strong><%= h(blog.author) %></strong><br />
+    <sup class="text-muted">From <%= time_ago_in_words(blog.created_at)%></sup><br />
+    <div class="mb pb">
+      <%= h(blog.body) %>
+    </div>
+    <div class="tags">
+      <%=raw blog.all_tags %>
+    </div>
+  </div>
+<% end %>

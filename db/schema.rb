@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200114214358) do
+ActiveRecord::Schema.define(version: 20200115132743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,6 +118,22 @@ ActiveRecord::Schema.define(version: 20200114214358) do
     t.index ["creator_id"], name: "index_meta_on_creator_id", using: :btree
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "blog_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_taggings_on_blog_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -162,4 +178,6 @@ ActiveRecord::Schema.define(version: 20200114214358) do
   add_foreign_key "game_creators", "creators"
   add_foreign_key "game_creators", "games"
   add_foreign_key "meta", "creators"
+  add_foreign_key "taggings", "blogs"
+  add_foreign_key "taggings", "tags"
 end

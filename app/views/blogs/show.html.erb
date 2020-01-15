@@ -17,12 +17,14 @@
       Publicado: <strong><%= @blog.short_description %></strong>
     </div>
     <div class="col-md-12">
+      <%=raw tag_links(@blog.all_tags)%>
+    </div>
+    <div class="col-md-12">
       URL Post: <a href="http://www.gamershall.gg/post/<%= @blog.slug %>" target="_blank"><strong>www.gamershall.gg/post/<%= @blog.slug %></strong></a>
     </div>
     <div class="col-md-12">
       Sobre: <strong><% if @blog.body != nil %><%= @blog.body.html_safe %><% end %></strong>
     </div>
-    <p><strong>Tags: <%= @blog.tags %></strong</p>
   </div>
 
   <p class="text-center">
