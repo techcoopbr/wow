@@ -6,6 +6,7 @@
 #= require chosen-jquery
 #= require popper
 #= require bootstrap-sprockets
+#= require font_awesome5
 
 @onReady ->
   $('.date-picker').datepicker

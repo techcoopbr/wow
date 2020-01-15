@@ -7,6 +7,8 @@
     <div class="form-group">
       <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :name, required: true %>
+      <%= f.file_field :photo, required: false %>
+
     </div>
   </div>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

@@ -32,7 +32,7 @@ gem 'tinymce-rails'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 
-gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap', '~> 4.4.1'
 gem 'font_awesome5_rails'
 gem 'simple_form'
 gem 'devise'
