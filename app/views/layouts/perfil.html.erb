@@ -20,12 +20,12 @@
       <meta property="og:site_name" content="<%= @blog.title %>" />
       <meta property="og:type" content="article"/>
       <meta property="og:image" content="http://gamershall.gg<%= @blog.cover.showimg %>"/>
-      <meta property="og:url" content="http://gamershall.gg/<%= @blog.slug %>"/>
+      <meta property="og:url" content="http://gamershall.gg/post/<%= @blog.slug %>"/>
       <meta property="og:description" content="<%= @blog.short_description %>"/>
       <meta property="fb:admins" content=""/>
 
       <meta name="twitter:card" content="summary">
-      <meta name="twitter:url" content="http://gamershall.gg/<%= @blog.slug %>">
+      <meta name="twitter:url" content="http://gamershall.gg/post/<%= @blog.slug %>">
       <meta name="twitter:title" content="<%= @blog.title %>">
       <meta name="twitter:description" content="<%= @blog.short_description %>">
       <meta name="twitter:image" content="http://gamershall.gg<%= @blog.cover.showimg %>">
