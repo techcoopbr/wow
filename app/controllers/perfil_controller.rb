@@ -43,6 +43,13 @@ class PerfilController < ApplicationController
       rescue
         redirect_to panel_path
       end
+    else
+      if @blog.views.nil?
+        @blog.views = 1
+      else
+        @blog.views = @blog.views + 1
+      end
+      @blog.save!
     end
   rescue
     redirect_to panel_path

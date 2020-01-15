@@ -12,7 +12,8 @@
       <th class="col-md-5">Title</th>
       <th class="col-md-2">Data</th>
       <th class="col-md-1">Publicado</th>
-      <th class="col-md-3"><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th class="col-md-1">Views</th>
+      <th class="col-md-2"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
         <td><%= blog.title %></td>
         <td><%=l blog.created_at %></td>
         <td><%= blog.creator_published %></td>
+        <td><%= blog.views %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       blog_path(blog), :class => 'btn btn-default btn-xs' %>

@@ -5,36 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <% if @creator != nil %>
-      <title>Gamers Hall - <%= @creator.meta_title %></title>
-      <meta name="<%= @creator.meta_title %>" content="<%= @creator.meta_description %>">
-      <meta name="keywords" content="<%= @creator.meta_description %>">
+    <% if @blog != nil %>
+      <title><%= @blog.creator.meta_title %> - <%= @blog.title %></title>
+      <meta name="<%= @blog.title %>" content="<%= @blog.short_description %>">
+      <meta name="keywords" content="<%= @blog.short_description %>">
       <meta name="googlebot" content="index,follow" />
       <meta name="robots" content="index,follow">
 
-      <meta itemprop="name" content="<%= @creator.meta_title %>">
-      <meta itemprop="description" content="<%= @creator.meta_description %>">
-      <meta itemprop="image" content="<%= @creator.meta_photo.showimg %>">
+      <meta itemprop="name" content="<%= @blog.title %>">
+      <meta itemprop="description" content="<%= @blog.short_description %>">
+      <meta itemprop="image" content="http://gamershall.gg<%= @blog.cover.showimg %>">
 
-      <meta property="og:title" content="<%= @creator.meta_title %>"/>
-      <meta property="og:site_name" content="<%= @creator.meta_title %>" />
+      <meta property="og:title" content="<%= @blog.title %>"/>
+      <meta property="og:site_name" content="<%= @blog.title %>" />
       <meta property="og:type" content="article"/>
-      <meta property="og:image" content="<%= @creator.meta_photo.showimg %>"/>
-      <meta property="og:url" content="http://gamershall.gg/<%= @creator.slug %>"/>
-      <meta property="og:description" content="<%= @creator.meta_description %>"/>
+      <meta property="og:image" content="http://gamershall.gg<%= @blog.cover.showimg %>"/>
+      <meta property="og:url" content="http://gamershall.gg/<%= @blog.slug %>"/>
+      <meta property="og:description" content="<%= @blog.short_description %>"/>
       <meta property="fb:admins" content=""/>
 
       <meta name="twitter:card" content="summary">
-      <meta name="twitter:url" content="http://gamershall.gg/<%= @creator.slug %>">
-      <meta name="twitter:title" content="<%= @creator.meta_title %>">
-      <meta name="twitter:description" content="<%= @creator.meta_description %>">
-      <meta name="twitter:image" content="<%= @creator.meta_photo.showimg %>">
+      <meta name="twitter:url" content="http://gamershall.gg/<%= @blog.slug %>">
+      <meta name="twitter:title" content="<%= @blog.title %>">
+      <meta name="twitter:description" content="<%= @blog.short_description %>">
+      <meta name="twitter:image" content="http://gamershall.gg<%= @blog.cover.showimg %>">
     <% else %>
-      <title>Gamers Hall - A Casa do Jogador</title>
-      <meta name="Gamers Hall" content="Agregador de Geradores">
-      <meta name="keywords" content="Somos um agregador de geradores de conteúdo de games, feito de gamers para gamers. Entre no server com a gente">
-      <meta name="googlebot" content="index,follow" />
-      <meta name="robots" content="index,follow">
+      <% if @creator != nil %>
+        <title>Gamers Hall - <%= @creator.meta_title %></title>
+        <meta name="<%= @creator.meta_title %>" content="<%= @creator.meta_description %>">
+        <meta name="keywords" content="<%= @creator.meta_description %>">
+        <meta name="googlebot" content="index,follow" />
+        <meta name="robots" content="index,follow">
+
+        <meta itemprop="name" content="<%= @creator.meta_title %>">
+        <meta itemprop="description" content="<%= @creator.meta_description %>">
+        <meta itemprop="image" content="http://gamershall.gg<%= @creator.meta_photo.showimg %>">
+
+        <meta property="og:title" content="<%= @creator.meta_title %>"/>
+        <meta property="og:site_name" content="<%= @creator.meta_title %>" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:image" content="http://gamershall.gg<%= @creator.meta_photo.showimg %>"/>
+        <meta property="og:url" content="http://gamershall.gg/<%= @creator.slug %>"/>
+        <meta property="og:description" content="<%= @creator.meta_description %>"/>
+        <meta property="fb:admins" content=""/>
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:url" content="http://gamershall.gg/<%= @creator.slug %>">
+        <meta name="twitter:title" content="<%= @creator.meta_title %>">
+        <meta name="twitter:description" content="<%= @creator.meta_description %>">
+        <meta name="twitter:image" content="http://gamershall.gg<%= @creator.meta_photo.showimg %>">
+      <% else %>
+        <title>Gamers Hall - A Casa do Jogador</title>
+        <meta name="Gamers Hall" content="Agregador de Geradores">
+        <meta name="keywords" content="Somos um agregador de geradores de conteúdo de games, feito de gamers para gamers. Entre no server com a gente">
+        <meta name="googlebot" content="index,follow" />
+        <meta name="robots" content="index,follow">
+      <% end %>
     <% end %>
     <% if @creator != nil %>
       <% if @creator.script_google != nil %>
