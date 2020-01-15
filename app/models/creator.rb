@@ -3,6 +3,8 @@ class Creator < ApplicationRecord
   belongs_to :user
   has_many :game_creators
   has_many :games, through: :game_creators
+  has_many :creator_tags
+  has_many :tags, through: :creator_tags
 
   mount_uploader :photo, PhotoUploader
   mount_uploader :photo_box, PhotoBoxUploader
@@ -24,6 +26,16 @@ class Creator < ApplicationRecord
   def game_list
     games.map(&:name).join(', ')
   end
+
+  def all_tags=(names)
+    self.tags = names.split(",").map do |name|
+        Tag.where(name: name.strip).first_or_create!
+    end
+  end
+
+  def all_tags
+    self.tags.map(&:name).join(", ")
+  end  
 
   def game_list=(names)
     self.games = names.split(',').map do |n|

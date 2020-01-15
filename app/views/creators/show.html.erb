@@ -14,7 +14,9 @@
     <div class="col-md-12">
       Sobre: <strong><% if @creator.about != nil %><%= @creator.about.html_safe %><% end %></strong>
     </div>
-    <p><small>Tags: <%= raw @creator.games.map(&:name).map { |t| link_to t, game_path(t) }.join(', ') %></small</p>
+    <div class="col-md-12">
+      <%= raw @creator.all_tags %>
+    </div>
   </div>
 
   <p class="text-center">

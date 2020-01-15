@@ -58,6 +58,12 @@
         <%= f.text_area :about, label: false, rows: 5, cols: 25, class: "tinymce" %>
       </div>
       <div class="col-md-12">
+        <div class="large-10 large-centered columns">
+          <%= f.label 'Conteúdo/Jogos/Desenvolvedora/Plataforma separe com ","' %>
+          <%= f.text_field :all_tags, placeholder: "Separe com ','" %>
+        </div>
+      </div>
+      <div class="col-md-12">
         <%= f.label 'Seu endereço de correspondencia (*dado público)' %>
         <%= f.input :contact_address, label: false %>
       </div>

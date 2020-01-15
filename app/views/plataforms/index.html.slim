@@ -1,0 +1,27 @@
+h1 Listing plataforms
+
+table
+  thead
+    tr
+      th Name
+      th Description
+      th About
+      th Photo
+      th
+      th
+      th
+
+  tbody
+    - @plataforms.each do |plataform|
+      tr
+        td = plataform.name
+        td = plataform.description
+        td = plataform.about
+        td = plataform.photo
+        td = link_to 'Show', plataform
+        td = link_to 'Edit', edit_plataform_path(plataform)
+        td = link_to 'Destroy', plataform, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Plataform', new_plataform_path

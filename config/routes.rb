@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :plataforms
+  resources :developers
+  resources :games
   resources :meta
   require 'domain_constraint'
   mount Ckeditor::Engine => '/ckeditor'
@@ -28,7 +31,7 @@ Rails.application.routes.draw do
 
   #root to: 'welcome#index'
   get 'blog', to: 'perfil#blog', as: :public_blog
-  get 'tags/:tag', to: 'blogs#index', as: "tag"  
+  #get 'tags/:tag', to: 'blogs#index', as: "tag"
   get 'result', to: 'perfil#result', as: :public_result
   get ':slug/blog', to: 'perfil#blog', as: :public_creator_blog
   #postagens
@@ -37,7 +40,6 @@ Rails.application.routes.draw do
 
   get 'perfil/:slug', :to => 'welcome#creator', as: :public_creator
   get '/:slug', :to => 'perfil#index', as: :public_perfil
-  get 'games/:game', to: 'creators#index', as: :game
 
 
   devise_for :users

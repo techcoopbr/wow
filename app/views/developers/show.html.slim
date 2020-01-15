@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @developer.name
+p
+  strong Description:
+  = @developer.description
+p
+  strong About:
+  = @developer.about
+p
+  strong Photo:
+  = @developer.photo
+
+= link_to 'Edit', edit_developer_path(@developer)
+'|
+= link_to 'Back', developers_path

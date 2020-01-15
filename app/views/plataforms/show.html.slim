@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @plataform.name
+p
+  strong Description:
+  = @plataform.description
+p
+  strong About:
+  = @plataform.about
+p
+  strong Photo:
+  = @plataform.photo
+
+= link_to 'Edit', edit_plataform_path(@plataform)
+'|
+= link_to 'Back', plataforms_path

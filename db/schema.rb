@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200115132743) do
+ActiveRecord::Schema.define(version: 20200115181823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 20200115132743) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
+  end
+
+  create_table "creator_tags", force: :cascade do |t|
+    t.integer  "creator_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_creator_tags_on_creator_id", using: :btree
+    t.index ["tag_id"], name: "index_creator_tags_on_tag_id", using: :btree
   end
 
   create_table "creators", force: :cascade do |t|
@@ -82,6 +91,15 @@ ActiveRecord::Schema.define(version: 20200115132743) do
     t.index ["user_id"], name: "index_creators_on_user_id", using: :btree
   end
 
+  create_table "developers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.text     "about"
+    t.string   "photo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -93,19 +111,13 @@ ActiveRecord::Schema.define(version: 20200115132743) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id", using: :btree
   end
 
-  create_table "game_creators", force: :cascade do |t|
-    t.integer  "game_id"
-    t.integer  "creator_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_game_creators_on_creator_id", using: :btree
-    t.index ["game_id"], name: "index_game_creators_on_game_id", using: :btree
-  end
-
   create_table "games", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.text     "about"
+    t.string   "photo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "meta", force: :cascade do |t|
@@ -116,6 +128,15 @@ ActiveRecord::Schema.define(version: 20200115132743) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["creator_id"], name: "index_meta_on_creator_id", using: :btree
+  end
+
+  create_table "plataforms", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.text     "about"
+    t.string   "photo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -174,9 +195,9 @@ ActiveRecord::Schema.define(version: 20200115132743) do
   end
 
   add_foreign_key "blogs", "creators"
+  add_foreign_key "creator_tags", "creators"
+  add_foreign_key "creator_tags", "tags"
   add_foreign_key "creators", "users"
-  add_foreign_key "game_creators", "creators"
-  add_foreign_key "game_creators", "games"
   add_foreign_key "meta", "creators"
   add_foreign_key "taggings", "blogs"
   add_foreign_key "taggings", "tags"
