@@ -23,11 +23,17 @@ Rails.application.routes.draw do
   end
   #constraints DomainConstraint.new('wowmorreu.com') do
   #show wowmorreu
-  root :to => 'welcome#index'
+  if Rails.env.production?
+    root :to => 'welcome#index'
+  else
   #show garmeshall
-  #root :to => 'perfil#home'
+    root :to => 'perfil#home'
+  end
   #end
 
+  #if Rails.env.production?
+     get '404', :to => 'application#page_not_found'
+  #end
 
   #root to: 'welcome#index'
   get 'blog', to: 'perfil#blog', as: :public_blog

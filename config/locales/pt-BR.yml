@@ -1,5 +1,9 @@
 
 pt-BR:
+  exception_handler:
+    not_found:              "Your message here" # -> 404 page
+    unauthorized:           "You need to login to continue"
+    internal_server_error:  "This is a test to show the %{status} of the error"  
   helpers:
     actions: "Ações"
     links:

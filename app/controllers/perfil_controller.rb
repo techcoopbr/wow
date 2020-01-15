@@ -34,25 +34,25 @@ class PerfilController < ApplicationController
 
   def post
     begin
-    @creator = Creator.find_by(slug: params[:creator])
-    @blog    = Blog.find_by(slug: params[:slug], admin_published: true, creator_published: true)
+      @creator = Creator.find_by(slug: params[:creator])
+      @blog    = Blog.find_by(slug: params[:slug], admin_published: true, creator_published: true)
 
-    if @blog.nil? && @creator != nil
-      begin
-        @blog  = Blog.find(slug: params[:slug], creator_id: current_user.creator.id)
-      rescue
-        redirect_to panel_path
-      end
-    else
-      if @blog.views.nil?
-        @blog.views = 1
+      if @blog.nil? && @creator != nil
+        begin
+          @blog  = Blog.find(slug: params[:slug], creator_id: current_user.creator.id)
+        rescue
+          redirect_to panel_path
+        end
       else
-        @blog.views = @blog.views + 1
+        if @blog.views.nil?
+          @blog.views = 1
+        else
+          @blog.views = @blog.views + 1
+        end
+        @blog.save!
       end
-      @blog.save!
+    rescue
+      redirect_to panel_path
     end
-  rescue
-    redirect_to panel_path
-  end
   end
 end
