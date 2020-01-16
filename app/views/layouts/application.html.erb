@@ -40,7 +40,7 @@
           <div class="sidebar-header">
             <div class="user-pic">
               <% if current_user.photo.size >= 1 %>
-                <img class="img-responsive img-rounded" src="<%= current_user.photo.thumb %>" alt="User picture">
+                <img class="img-responsive img-rounded object-fit-cover" src="<%= current_user.photo.thumb %>" alt="User picture">
               <% else %>
                 <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
                 alt="User picture">

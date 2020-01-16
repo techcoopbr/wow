@@ -38,9 +38,9 @@
               <a href="<%= creator.slug %>" target="_blank">
               <div class="col col-lg-12 align-self-center box">
                   <% unless creator.photo_box.size >= 1  %>
-                    <img class="embed-responsive" src="<%= creator.photo.thumb %>" alt="<%= creator.slug %>" />
+                    <img class="embed-responsive object-fit-cover" src="<%= creator.photo.thumb %>" alt="<%= creator.slug %>" />
                   <% else %>
-                    <img class="embed-responsive" src="<%= creator.photo_box.perfil %>" alt="<%= creator.slug %>" />
+                    <img class="embed-responsive object-fit-cover" src="<%= creator.photo_box.perfil %>" alt="<%= creator.slug %>" />
                   <% end %>
 
               </div>
@@ -56,7 +56,7 @@
           <% @blogs.each do |blog| %>
             <li>
               <a href="post/<%= blog.slug %>"><div class="col col-lg-12 box">
-                <img src="<%= blog.cover.thumb %>" width="460" height="272" alt="">
+                <img src="<%= blog.cover.thumb %>" class="embed-responsive object-fit-cover" width="460" height="272" alt="">
               </div>
               <h6><%= blog.title %></h6></a>
             </li>
