@@ -2,115 +2,131 @@
 <section class="blog-content container">
   <div class="mt-40">
     <nav class="nav-menu-blog nav-bar">
-      <div class="name"><a href="/<% if !@creator.nil? %><%= @creator.slug %><% end %>"><i class="fas fa-user"></i><% if !@creator.nil? %><%= @creator.page_name %><% end %></a></div>
+      <div class="name"><a href="/<% if !@creator.nil? %><%= @creator.slug %><% end %>"><i class="fas fa-user"></i><% if !@creator.nil? %> <%= @creator.page_name %><% end %></a></div>
       <ul class="nav justify-content-end">
         <li><a href="<% if !@creator.nil? %>/<%= @creator.slug %>/blog<% else %>/blog<% end %>">BLOG</a></li>
       </ul>
     </nav>
   </div>
-<div class="container">
-<section id="blog" class="blog">
-  <h2 class="title-blog">blog</h2>
-  <% contador = 0 %>
-  <% @blogs.each do |blog| %>
-    <% if contador == 0 %>
-      <div class="row">
-    <% end %>
 
-    <% contador = contador + 1 %>
-    <div class="col-sm-6 mb-30">
-      <div class="mdl-shadow--2dp pa-0 item-blog">
-        <div class="mdl-card__title pa-0 box-image">
-          <% if blog.cover != nil %>
-            <% if blog.cover.size > 0 %>
-              <div class="blog-img">
-                <% if @creator.nil? %>
-                  <a href="<%= public_post_path(blog.slug) %>">
-                <% else %>
-                  <a href="<%= public_creator_post_path(@creator.slug, blog.slug) %>">
-                <% end %>
-                <img src="<%= blog.cover.thumb %>" width="460" height="272" alt="">
-                </a>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-texts">
-          <!-- <span class="blog-cat">photography</span> -->
-          <% if @creator.nil? %>
-            <a href="<%= public_post_path(blog.slug) %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
-          <% else %>
-            <a href="<%= public_creator_post_path(@creator.slug, blog.slug) %>"><h4 class="mt-15 mb-20"><%= blog.title %></h4></a>
-          <% end %>
-          <p><%= blog.short_description  %></p>
-          <a href="<%= public_post_path(blog.slug) %>" class="button-ico-blog mdl-shadow--4dp">
-            <i class="fas fa-wifi"></i>
-          </a>
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-          <span class="blog-post-date inline-block"><%= blog.created_at.strftime("%d/%m/%Y") %></span>
-          <ul class="share-blog-item">
-            <li><i class="fas fa-share-alt"></i> Compartilhar </li>
-            <li>
-              <a class="facebook-link" href="">
-                <i id="tt1" class="zmdi zmdi-facebook"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt1">
-                  facebook
-                </div>
-              </a>
-            </li>
-            <li>
-              <a class="twitter-link" href="">
-                <i id="tt2" class="zmdi zmdi-twitter"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt2">
-                  twitter
-                </div>
-              </a>
-            </li>
-            <li>
-              <a class="twitch-link" href="">
-                <i id="tt4" class="zmdi zmdi-twitch"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt4">
-                  Twitch
-                </div>
-              </a>
-            </li>
-            <li>
-              <a class="instagram-link" href="">
-                <i id="tt5" class="zmdi zmdi-instagram"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt5">
-                  instagram
-                </div>
-              </a>
-            </li>
-            <li>
-              <a class="linkedin-link" href="">
-                <i id="tt6" class="zmdi zmdi-linkedin"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt6">
-                  linkedin
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+      <div class="my-8 card">
+      <h1 class="card-header">Postagens
+        <small>notícias / blog / Artigos</small>
+      </h1>
       </div>
+
+
+      <% @blogs.each do |blog| %>
+
+      <!-- Blog Post -->
+        <div class="card mb-4">
+          <div class="img-blog-b1">
+            <% if @creator.nil? %>
+              <a href="<%= public_post_path(blog.slug) %>">
+            <% else %>
+              <a href="<%= public_creator_post_path(@creator.slug, blog.slug) %>">
+            <% end %>
+          <img class="card-img-top object-fit-cover" src="<%= blog.cover.thumb %>" alt="Card image cap"></a>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title"><%= blog.title %></h2>
+            <p class="card-text"><%= blog.short_description  %></p>
+
+            <% if @creator.nil? %>
+              <a href="<%= public_post_path(blog.slug) %>" class="btn btn-primary">Continue lendo</a>
+            <% else %>
+              <a href="<%= public_creator_post_path(@creator.slug, blog.slug) %>" class="btn btn-primary">Continue lendo</a>
+            <% end %>
+          </div>
+          <div class="card-footer text-muted">
+            Postado em <%= blog.created_at.strftime("%d/%m/%Y") %>
+            <a href="/<%= blog.creator.slug %>">Por: <%= blog.creator.page_name %></a> |
+            <small><%= blog.all_tags %></small>
+          </div>
+
+        </div>
+      <% end %>
+
+
+
+      <!-- Pagination -->
+      <ul class="pagination justify-content-center mb-4">
+        <li class="page-item">
+          <a class="page-link" href="#">&larr; Voltar</a>
+        </li>
+        <li class="page-item disabled">
+          <a class="page-link" href="#">Avançar &rarr;</a>
+        </li>
+      </ul>
+
     </div>
 
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
 
-    <% if contador == 2 %>
-      <% contador = 0 %>
+      <!-- Search Widget -->
+      <div class="card my-4">
+        <h5 class="card-header">Procurar Postagem</h5>
+        <div class="card-body">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Me diga o que procurar.">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button">Pokébola, vai!</button>
+            </span>
+          </div>
+        </div>
       </div>
-    <% end %>
-  <% end %>
-<!--  <div class="text-center pgnavigation">
-  <div class="navigation-block pv-20">
-    <a href="#" class="inline-block pull-left prev"><i class="zmdi zmdi-arrow-left font-blue"></i></a>
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#" class="inline-block pull-right next"><i class="zmdi zmdi-arrow-right font-blue"></i></a>
-    <div class="clearfix"></div>
+
+      <!-- Categories Widget -->
+      <div class="card my-4">
+        <h5 class="card-header">Categorias</h5>
+        <div class="card-body">
+        <!--  <div class="row">
+            <div class="col-lg-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#">Web Design</a>
+                </li>
+                <li>
+                  <a href="#">HTML</a>
+                </li>
+                <li>
+                  <a href="#">Freebies</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#">JavaScript</a>
+                </li>
+                <li>
+                  <a href="#">CSS</a>
+                </li>
+                <li>
+                  <a href="#">Tutorials</a>
+                </li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Side Widget -->
+      <div class="card my-4">
+        <h5 class="card-header">Mais vistas hoje</h5>
+        <div class="card-body">
+        <!--  You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers! -->
+        </div>
+      </div>
+
+    </div>
+
   </div>
-  </div> -->
-</section>
-</div>
+  </<section>
+  <!-- /.row -->

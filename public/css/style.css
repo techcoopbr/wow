@@ -549,3 +549,14 @@ header .menu-top li a{
   position: relative;
   margin-top: 30px;
 }
+
+.img-blog-b1 {
+  width: 728px; /*any size*/
+  height: 300px; /*any size*/
+}
+
+.object-fit-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*magic*/
+}
