@@ -1,41 +1,37 @@
-<br>
-<%- model_class = Blog -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-  <%= link_to t('.new', :default => t("NOVO ARTIGO")),
-              new_blog_path, :class => 'btn btn-success btn-xs' %>
-</div>
+<div class="card-header">POSTAGENS  <%= link_to t('.new', :default => t("NOVO POST")), new_blog_path, :class => 'btn btn-success btn-xs' %></div>
+
+<div class="card-body">
 <table class="table table-striped">
   <thead>
     <tr>
-      <th class="col-md-1">ID</th>
-      <th class="col-md-5">Title</th>
-      <th class="col-md-2">Data</th>
-      <th class="col-md-1">Publicado</th>
-      <th class="col-md-1">Views</th>
-      <th class="col-md-2"><%=t '.actions', :default => t("helpers.actions") %></th>
+
+      <th class="col-md-6">Título</th>
+      <th class="col-md-2 text-center">Data</th>
+      <th class="col-md-1 text-center">Publicado</th>
+      <th class="col-md-1 text-center">Views</th>
+      <th class="col-md-2 text-center"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><%= link_to blog.id, blog_path(blog) %></td>
         <td><%= blog.title %></td>
-        <td><%=l blog.created_at %></td>
-        <td><%= blog.creator_published %></td>
-        <td><%= blog.views %></td>
+        <td class="text-center"><%=l blog.created_at %></td>
+        <td class="text-center"><% if blog.creator_published %>SIM<% else %>NÃO<% end %></td>
+        <td class="text-center"><%= blog.impressions_count %></td>
         <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      blog_path(blog), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_blog_path(blog), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%= link_to t('.show', :default => t("VER")),
+                      blog_path(blog), :class => 'btn btn-success' %>
+          <%= link_to t('.edit', :default => t("ALTERAR")),
+                      edit_blog_path(blog), :class => 'btn btn-info' %>
+          <%= link_to t('.destroy', :default => t("APAGAR")),
                       blog_path(blog),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'você tem certeza?')) },
+                      :class => 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>

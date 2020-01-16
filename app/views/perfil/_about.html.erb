@@ -8,6 +8,7 @@
         <br>
         <div class="text-center">
           <ul class="social-icons">
+            <% if @creator.facebook.size >= 1 %>
             <li>
               <a class="facebook-link" href="<%= @creator.facebook %>">
                 <i id="tt1" class="zmdi zmdi-facebook"></i>
@@ -16,6 +17,8 @@
                 </div>
               </a>
             </li>
+            <% end %>
+            <% if @creator.twitter.size >= 1 %>
             <li>
               <a class="twitter-link" href="<%= @creator.twitter %>">
                 <i id="tt2" class="zmdi zmdi-twitter"></i>
@@ -24,6 +27,8 @@
                 </div>
               </a>
             </li>
+            <% end %>
+            <% if @creator.youtube.size >= 1 %>
             <li>
               <a class="youtube-link" href="<%= @creator.youtube %>">
                 <i id="tt3" class="zmdi zmdi-youtube"></i>
@@ -32,6 +37,8 @@
                 </div>
               </a>
             </li>
+            <% end %>
+            <% if @creator.twitch.size >= 1 %>
             <li>
               <a class="twitch-link" href="<%= @creator.twitch %>">
                 <i id="tt4" class="zmdi zmdi-twitch"></i>
@@ -40,6 +47,8 @@
                 </div>
               </a>
             </li>
+            <% end %>
+            <% if @creator.instagram.size >= 1 %>
             <li>
               <a class="instagram-link" href="<%= @creator.instagram %>">
                 <i id="tt5" class="zmdi zmdi-instagram"></i>
@@ -48,6 +57,8 @@
                 </div>
               </a>
             </li>
+            <% end %>
+            <% if @creator.linkdin.size >= 1 %>
             <li>
               <a class="linkedin-link" href="<%= @creator.linkdin %>">
                 <i id="tt6" class="zmdi zmdi-linkedin"></i>
@@ -56,6 +67,7 @@
                 </div>
               </a>
             </li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -77,32 +89,38 @@
           </div>
         </div>
         <ul class="profile-wrap mt-10">
+          <% if @creator.page_create != nil %>
           <li>
             <div class="profile-title">Tempo de Gerador</div>
-            <% if @creator.page_create != nil %>
               <div class="profile-desc">
                 <%= distance_of_time_in_words(@creator.page_create.to_time, Time.now) %>
               </div>
-            <% end %>
           </li>
+          <% end %>
+          <% if @creator.contact_address.size >= 1 %>
           <li>
             <div class="profile-title">Endereço</div>
             <div class="profile-desc">
               <%= @creator.contact_address %>
             </div>
           </li>
+          <% end %>
+          <% if @creator.contact_email.size >= 1 %>
           <li>
             <div class="profile-title">email</div>
             <div class="profile-desc">
               <%= @creator.contact_email %>
             </div>
           </li>
-          <li>
-            <div class="profile-title">Fone</div>
-            <div class="profile-desc">
-              <%= @creator.contact_phone %>
-            </div>
-          </li>
+          <% end %>
+          <% if @creator.contact_phone.size >= 1 %>
+            <li>
+              <div class="profile-title">Fone</div>
+              <div class="profile-desc">
+                <%= @creator.contact_phone %>
+              </div>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

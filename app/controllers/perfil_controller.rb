@@ -1,6 +1,7 @@
 class PerfilController < ApplicationController
   skip_before_filter :authenticate_user!
   layout "perfil"
+  impressionist actions: [:post, :blog, :index]
 
   has_scope :search
 
@@ -9,6 +10,7 @@ class PerfilController < ApplicationController
     if @creator.nil?
       redirect_to root_path
     end
+    impressionist @creator
   end
 
   def result
@@ -28,12 +30,13 @@ class PerfilController < ApplicationController
     if @creator.nil?
       @blogs = Blog.where(admin_published: true, creator_published: true).order(created_at: :desc)
     else
+      impressionist @creator
       @blogs = Blog.where(creator_id: @creator.id, admin_published: true, creator_published: true).order(created_at: :desc)
     end
   end
 
   def post
-    begin
+  #  begin
       @creator = Creator.find_by(slug: params[:creator])
       @blog    = Blog.find_by(slug: params[:slug], admin_published: true, creator_published: true)
 
@@ -51,8 +54,9 @@ class PerfilController < ApplicationController
         end
         @blog.save!
       end
-    rescue
-      redirect_to panel_path
-    end
+      impressionist @blog
+  #  rescue
+  #    redirect_to panel_path
+  #  end
   end
 end

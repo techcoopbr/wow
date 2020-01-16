@@ -3,7 +3,7 @@ pt-BR:
   exception_handler:
     not_found:              "Your message here" # -> 404 page
     unauthorized:           "You need to login to continue"
-    internal_server_error:  "This is a test to show the %{status} of the error"  
+    internal_server_error:  "This is a test to show the %{status} of the error"
   helpers:
     actions: "Ações"
     links:
@@ -328,8 +328,8 @@ pt-BR:
         podcast: PodCast
         page_name: Nome da sua page/marca
         page_create: Data de Criação
-        meta_title: Título do Perfil
-        meta_description: Descrição
+        meta_title: Título no Navegador e Metadados
+        meta_description: Descrição metadados
         meta_photo: Foto Metadados
         script_google: Script Google Analytics
       email_type:

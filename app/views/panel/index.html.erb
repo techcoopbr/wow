@@ -1,22 +1,62 @@
-<div class="col-md-12">
-<br>
-Olá <strong><%= current_user.name %></strong><br>
-
-Ainda estamos construindo este portal.
-
-</div>
-<% if @creator == nil %>
-<div class="col-md-12">
-  <%= link_to "Solicite login de gerador aqui", new_creator_path %>
-</div>
-<% end %>
-<% if current_user.creator? || current_user.admin? %>
-  <div class="col-md-12">
-  Você pode editar seus dados <%= link_to "aqui", edit_creator_path(current_user.creator) %><% if current_user.creator? %>, inclusive seus dados de gerador de conteúdo<% end %>
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <a href="/<%= @creator.slug %>" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-globe fa-sm text-white-50"></i> Ver Perfil</a>
   </div>
+<div class="row">
+<div class="col-xl-3 col-md-6 mb-4">
+  <div class="card border-left-success shadow h-100 py-2">
+    <div class="card-body">
+      <div class="row no-gutters align-items-center">
+        <div class="col mr-2">
+          <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> <%= current_user.name %></div>
+          <div class="text-xs mb-0 font-weight-bold text-gray-800">IP atual: <strong><%= current_user.current_sign_in_ip %></strong></div>
+          <div class="text-xs mb-0 font-weight-bold text-gray-800">último IP: <strong><%= current_user.last_sign_in_ip %></strong><br></div>
+        </div>
+        <div class="col-auto">
+          <i class="fas fa-user fa-2x text-gray-300"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% if current_user.creator != nil %>
+<div class="col-xl-3 col-md-6 mb-4">
+  <div class="card border-left-info shadow h-100 py-2">
+    <div class="card-body">
+      <div class="row no-gutters align-items-center">
+        <div class="col mr-2">
+          <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">BLOG</div>
+          <div class="text-xs mb-0 font-weight-bold text-gray-800">Posts: <%= Blog.where(creator_id: current_user.creator.id).count %></div>
+          <div class="text-xs mb-0 font-weight-bold text-gray-800">Acessos: <%= Blog.where(creator_id: current_user.creator.id).sum(:impressions_count) %></div>
+        </div>
+        <div class="col-auto">
+          <i class="fas fa-book fa-2x text-gray-300"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-xl-3 col-md-6 mb-4">
+  <div class="card border-left-warning shadow h-100 py-2">
+    <div class="card-body">
+      <div class="row no-gutters align-items-center">
+        <div class="col mr-2">
+          <div class="text-xs font-weight-bold text-info text-uppercase mb-1">VISITAS</div>
+          <div class="h5 mb-0 font-weight-bold text-gray-800">Acessos: <%= Creator.where(id: current_user.creator.id).sum(:impressions_count) %></div>
+        </div>
+        <div class="col-auto">
+          <i class="fas fa-child fa-2x text-gray-300"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 <% end %>
-<br>
-<div class="col-md-12">
-Seu IP atual: <strong><%= current_user.current_sign_in_ip %></strong><br>
-Seu último IP: <strong><%= current_user.last_sign_in_ip %></strong><br>
-<div class="col-md-12">
+
+
+
+</div>

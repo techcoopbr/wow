@@ -16,7 +16,11 @@ class ApplicationController < ActionController::Base
 
   unless Rails.application.config.consider_all_requests_local
     rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, ActiveRecord::RecordNotFound, with: lambda { |exception| render_error 404, exception }
-  end  
+  end
+
+  def after_sign_in_path_for(resource)
+    panel_index_path
+  end
 
   private
 

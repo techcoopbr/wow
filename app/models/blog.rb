@@ -7,6 +7,7 @@ class Blog < ApplicationRecord
   friendly_id :title, use: :slugged
   mount_uploader :cover, BlogUploader
   validates :tags, :title, :short_description, :body, :cover, presence: true
+  is_impressionable counter_cache: true
 
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
@@ -20,7 +21,7 @@ class Blog < ApplicationRecord
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).posts
-  end  
+  end
 
   def should_generate_new_friendly_id?
     slug.blank? || title_changed?

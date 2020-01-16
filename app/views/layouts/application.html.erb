@@ -16,10 +16,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut ico', :type => 'image/ico' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= javascript_include_tag Ckeditor.cdn_url %>
 
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -50,14 +51,14 @@
 
               </span>
               <span class="user-role"><% if current_user.creator != nil %>Gerador<% else %>Usuário<% end %></span>
-              <span class="user-status">
+          <!--    <span class="user-status">
                 <i class="fa fa-circle"></i>
                 <span>Online</span>
-              </span>
+              </span> -->
             </div>
           </div>
           <!-- sidebar-header  -->
-          <div class="sidebar-search">
+      <!--    <div class="sidebar-search">
             <div>
               <div class="input-group">
                 <input type="text" class="form-control search-menu" placeholder="Procurar...">
@@ -68,7 +69,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
           <!-- sidebar-search  -->
           <div class="sidebar-menu">
             <ul>
@@ -166,38 +167,39 @@
                   </ul>
                 </div>
               </li> -->
-              <li class="sidebar-dropdown">
-                <a href="#">
-                  <i class="fa fa-rss"></i>
-                  <span>Blog</span>
-                  <span class="badge badge-pill badge-primary">Beta</span>
-                </a>
-                <div class="sidebar-submenu">
-                  <ul>
-                    <li>
-                      <a href="<%= new_blog_path %>">Novo Post</a>
-                    </li>
-                    <li>
-                      <a href="<%= blogs_path %>">Postagens</a>
-                    </li>
-                    <li>
-                      <a href="#">Comentários</a>
-                    </li>
-                    <li>
-                      <a href="#">Configurações</a>
-                    </li>
-                  </ul>
-                </div>
-              </li> -->
+
               <% if current_user.creator? || current_user.admin? %>
                 <li class="header-menu">
-                  <span>Meus Dados</span>
+                  <span>Gerador de Conteúdo</span>
                 </li>
                 <li>
                   <a href="<%= edit_creator_path(current_user.creator) %>">
-                    <i class="fa fa-book"></i>
-                    <span>Perfil Gerador</span>
+                    <i class="fa fa-user"></i>
+                    <span>Meu Perfil</span>
                   </a>
+                </li>
+                <li class="sidebar-dropdown">
+                  <a href="#">
+                    <i class="fa fa-rss"></i>
+                    <span>Blog</span>
+                    <span class="badge badge-pill badge-primary">Beta</span>
+                  </a>
+                  <div class="sidebar-submenu">
+                    <ul>
+                      <li>
+                        <a href="<%= new_blog_path %>">Novo Post</a>
+                      </li>
+                      <li>
+                        <a href="<%= blogs_path %>">Postagens</a>
+                      </li>
+                      <li>
+                        <a href="#">Comentários</a>
+                      </li>
+                      <li>
+                        <a href="#">Configurações</a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
               <% end %>
 
@@ -222,7 +224,7 @@
               <% end %>
 
 
-              <% if current_user.creator? %>
+              <% if current_user.creator == nil %>
               <li class="header-menu">
                 <span>Serviços</span>
               </li>
@@ -295,5 +297,6 @@
       $("#wrapper").toggleClass("toggled");
   });
   </script>
-<script src="/js/menu.js"></script>
+  <script src="/js/menu.js"></script>
+<script src="/js/sb-admin-2.js"></script>
 </html>

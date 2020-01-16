@@ -13,6 +13,7 @@ class Creator < ApplicationRecord
   mount_uploader :contact_file, FileUploader
   mount_uploader :meta_photo, PhotoUploader
 
+  is_impressionable counter_cache: true
   validates :photo, :page_name, :about, presence: true
 
   def self.game_with(name)
@@ -35,7 +36,7 @@ class Creator < ApplicationRecord
 
   def all_tags
     self.tags.map(&:name).join(", ")
-  end  
+  end
 
   def game_list=(names)
     self.games = names.split(',').map do |n|

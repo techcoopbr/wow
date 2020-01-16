@@ -1,8 +1,7 @@
-<br>
 <%= simple_form_for(@blog) do |f| %>
-<h4 class="text-center">Criar Artigo/Blog</h4>
+<div class="card-header">Postagem</div>
+<div class="card-body">
 <p class="text-center">todos os campos são obrigatórios</p>
-<div class="container">
 <%= f.error_notification %>
 <div class="form-inputs">
   <div class="row">
@@ -44,5 +43,5 @@
     <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
   </div>
-<% end %>
 </div>
+<% end %>
