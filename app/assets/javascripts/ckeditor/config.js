@@ -44,10 +44,14 @@
          });
      });
 
+
     CKEDITOR.editorConfig = function( config )
     {
         // Define changes to default configuration here. For example:
-        // config.language = 'fr';
+        config.language = 'pt-BR';
+        //config.extraPlugins = 'autogrow';
+        config.enterMode = CKEDITOR.ENTER_BR;
+        config.autoGrow_onStartup = true;
         // config.uiColor = '#AADC6E';
         config.filebrowserUploadMethod = 'form';
 
