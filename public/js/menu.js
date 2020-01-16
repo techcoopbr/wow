@@ -1,3 +1,4 @@
+
 jQuery(function ($) {
 
     $(".sidebar-dropdown > a").click(function() {
@@ -29,7 +30,9 @@ $("#show-sidebar").click(function() {
   $(".page-wrapper").addClass("toggled");
 });
 
-
+$( document ).ready(function() {
+    $('.page-wrapper').removeClass('toggled');
+});
 
 
 });
