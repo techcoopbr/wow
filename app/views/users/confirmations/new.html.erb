@@ -1,4 +1,14 @@
-<h2>Resend confirmation instructions</h2>
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4 well">
+  </div>
+  <div class="col-lg-4 col-lg-offset-4 well" style="margin-top:120px;">
+    <div class="text-center">
+      <img class="img-fluid" alt="Responsive image" src="/logo.png">
+    </div>
+    <br>
+    <div class="text-center">
+      <h4>Confirmação de Email</h4>
+    </div>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -9,8 +19,10 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Resend a confirmation instructions" %>
+    <%= f.button :submit, "Renviar confirmação de email", class: 'btn btn-success btn-block' %>
   </div>
 <% end %>
-
+    <div class="remmember text-center">
 <%= render "users/shared/links" %>
+</div>
+</div></div>
