@@ -7,7 +7,7 @@
              elements : {
                  img: function( el ) {
                      // Add bootstrap "img-responsive" class to each inserted image
-                     el.addClass('img-responsive rounded mx-auto d-block');
+                     el.addClass('img-responsive object-fit-cover');
 
                      // Remove inline "height" and "width" styles and
                      // replace them with their attribute counterparts.

@@ -14,7 +14,7 @@ class Creator < ApplicationRecord
   mount_uploader :meta_photo, PhotoUploader
 
   is_impressionable counter_cache: true
-  validates :photo, :page_name, :about, presence: true
+  validates :page_name, :about, presence: true
 
   def self.game_with(name)
     Game.find_by!(name: name).creators
