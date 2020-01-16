@@ -4,7 +4,7 @@
       <%= render 'about' %>
       <nav class="nav-menu nav-bar text-center">
         <ul class="nav">
-          <li><a href="<%= @creator.slug %>">Sobre</a></li>
+          <li><a data-target="#bio" data-toggle="tab" href="#bio">Sobre</a></li>
           <li><a href="<%= @creator.slug %>/blog">Blog</a></li>
           <li><a class="active in" data-target="#stream" data-toggle="tab" href="#stream">Stream</a></li>
           <li><a data-target="#facebook" data-toggle="tab" href="#facebook">Facebook</a></li>
@@ -14,8 +14,16 @@
           <li><a data-target="#contact" data-toggle="tab" href="#contact">Contato</a></li>
         </ul>
       </nav>
+
      <div id="tabsContent" class="tab-content box-content mdl-shadow--2dp">
-       <div id="stream" class="tab-pane fade active show in">
+       <div id="bio" class="tab-pane fade active show in">
+        <% if @creator.about != nil %>
+          <% if @creator.about.size >= 10 %>
+            <%= render 'bio' %>
+          <% end %>
+        <% end %>
+      </div>
+       <div id="stream" class="tab-pane fade">
         <% if @creator.stream_embed != nil %>
           <% if @creator.stream_embed.size >= 10 %>
             <%= render 'stream' %>
