@@ -35,6 +35,23 @@
             </div>
           </div>
 
+          <hr>
+
+          <h3>Comentários</h3> 
+
+          <%= simple_form_for(@comment) do |f| %>
+
+            <%= f.input :text, placeholder: "Escreva um novo comentário" %>
+
+            <%= f.button :submit, class: 'btn btn-primary' %>
+
+          <% end %>
+
+          <%= @comments.each do |comment| %>
+            <hr>
+            <p>comment.text</p>
+          <% end %> 
+
     </div>
   </div>
 <br class="clearfix">

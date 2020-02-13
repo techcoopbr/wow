@@ -39,6 +39,8 @@ class PerfilController < ApplicationController
   #  begin
       @creator = Creator.find_by(slug: params[:creator])
       @blog    = Blog.find_by(slug: params[:slug], admin_published: true, creator_published: true)
+      @comments = Comment.where(blog_id: @blog.id)
+      @newcomment = Comment.new
 
       if @blog.nil? && @creator != nil
         begin
