@@ -1,0 +1,5 @@
+<p>
+	<strong><%= comment.user.name %>: </strong>
+	<%= comment.commentary %>
+	<%= link_to 'Apagar', [comment.blog, comment], method: :delete, data: { confirm: "Você tem certeza?" } %>
+</p>

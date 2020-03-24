@@ -1,6 +1,7 @@
 class Blog < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
+  has_many :comments
   belongs_to :creator
 
   extend FriendlyId

@@ -41,3 +41,13 @@
 <div class="clearfix"></div>
 
 </section>
+
+
+<section class="comments container">
+  <h2><strong><%= @blog.comments.count %></strong> comentários</h2>
+  <%= render @blog.comments %>
+  <div class="comment-form">
+    <h3>Deixe seu comentário</h3>
+    <%= render 'comments/form' %>
+  </div>
+</section>
