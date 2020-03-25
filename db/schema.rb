@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200316214133) do
+ActiveRecord::Schema.define(version: 20200325123828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20200316214133) do
     t.string   "cover"
     t.integer  "views"
     t.integer  "impressions_count"
+    t.boolean  "can_comment"
     t.index ["creator_id"], name: "index_blogs_on_creator_id", using: :btree
     t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
   end

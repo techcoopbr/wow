@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.blog = @blog
 
+    authorize @comment
+
     @comment.save
 
     redirect_to public_post_path(@blog)
