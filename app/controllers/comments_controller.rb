@@ -16,6 +16,9 @@ class CommentsController < ApplicationController
     @blog = Blog.find_by!(slug: params[:blog_id])
     
     @comment = @blog.comments.find(params[:id])
+
+    authorize @comment
+
     @comment.destroy
 
     redirect_to public_post_path(@blog)
