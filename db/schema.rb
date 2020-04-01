@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200325134638) do
+ActiveRecord::Schema.define(version: 20200401130222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20200325134638) do
     t.text     "body"
     t.integer  "creator_id"
     t.string   "tags"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.boolean  "creator_published"
     t.boolean  "admin_published"
     t.string   "short_description"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20200325134638) do
     t.integer  "views"
     t.integer  "impressions_count"
     t.boolean  "can_comment"
+    t.boolean  "can_anonymous_comment"
     t.index ["creator_id"], name: "index_blogs_on_creator_id", using: :btree
     t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
   end

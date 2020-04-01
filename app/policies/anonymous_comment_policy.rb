@@ -1,14 +1,19 @@
 class AnonymousCommentPolicy < ApplicationPolicy
-  attr_reader :user, :comment
+  attr_reader :user, :anonymous_comment
 
-  def initialize(user, comment)
+  def initialize(user, anonymous_comment)
     @user = user
-    @comment = comment
+    @anonymous_comment = anonymous_comment
   end
+
+  def create?
+    anonymous_comment.blog.can_anonymous_comment
+  end
+
 
   def destroy?
     if user
-      user.admin? || user.creator == comment.blog.creator
+      return user.admin? || user == anonymous_comment.blog.creator.user
     end
 
     false

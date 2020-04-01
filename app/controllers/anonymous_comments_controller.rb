@@ -7,6 +7,8 @@ class AnonymousCommentsController < ApplicationController
     @anonymous_comment = AnonymousComment.new(anonymous_comment_params)
     @anonymous_comment.blog = @blog
 
+    authorize @anonymous_comment
+
     @anonymous_comment.save
 
     redirect_to public_post_path(@blog)
