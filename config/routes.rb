@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :meta
   require 'domain_constraint'
   mount Ckeditor::Engine => '/ckeditor'
-  resources :blogs do#, only: [:new, :edit]
+  resources :blogs do #, only: [:new, :edit]
     resources :comments
+    resources :anonymous_comments
   end
 
   resources :creators #do

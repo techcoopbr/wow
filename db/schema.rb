@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200325123828) do
+ActiveRecord::Schema.define(version: 20200325134638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "anonymous_comments", force: :cascade do |t|
+    t.text     "commentary"
+    t.integer  "blog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_anonymous_comments_on_blog_id", using: :btree
+  end
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -233,6 +241,7 @@ ActiveRecord::Schema.define(version: 20200325123828) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "anonymous_comments", "blogs"
   add_foreign_key "blogs", "creators"
   add_foreign_key "comments", "blogs"
   add_foreign_key "comments", "users"

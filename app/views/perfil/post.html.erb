@@ -42,12 +42,32 @@
 
 </section>
 
-
 <section class="comments container">
-  <h2><strong><%= @blog.comments.count %></strong> comentários</h2>
-  <%= render @blog.comments %>
-  <div class="comment-form">
-    <h3>Deixe seu comentário</h3>
-    <%= render 'comments/form' %>
+
+  <div class="col col-12">
+
+    <div id="post" class="col col-12">
+      <h2><strong><%= @blog.comments.count + @blog.anonymous_comments.count %></strong> comentários</h2>
+      <%= render @blog.comments %>
+      <%= render @blog.anonymous_comments %>
+
+      <hr>
+
+      <% if user_signed_in? %>
+      
+      <div class="comment-form">
+        <%= render 'comments/form' %>
+      </div>
+
+      <% else %>
+
+      <div class="anonymous_comment-form">
+        <%= render 'anonymous_comments/form' %>
+      </div>
+      <% end %>
+    
+    </div>
+
   </div>
+
 </section>

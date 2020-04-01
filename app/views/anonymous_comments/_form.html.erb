@@ -1,4 +1,4 @@
-<%= simple_form_for([@blog, @blog.comments.build]) do |f| %>
+<%= simple_form_for([@blog, @blog.anonymous_comments.build]) do |f| %>
   <%= f.text_area :commentary, placeholder: "Deixe seu comentário!", class: "col-12" %>
   <%= f.button :submit, class: "btn btn-primary mx-auto" %>
 <% end %>
