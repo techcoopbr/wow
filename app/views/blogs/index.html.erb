@@ -5,10 +5,11 @@
   <thead>
     <tr>
 
-      <th class="col-md-6">Título</th>
+      <th class="col-md-5">Título</th>
       <th class="col-md-2 text-center">Data</th>
       <th class="col-md-1 text-center">Publicado</th>
       <th class="col-md-1 text-center">Views</th>
+      <th class="col-md-1 text-center">Comentários</th>
       <th class="col-md-2 text-center"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
         <td class="text-center"><%=l blog.created_at %></td>
         <td class="text-center"><% if blog.creator_published %>SIM<% else %>NÃO<% end %></td>
         <td class="text-center"><%= blog.impressions_count %></td>
+        <td class="text-center"><%= blog.comments.count + blog.anonymous_comments.count %></td>
         <td>
           <%= link_to t('.show', :default => t("VER")),
                       blog_path(blog), :class => 'btn btn-success' %>
