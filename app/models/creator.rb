@@ -5,6 +5,7 @@ class Creator < ApplicationRecord
   has_many :games, through: :game_creators
   has_many :creator_tags
   has_many :tags, through: :creator_tags
+  has_many :blogs
 
   mount_uploader :photo, PhotoUploader
   mount_uploader :photo_box, PhotoBoxUploader

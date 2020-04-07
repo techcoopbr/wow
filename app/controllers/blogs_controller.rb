@@ -39,9 +39,14 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
-    if current_user.creator?
-      @blog.creator_id = current_user.creator.id
-    end
+    
+    # if removido pois se o usuario nao é criador entao nao poderia estar criando um post
+    # adicionar essa verificacao nas policies
+    # esse bloco if nao esta permitindo passar o id do creator
+    # if current_user.creator?
+    @blog.creator_id = current_user.creator.id
+    # end
+    
     @blog.admin_published = true
 
     respond_to do |format|
