@@ -36,22 +36,6 @@
           </div>
 
           <hr>
-
-          <h3>Comentários</h3> 
-
-          <%= simple_form_for(@comment) do |f| %>
-
-            <%= f.input :text, placeholder: "Escreva um novo comentário" %>
-
-            <%= f.button :submit, class: 'btn btn-primary' %>
-
-          <% end %>
-
-          <%= @comments.each do |comment| %>
-            <hr>
-            <p>comment.text</p>
-          <% end %> 
-
     </div>
   </div>
 <br class="clearfix">
@@ -62,16 +46,17 @@
 <section class="comments container">
 
   <div class="col col-12">
-
     <div id="post" class="col col-12">
-      <h2><strong><%= @blog.comments.count + @blog.anonymous_comments.count %></strong> comentários</h2>
+      <br />
+      <br />
+      <h3><strong><%= @blog.comments.count + @blog.anonymous_comments.count %></strong> comentário<% if @blog.comments.count > 1 %>s<% end %></h3>
       <%= render @blog.comments %>
       <%= render @blog.anonymous_comments %>
 
       <hr>
 
       <% if user_signed_in? %>
-      
+
       <div class="comment-form">
         <%= render 'comments/form' %>
       </div>
@@ -82,7 +67,7 @@
         <%= render 'anonymous_comments/form' %>
       </div>
       <% end %>
-    
+
     </div>
 
   </div>

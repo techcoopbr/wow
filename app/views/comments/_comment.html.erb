@@ -2,12 +2,12 @@
   <div class="row no-gutters">
     <div class="col-md-1">
       <!-- Colocar a imagem de perfil do usuario no lugar de 'user_anonymous.jpg' -->
-      <%= image_tag("/img/user_anonymous.jpg", class: "card-img", style: "height: 100px; width: 100px;") %>
+      <%= image_tag(comment.user.photo.thumb, style: "height: 50px; width: 50px;") %>
     </div>
     <div class="col-md-11">
       <div class="card-body">
         <div class="col-sm-11">
-          <h5 class="card-title"><%= comment.user.name %>:</h5>
+          <h5 class="card-title">Autor: <%= comment.user.name %>:</h5>
           <p class="card-text"><%= comment.commentary %></p>
         </div>
 
