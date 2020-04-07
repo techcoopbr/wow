@@ -48,10 +48,10 @@
   <div class="col col-12">
     <div id="post" class="col col-12">
       <br />
-      <br />
       <h3><strong><%= @blog.comments.count + @blog.anonymous_comments.count %></strong> comentário<% if @blog.comments.count > 1 %>s<% end %></h3>
-        <%= render @blog.comments.order(id: :desc) %>
-        <%= render @blog.anonymous_comments.order(id: :desc) %>
+      <br />
+      <%= render @blog.comments.order(id: :desc) %>
+      <%= render @blog.anonymous_comments.order(id: :desc) %>
       <hr>
       <% if user_signed_in? %>
         <div class="comment-form">
