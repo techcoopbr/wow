@@ -6,10 +6,11 @@
         <ul class="nav">
           <li><a data-target="#bio" data-toggle="tab" href="#bio">Sobre</a></li>
           <li><a href="<%= @creator.slug %>/blog">Blog</a></li>
-          <li><a class="active in" data-target="#stream" data-toggle="tab" href="#stream">Stream</a></li>
+          <li><a class="active in" data-target="#twitch" data-toggle="tab" href="#twitch">Twitch</a></li>
+          <li><a data-target="#stream" data-toggle="tab" href="#stream">Strean</a></li>
           <li><a data-target="#facebook" data-toggle="tab" href="#facebook">Facebook</a></li>
-          <li><a data-target="#youtube" data-toggle="tab" href="#youtube"">YouTube</a></li>
-          <li><a data-target="#instagram" data-toggle="tab" href="#instagram"">Instagram</a></li>
+          <li><a data-target="#youtube" data-toggle="tab" href="#youtube">YouTube</a></li>
+          <li><a data-target="#instagram" data-toggle="tab" href="#instagram">Instagram</a></li>
           <li><a data-target="#twitter" data-toggle="tab" href="#twitter">Twitter</a></li>
           <li><a data-target="#contact" data-toggle="tab" href="#contact">Contato</a></li>
         </ul>
@@ -23,7 +24,14 @@
           <% end %>
         <% end %>
       </div>
-       <div id="stream" class="tab-pane fade">
+      <div id="twitch" class="tab-pane fade">
+       <% if @creator.twitch != nil %>
+         <% if @creator.twitch.size >= 10 %>
+           <%= render 'twitch' %>
+         <% end %>
+       <% end %>
+     </div>
+     <div id="stream" class="tab-pane fade">
         <% if @creator.stream_embed != nil %>
           <% if @creator.stream_embed.size >= 10 %>
             <%= render 'stream' %>
