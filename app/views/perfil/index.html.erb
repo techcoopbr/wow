@@ -11,8 +11,25 @@
           <a href="<%= @creator.slug %>/blog">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="twitch-tab" data-toggle="tab" href="#twitch" role="tab" aria-controls="contact" aria-selected="false">Twitch</a>
+          <a class="nav-link" id="twitch-tab" data-toggle="tab" href="#twitch" role="tab" aria-controls="twitch" aria-selected="false">Twitch</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="stream-tab" data-toggle="tab" href="#stream" role="tab" aria-controls="stream" aria-selected="false">Stream</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="facebook-tab" data-toggle="tab" href="#facebook" role="tab" aria-controls="facebook" aria-selected="false">Facebook</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="youtube-tab" data-toggle="tab" href="#youtube" role="tab" aria-controls="youtube" aria-selected="false">Youtube</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="instagram-tab" data-toggle="tab" href="#instagram" role="tab" aria-controls="instagram" aria-selected="false">Instagram</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="twitter-tab" data-toggle="tab" href="#twitter" role="tab" aria-controls="twitter" aria-selected="false">Twitter</a>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
         </li>
@@ -33,6 +50,44 @@
             <% end %>
           <% end %>
         </div>
+
+
+        <div id="stream" class="tab-pane fade" role="tabpanel" aria-labelledby="stream-tab">
+          <% if @creator.stream_embed != nil %>
+            <% if @creator.stream_embed.size >= 10 %>
+              <%= render 'stream' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="facebook" class="tab-pane fade" role="tabpanel" aria-labelledby="facebook-tab">
+          <% if @creator.facebook_embed != nil %>
+            <% if @creator.facebook_embed.size >= 10 %>
+              <%= render 'facebook' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="youtube" class="tab-pane fade" role="tabpanel" aria-labelledby="youtube-tab">
+          <% if @creator.youtube_embed != nil %>
+            <% if @creator.youtube_embed.size >= 10 %>
+              <%= render 'youtube' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="instagram" class="tab-pane fade" role="tabpanel" aria-labelledby="instagram-tab">
+          <% if @creator.instagram_embed != nil %>
+            <% if @creator.instagram_embed.size >= 10 %>
+              <%= render 'instagram' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="twitter" class="tab-pane fade" role="tabpanel" aria-labelledby="twitter-tab">
+          <% if @creator.twitter_embed != nil %>
+            <% if @creator.twitter_embed.size >= 10 %>
+              <%= render 'twitter' %>
+            <% end %>
+          <% end %>
+        </div>
+
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
       </div>
 
