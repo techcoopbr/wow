@@ -8,65 +8,77 @@
         <br>
         <div class="text-center">
           <ul class="social-icons">
-            <% if @creator.facebook.size >= 1 %>
-            <li>
-              <a class="facebook-link" href="<%= @creator.facebook %>">
-                <i id="tt1" class="zmdi zmdi-facebook"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt1">
-                  facebook
-                </div>
-              </a>
-            </li>
+            <% if !@creator.facebook.nil? %>
+              <% if @creator.facebook.size >= 1 %>
+              <li>
+                <a class="facebook-link" href="<%= @creator.facebook %>">
+                  <i id="tt1" class="zmdi zmdi-facebook"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt1">
+                    facebook
+                  </div>
+                </a>
+              </li>
+              <% end %>
             <% end %>
-            <% if @creator.twitter.size >= 1 %>
-            <li>
-              <a class="twitter-link" href="<%= @creator.twitter %>">
-                <i id="tt2" class="zmdi zmdi-twitter"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt2">
-                  twitter
-                </div>
-              </a>
-            </li>
+            <% if !@creator.twitter.nil? %>
+              <% if @creator.twitter.size >= 1 %>
+              <li>
+                <a class="twitter-link" href="<%= @creator.twitter %>">
+                  <i id="tt2" class="zmdi zmdi-twitter"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt2">
+                    twitter
+                  </div>
+                </a>
+              </li>
+              <% end %>
             <% end %>
-            <% if @creator.youtube.size >= 1 %>
-            <li>
-              <a class="youtube-link" href="<%= @creator.youtube %>">
-                <i id="tt3" class="zmdi zmdi-youtube"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt3">
-                  YouTube
-                </div>
-              </a>
-            </li>
+            <% if !@creator.youtube.nil? %>
+              <% if @creator.youtube.size >= 1 %>
+              <li>
+                <a class="youtube-link" href="<%= @creator.youtube %>">
+                  <i id="tt3" class="zmdi zmdi-youtube"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt3">
+                    YouTube
+                  </div>
+                </a>
+              </li>
+              <% end %>
             <% end %>
-            <% if @creator.twitch.size >= 1 %>
-            <li>
-              <a class="twitch-link" href="<%= @creator.twitch %>">
-                <i id="tt4" class="zmdi zmdi-twitch"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt4">
-                  Twitch
-                </div>
-              </a>
-            </li>
+            <% if !@creator.twitch.nil? %>
+              <% if @creator.twitch.size >= 1 %>
+              <li>
+                <a class="twitch-link" href="<%= @creator.twitch %>">
+                  <i id="tt4" class="zmdi zmdi-twitch"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt4">
+                    Twitch
+                  </div>
+                </a>
+              </li>
+              <% end %>
             <% end %>
-            <% if @creator.instagram.size >= 1 %>
-            <li>
-              <a class="instagram-link" href="<%= @creator.instagram %>">
-                <i id="tt5" class="zmdi zmdi-instagram"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt5">
-                  instagram
-                </div>
-              </a>
-            </li>
+            <% if !@creator.instagram.nil? %>
+              <% if @creator.instagram.size >= 1 %>
+              <li>
+                <a class="instagram-link" href="<%= @creator.instagram %>">
+                  <i id="tt5" class="zmdi zmdi-instagram"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt5">
+                    instagram
+                  </div>
+                </a>
+              </li>
+              <% end %>
             <% end %>
-            <% if @creator.linkdin.size >= 1 %>
-            <li>
-              <a class="linkedin-link" href="<%= @creator.linkdin %>">
-                <i id="tt6" class="zmdi zmdi-linkedin"></i>
-                <div class="mdl-tooltip" data-mdl-for="tt6">
-                  linkedin
-                </div>
-              </a>
-            </li>
+            <% if !@creator.linkdin.nil? %>
+              <% if @creator.linkdin.size >= 1 %>
+              <li>
+                <a class="linkedin-link" href="<%= @creator.linkdin %>">
+                  <i id="tt6" class="zmdi zmdi-linkedin"></i>
+                  <div class="mdl-tooltip" data-mdl-for="tt6">
+                    linkedin
+                  </div>
+                </a>
+              </li>
+              <% end %>
             <% end %>
           </ul>
         </div>
@@ -97,29 +109,35 @@
               </div>
           </li>
           <% end %>
-          <% if @creator.contact_address.size >= 1 %>
-          <li>
-            <div class="profile-title">Endereço</div>
-            <div class="profile-desc">
-              <%= @creator.contact_address %>
-            </div>
-          </li>
-          <% end %>
-          <% if @creator.contact_email.size >= 1 %>
-          <li>
-            <div class="profile-title">email</div>
-            <div class="profile-desc">
-              <%= @creator.contact_email %>
-            </div>
-          </li>
-          <% end %>
-          <% if @creator.contact_phone.size >= 1 %>
+          <% if !@creator.contact_address.nil? %>
+            <% if @creator.contact_address.size >= 1 %>
             <li>
-              <div class="profile-title">Fone</div>
+              <div class="profile-title">Endereço</div>
               <div class="profile-desc">
-                <%= @creator.contact_phone %>
+                <%= @creator.contact_address %>
               </div>
             </li>
+            <% end %>
+          <% end %>
+          <% if !@creator.contact_email.nil? %>
+            <% if @creator.contact_email.size >= 1 %>
+            <li>
+              <div class="profile-title">email</div>
+              <div class="profile-desc">
+                <%= @creator.contact_email %>
+              </div>
+            </li>
+            <% end %>
+          <% end %>
+          <% if !@creator.contact_phone.nil? %>
+            <% if @creator.contact_phone.size >= 1 %>
+              <li>
+                <div class="profile-title">Fone</div>
+                <div class="profile-desc">
+                  <%= @creator.contact_phone %>
+                </div>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>
