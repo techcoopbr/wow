@@ -4,8 +4,10 @@ table
   thead
     tr
       th Name
-      th Description
-      th About
+      th Developers
+      th Publishers
+      th Source
+      th Source_id
       th Photo
       th
       th
@@ -15,8 +17,10 @@ table
     - @games.each do |game|
       tr
         td = game.name
-        td = game.description
-        td = game.about
+        td = game.developers
+        td = game.publishers
+        td = game.source
+        td = game.source_id
         td = game.photo
         td = link_to 'Show', game
         td = link_to 'Edit', edit_game_path(game)
@@ -25,3 +29,4 @@ table
 br
 
 = link_to 'New Game', new_game_path
+= link_to 'Atualizar Banco', data: { confirm: 'Are you sure?' }, action: :steam_game_request

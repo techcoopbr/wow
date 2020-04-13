@@ -3,7 +3,9 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :plataforms
   resources :developers
-  resources :games
+  resources :games do
+    get :steam_game_request, on: :collection, as: :steam_game_request
+  end
   resources :meta
   require 'domain_constraint'
   mount Ckeditor::Engine => '/ckeditor'
