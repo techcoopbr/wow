@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20200413172702) do
     t.string   "cover"
     t.integer  "views"
     t.integer  "impressions_count"
-    t.boolean  "can_anonymous"
     t.boolean  "can_comment"
     t.boolean  "can_anonymous_comment"
+    t.boolean  "can_anonymous"
     t.index ["creator_id"], name: "index_blogs_on_creator_id", using: :btree
     t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
   end
