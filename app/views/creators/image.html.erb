@@ -1,0 +1,41 @@
+<%= simple_form_for(@creator) do |f| %>
+  <div class="card-header">Perfil de criador - IMAGENS</div>
+<div class="card-body">
+<%= f.error_notification %>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p>Os tamanhos são sugestões de como utilizar</p>
+      </div>
+      <div class="col-md-12">
+        <%= f.label 'Foto Perfil (230 x 230)' %>
+        <%= f.file_field :photo, class: 'form-control'%>
+      </div>
+      <br>
+      <div class="col-md-12">
+        <%= f.label 'Foto Destaque na HOME (160 x 160)' %>
+        <%= f.file_field :photo_box, class: 'form-control'%>
+      </div>
+      <br>
+      <div class="col-md-12">
+        <%= f.label 'Foto Capa (1920x600)' %>
+        <%= f.file_field :cover, class: 'form-control'%>
+      </div>
+      <br>
+      <div class="col-md-12">
+        <%= f.label 'Curriculo, PDF, Trabalhos' %>
+        <%= f.file_field :contact_file, class: 'form-control'%>
+      </div>
+      <br>
+      <div class="col-md-12">
+        <%= f.label 'Logo / Arte da page' %>
+        <%= f.file_field :publi_file, class: 'form-control'%>
+      </div>
+      <br>
+    </div>
+<br />
+  <div class="form-group">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>

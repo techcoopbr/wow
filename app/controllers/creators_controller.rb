@@ -27,6 +27,30 @@ class CreatorsController < ApplicationController
     end
   end
 
+  def about
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+  
+  def social
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
+  def embed
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
+  def meta
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
+  def contact
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
+  def image
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
   # GET /creators/1/edit
   def edit
     @creator = Creator.find(params[:id])

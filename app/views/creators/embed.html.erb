@@ -1,0 +1,28 @@
+<%= simple_form_for(@creator) do |f| %>
+  <div class="card-header">Perfil de criador</div>
+<div class="card-body">
+<%= f.error_notification %>
+    <div class="row">
+      <% if current_user.admin? || current_user.creator? %>
+      <div class="col-md-12">
+        <%= f.input :stream_embed %>
+      </div>
+      <div class="col-md-12">
+        <%= f.input :facebook_embed %>
+      </div>
+      <div class="col-md-12">
+        <%= f.input :youtube_embed %>
+      </div>
+      <div class="col-md-12">
+        <%= f.input :twitter_embed %>
+      </div>
+      <div class="col-md-12">
+        <%= f.input :instagram_embed %>
+      </div>
+      <% end %>
+    </div>
+  <div class="form-group">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>
