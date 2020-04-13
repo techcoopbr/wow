@@ -15,6 +15,8 @@ gem 'chosen-rails'
 gem 'rails', '~> 5.0.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'redis'
+gem 'sidekiq'
 # Use Puma as the app server
 #gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -29,6 +31,9 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'tinymce-rails'
+
+#notifications
+#gem 'materialize-sass', '~> 1.0.0.beta'
 
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'

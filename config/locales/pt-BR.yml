@@ -291,8 +291,12 @@ pt-BR:
       faq: Perguntas e Respostas
       faq_ask: Perguntas Executadas
       creator: Criadores
+      comment: Comentários
+      anonymous_comment: Comentários
     attributes:
       blog:
+        can_comment: Permite Comentário
+        can_anonymous_comment: Permite Comentário Anonimo
         cover: Imagem de Destaque
         title: Título
         short_description: Texto de Chamada

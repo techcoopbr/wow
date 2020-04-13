@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   belongs_to :creator
+  has_many :comments
+  has_many :notices
   #validates :facebook, :youtube, :twitch, :intagram, :twitter, :website, :podcast, format: URI::regexp(%w[http https])
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

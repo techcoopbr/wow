@@ -7,58 +7,73 @@
     <% end %>
   </div>
 <div class="row">
-<div class="col-xl-3 col-md-6 mb-4">
-  <div class="card border-left-success shadow h-100 py-2">
-    <div class="card-body">
-      <div class="row no-gutters align-items-center">
-        <div class="col mr-2">
-          <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> <%= current_user.name %></div>
-          <div class="text-xs mb-0 font-weight-bold text-gray-800">IP atual: <strong><%= current_user.current_sign_in_ip %></strong></div>
-          <div class="text-xs mb-0 font-weight-bold text-gray-800">último IP: <strong><%= current_user.last_sign_in_ip %></strong><br></div>
-        </div>
-        <div class="col-auto">
-          <i class="fas fa-user fa-2x text-gray-300"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<% if current_user.creator != nil %>
-<div class="col-xl-3 col-md-6 mb-4">
-  <div class="card border-left-info shadow h-100 py-2">
-    <div class="card-body">
-      <div class="row no-gutters align-items-center">
-        <div class="col mr-2">
-          <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">BLOG</div>
-          <div class="text-xs mb-0 font-weight-bold text-gray-800">Posts: <%= Blog.where(creator_id: current_user.creator.id).count %></div>
-          <div class="text-xs mb-0 font-weight-bold text-gray-800">Acessos: <%= Blog.where(creator_id: current_user.creator.id).sum(:impressions_count) %></div>
-        </div>
-        <div class="col-auto">
-          <i class="fas fa-book fa-2x text-gray-300"></i>
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-success shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> <%= current_user.name %></div>
+            <div class="text-xs mb-0 font-weight-bold text-gray-800">IP atual: <strong><%= current_user.current_sign_in_ip %></strong></div>
+            <div class="text-xs mb-0 font-weight-bold text-gray-800">último IP: <strong><%= current_user.last_sign_in_ip %></strong><br></div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-user fa-2x text-gray-300"></i>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  <% if current_user.creator != nil %>
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-info shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">BLOG</div>
+            <div class="text-xs mb-0 font-weight-bold text-gray-800">Posts: <%= @blogs.count %></div>
+            <div class="text-xs mb-0 font-weight-bold text-gray-800">Acessos: <%= @blogs.sum(:impressions_count) %></div>
+            <div class="text-xs mb-0 font-weight-bold text-gray-800">Comentários: <%= @comments.count + @anonymous_comments.count %></div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-book fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="col-xl-3 col-md-6 mb-4">
-  <div class="card border-left-warning shadow h-100 py-2">
-    <div class="card-body">
-      <div class="row no-gutters align-items-center">
-        <div class="col mr-2">
-          <div class="text-xs font-weight-bold text-info text-uppercase mb-1">VISITAS</div>
-          <div class="h5 mb-0 font-weight-bold text-gray-800">Acessos: <%= Creator.where(id: current_user.creator.id).sum(:impressions_count) %></div>
-        </div>
-        <div class="col-auto">
-          <i class="fas fa-child fa-2x text-gray-300"></i>
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-warning shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">VISITAS</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">Acessos: <%= Creator.where(id: current_user.creator.id).sum(:impressions_count) %></div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-child fa-2x text-gray-300"></i>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <% end %>
 </div>
-</div>
+<% if current_user.admin? %>
+
+  <div class="row">
+    <h4>Novo aviso</h4>
+    <%= simple_form_for(Notice.new, url: create_notice_path, local: true) do |f| %>
+      Mensagem: <%= f.text_field :body %>
+       <%= f.input :recipient_id, as: :select, label: false, collection: @users, include_blank: false, prompt: 'Selecione o Usuario' %>
+       <%= f.text_field :sender_id, hidden:true, value:current_user.id %>
+      <button class="btn" type="submit" name="action">Enviar
+        <i class="material-icons right">send</i>
+      </button>
+    <% end %>
+  </div>
+
 <% end %>
-
 
 
 </div>

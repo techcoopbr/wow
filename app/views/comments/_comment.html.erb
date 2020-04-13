@@ -1,0 +1,23 @@
+<div class="card" style="padding: 10px;">
+  <div class="row no-gutters">
+    <div class="col-md-1">
+      <!-- Colocar a imagem de perfil do usuario no lugar de 'user_anonymous.jpg' -->
+      <%= image_tag(comment.user.photo.thumb, style: "padding: 10px; height: 100px; width: auto;") %>
+    </div>
+    <div class="col-md-11">
+      <div class="card-body">
+        <div class="col-sm-11">
+          <p class="card-title">Autor: <strong><%= comment.user.name %></strong> <%= time_ago_in_words(comment.created_at) %></p>
+          <p class="card-text"><%= comment.commentary %></p>
+        </div>
+
+        <% if @current_user == comment.blog.creator.user || @current_user == comment.user %>
+          <%= link_to 'Apagar', [comment.blog, comment], method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-danger" %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>

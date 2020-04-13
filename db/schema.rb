@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20200413172702) do
     t.string   "cover"
     t.integer  "views"
     t.integer  "impressions_count"
+    t.boolean  "can_anonymous"
     t.boolean  "can_comment"
     t.boolean  "can_anonymous_comment"
     t.index ["creator_id"], name: "index_blogs_on_creator_id", using: :btree
@@ -183,6 +184,16 @@ ActiveRecord::Schema.define(version: 20200413172702) do
     t.index ["creator_id"], name: "index_meta_on_creator_id", using: :btree
   end
 
+  create_table "notices", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["recipient_id"], name: "index_notices_on_recipient_id", using: :btree
+    t.index ["sender_id"], name: "index_notices_on_sender_id", using: :btree
+  end
+
   create_table "plataforms", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -255,6 +266,8 @@ ActiveRecord::Schema.define(version: 20200413172702) do
   add_foreign_key "creator_tags", "tags"
   add_foreign_key "creators", "users"
   add_foreign_key "meta", "creators"
+  add_foreign_key "notices", "users", column: "recipient_id"
+  add_foreign_key "notices", "users", column: "sender_id"
   add_foreign_key "taggings", "blogs"
   add_foreign_key "taggings", "tags"
 end
