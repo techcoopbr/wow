@@ -59,7 +59,21 @@
   </div>
   <% end %>
 </div>
+<% if current_user.admin? %>
 
+  <div class="row">
+    <h4>Novo aviso</h4>
+    <%= simple_form_for(Notice.new, url: create_notice_path, local: true) do |f| %>
+      Mensagem: <%= f.text_field :body %>
+       <%= f.input :recipient_id, as: :select, label: false, collection: @users, include_blank: false, prompt: 'Selecione o Usuario' %>
+       <%= f.text_field :sender_id, hidden:true, value:current_user.id %>
+      <button class="btn" type="submit" name="action">Enviar
+        <i class="material-icons right">send</i>
+      </button>
+    <% end %>
+  </div>
+
+<% end %>
 
 
 </div>

@@ -29,6 +29,7 @@ module Wow
     config.exceptions_app = self.routes
     config.assets.compile = true
     #config.assets.enabled = false
+    config.active_job.queue_adapter = :sidekiq    
 
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w( ckeditor/* )

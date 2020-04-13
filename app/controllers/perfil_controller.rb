@@ -6,11 +6,15 @@ class PerfilController < ApplicationController
   has_scope :search
 
   def index
-    @creator = Creator.find_by(slug: params[:slug])
-    if @creator.nil?
-      redirect_to root_path
+    if params[:slug] != 'sidekiq'
+      @creator = Creator.find_by(slug: params[:slug])
+      if @creator.nil?
+        redirect_to root_path
+      end
+      impressionist @creator
+    else
+      redirect_to sidekiq_web_path
     end
-    impressionist @creator
   end
 
   def result

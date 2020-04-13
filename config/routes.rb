@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   resources :plataforms
   resources :developers
@@ -41,6 +43,8 @@ Rails.application.routes.draw do
 
   #root to: 'welcome#index'
   get 'blog', to: 'perfil#blog', as: :public_blog
+  post '/create-notice', to: 'notices#create'
+  get '/notifications', to: 'notices#notifications'
   #get 'tags/:tag', to: 'blogs#index', as: "tag"
   get 'result', to: 'perfil#result', as: :public_result
   get ':slug/blog', to: 'perfil#blog', as: :public_creator_blog
@@ -51,6 +55,10 @@ Rails.application.routes.draw do
   get 'perfil/:slug', :to => 'welcome#creator', as: :public_creator
   get '/:slug', :to => 'perfil#index', as: :public_perfil
 
+  require 'sidekiq/web'
+  authenticate :user do
+    mount Sidekiq::Web => '/admin/sidekiq'
+  end
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
