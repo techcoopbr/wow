@@ -49,7 +49,7 @@ jQuery(document).ready(function($){
   $('.photo').fileinput({
     language: 'pt-BR',
     overwriteInitial: true,
-    initialPreview:'<% if @creator.photo? %> <img src="<%=@creator.photo.thumb%>" class="img-responsive file-preview-image" /> <% end %>',
+    initialPreview:'<% if @creator.photo? %> <img src="<%= @creator.photo.thumb %>" width="100%" height="100%" class="img-responsive file-preview-image" /> <% end %>',
     showUpload: false,
     showCaption: false,
     showClose: false,
@@ -62,7 +62,7 @@ jQuery(document).ready(function($){
   $('.photo_box').fileinput({
     language: 'pt-BR',
     overwriteInitial: true,
-    initialPreview:'<% if @creator.photo_box? %> <img src="<%=@creator.photo_box.perfil%>" class="img-responsive file-preview-image" /> <% end %>',
+    initialPreview:'<% if @creator.photo_box? %> <img src="<%=@creator.photo_box.perfil%>" width="100%" height="100%" class="img-responsive file-preview-image" /> <% end %>',
     showUpload: false,
     showCaption: false,
     showClose: false,
@@ -75,7 +75,7 @@ jQuery(document).ready(function($){
   $('.cover').fileinput({
     language: 'pt-BR',
     overwriteInitial: true,
-    initialPreview:'<% if @creator.cover? %> <img src="<%=@creator.cover.thumb%>" class="img-responsive file-preview-image" /> <% end %>',
+    initialPreview:'<% if @creator.cover? %> <img src="<%=@creator.cover.thumb%>" width="100%" height="100%" class="img-responsive file-preview-image" /> <% end %>',
     showUpload: false,
     showCaption: false,
     showClose: false,
