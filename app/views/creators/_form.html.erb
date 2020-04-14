@@ -1,15 +1,15 @@
 <%= simple_form_for(@creator) do |f| %>
-  <div class="card-header">Perfil de criador</div>
+  <div class="card-header">Perfil de criador - Novo Perfil</div>
 <div class="card-body">
 <%= f.error_notification %>
 
     <div class="row">
       <div class="form-inputs">
         <div class="row">
-          <div class="col-md-10">
+          <div class="col-md-12">
             <%= f.input :page_name, required: true %>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-6">
             <%= f.label 'Começou em' %><br>
             <%= f.date_field :page_create, class: 'datepicker form-inputs'  %>
           </div>
@@ -48,17 +48,21 @@
       <div class="col-sm-12 text-center">
         <p>Os tamanhos são sugestões de como utilizar</p>
       </div>
-      <div class="col-md-6">
+    </div>
+      </div>
+      <div class="form-inputs">
+        <div class="row">
+      <div class="col-md-12">
         <%= f.label 'Foto Perfil (230 x 230)' %>
         <%= f.file_field :photo, class: 'form-control'%>
       </div>
       <br>
-      <div class="col-md-6">
+      <div class="col-md-12">
         <%= f.label 'Foto Destaque na HOME (160 x 160)' %>
         <%= f.file_field :photo_box, class: 'form-control'%>
       </div>
       <br>
-      <div class="col-md-6">
+      <div class="col-md-12">
         <%= f.label 'Foto Capa (1920x600)' %>
         <%= f.file_field :cover, class: 'form-control'%>
       </div>

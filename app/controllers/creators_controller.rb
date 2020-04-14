@@ -64,6 +64,7 @@ class CreatorsController < ApplicationController
     if @creator.user_id.nil?
       @creator.user_id = current_user.id
     end
+    @creator.approved = true
 
     respond_to do |format|
       if @creator.save
