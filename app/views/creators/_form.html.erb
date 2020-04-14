@@ -52,20 +52,21 @@
       </div>
       <div class="form-inputs">
         <div class="row">
-      <div class="col-md-12">
-        <%= f.label 'Foto Perfil (230 x 230)' %>
-        <%= f.file_field :photo, class: 'form-control'%>
-      </div>
-      <br>
-      <div class="col-md-12">
-        <%= f.label 'Foto Destaque na HOME (160 x 160)' %>
-        <%= f.file_field :photo_box, class: 'form-control'%>
-      </div>
-      <br>
-      <div class="col-md-12">
-        <%= f.label 'Foto Capa (1920x600)' %>
-        <%= f.file_field :cover, class: 'form-control'%>
-      </div>
+          <div class="col-md-12">
+            <%= f.label 'Foto Perfil (230 x 230)' %>
+            <%= f.file_field :photo, class: 'photo' %> <!-- data-initial="<img src='/home/leandro/Imagens/Captura de tela de 2018-06-18 09-37-03.png' class='file-preview-image' alt='Desert' title='Desert'"> -->
+            <br />
+          </div>
+          <div class="col-md-12">
+            <%= f.label 'Foto Destaque na HOME (160 x 160)' %>
+            <%= f.file_field :photo_box, class: 'photo_box' %>
+            <br />
+          </div>
+          <div class="col-md-12">
+            <%= f.label 'Foto Capa (1920x600)' %>
+            <%= f.file_field :cover, class: 'cover'%>
+            <br />
+          </div>
     </div>
   </div>
   </div>
@@ -74,4 +75,46 @@
     <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
 </div>
+<script type="text/javascript">
+jQuery(document).ready(function($){
+  $('.photo').fileinput({
+    language: 'pt-BR',
+    overwriteInitial: true,
+    initialPreview:'<% if @creator.photo? %> <img src="<%=@creator.photo.thumb%>" class="img-responsive file-preview-image" /> <% end %>',
+    showUpload: false,
+    showCaption: false,
+    showClose: false,
+    showRemove: true,
+    allowedFileExtensions : ['jpg', 'png','gif', 'JPG', 'GIF', 'PNG'],
+    maxFileSize: 10000000,
+    maxFilesNum: 1
+  });
+
+  $('.photo_box').fileinput({
+    language: 'pt-BR',
+    overwriteInitial: true,
+    initialPreview:'<% if @creator.photo_box? %> <img src="<%=@creator.photo_box.perfil%>" class="img-responsive file-preview-image" /> <% end %>',
+    showUpload: false,
+    showCaption: false,
+    showClose: false,
+    showRemove: true,
+    allowedFileExtensions : ['jpg', 'png','gif', 'JPG', 'GIF', 'PNG'],
+    maxFileSize: 10000000,
+    maxFilesNum: 1
+  });
+
+  $('.cover').fileinput({
+    language: 'pt-BR',
+    overwriteInitial: true,
+    initialPreview:'<% if @creator.cover? %> <img src="<%=@creator.cover.thumb%>" class="img-responsive file-preview-image" /> <% end %>',
+    showUpload: false,
+    showCaption: false,
+    showClose: false,
+    showRemove: true,
+    allowedFileExtensions : ['jpg', 'png','gif', 'JPG', 'GIF', 'PNG'],
+    maxFileSize: 10000000,
+    maxFilesNum: 1
+  });
+});
+  </script>
 <% end %>

@@ -1,5 +1,11 @@
+/*
+*= require jquery.fileupload
+*= require jquery.fileupload-ui
+*= require dropzone/dropzone
+*/
 @import 'font_awesome5.css';
 @import "bootstrap";
+@import "fileinput.min.scss";
 @keyframes swing {
   0% {
     transform: rotate(0deg);

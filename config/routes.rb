@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :comments
     resources :anonymous_comments
   end
-
+  resources :uploads
   resources :creators #do
   #resources :blogs, only: [:index, :show]
   #end
