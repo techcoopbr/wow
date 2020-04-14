@@ -2,35 +2,8 @@
   <div class="card-header">Perfil de criador</div>
 <div class="card-body">
 <%= f.error_notification %>
-  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sobre Mim</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="pills-image-tab" data-toggle="pill" href="#pills-image" role="tab" aria-controls="pills-image" aria-selected="false">Imagem e Arquivos</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="pills-social-tab" data-toggle="pill" href="#pills-social" role="tab" aria-controls="pills-social" aria-selected="false">Redes Sociais</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="pills-embed-tab" data-toggle="pill" href="#pills-embed" role="tab" aria-controls="pills-embed" aria-selected="false">Plugins Sociais</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="pills-meta-tab" data-toggle="pill" href="#pills-meta" role="tab" aria-controls="pills-meta" aria-selected="false">Metadados/Google</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contato</a>
-    </li>
 
-    <% if current_user.admin? %>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-admin-tab" data-toggle="pill" href="#pills-admin" role="tab" aria-controls="pills-admin" aria-selected="false">Liberação</a>
-      </li>
-    <% end %>
-  </ul>
-
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    <div class="row">
       <div class="form-inputs">
         <div class="row">
           <div class="col-md-10">
@@ -72,10 +45,6 @@
         <%= f.label 'Seu telefone para fãs (*dado público)' %>
         <%= f.input :contact_phone, label: false %>
       </div>
-    </div>
-  </div>
-  </div>
-    <div class="tab-pane fade" id="pills-image" role="tabpanel" aria-labelledby="pills-image-tab">
       <div class="col-sm-12 text-center">
         <p>Os tamanhos são sugestões de como utilizar</p>
       </div>
@@ -93,98 +62,10 @@
         <%= f.label 'Foto Capa (1920x600)' %>
         <%= f.file_field :cover, class: 'form-control'%>
       </div>
-      <br>
-      <div class="col-md-6">
-        <%= f.label 'Curriculo, PDF, Trabalhos' %>
-        <%= f.file_field :contact_file, class: 'form-control'%>
-      </div>
-      <br>
-      <div class="col-md-6">
-        <%= f.label 'Logo / Arte da page' %>
-        <%= f.file_field :publi_file, class: 'form-control'%>
-      </div>
-      <br>
     </div>
-
-    <div class="tab-pane fade" id="pills-social" role="tabpanel" aria-labelledby="pills-social-tab">
-      <div class="col-sm-12 text-center">
-        <p>URLs devem conter http:// ou https:// na frente, para garantir copie do seu navegador</p>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :facebook, required: false, type: 'url' %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :youtube, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :instagram, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :twitter, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :twitch, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :website, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :podcast, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :linkdin, required: false %>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="pills-embed" role="tabpanel" aria-labelledby="pills-embed-tab">
-      <% if current_user.admin? || current_user.creator? %>
-      <div class="col-md-12">
-        <%= f.input :stream_embed %>
-      </div>
-      <div class="col-md-12">
-        <%= f.input :facebook_embed %>
-      </div>
-      <div class="col-md-12">
-        <%= f.input :youtube_embed %>
-      </div>
-      <div class="col-md-12">
-        <%= f.input :twitter_embed %>
-      </div>
-      <div class="col-md-12">
-        <%= f.input :instagram_embed %>
-      </div>
-      <% end %>
-    </div>
-    <div class="tab-pane fade" id="pills-meta" role="tabpanel" aria-labelledby="pills-meta-tab">
-      <div class="col-sm-12">
-        <%= f.input :meta_title, required: false, type: 'url' %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.input :meta_description, required: false %>
-      </div>
-      <div class="col-sm-12">
-        <%= f.label 'Imagem para meta' %><br>
-        <%= f.file_field :meta_photo, required: false %>
-        <br>
-      </div>
-      <div class="col-sm-12">
-        <br>
-
-        <%= f.input :script_google, required: false %>
-      </div>
-    </div>
-    <br>
-    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-    <% if current_user.admin? %>
-    <div class="tab-pane fade" id="pills-admin" role="tabpanel" aria-labelledby="pills-admin-tab">
-      <div class="col-md-12">
-        <%= f.association :user %>
-      </div>
-      <div class="col-md-12">
-        <%= f.input :approved %>
-      </div>
-    </div>
-    <% end %>
   </div>
+  </div>
+
   <div class="form-group">
     <%= f.button :submit, class: 'btn btn-primary' %>
   </div>

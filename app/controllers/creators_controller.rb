@@ -30,7 +30,7 @@ class CreatorsController < ApplicationController
   def about
     @creator = Creator.find_by(user_id: current_user.id)
   end
-  
+
   def social
     @creator = Creator.find_by(user_id: current_user.id)
   end
@@ -67,7 +67,7 @@ class CreatorsController < ApplicationController
 
     respond_to do |format|
       if @creator.save
-        format.html { redirect_to @creator, notice: 'Creator was successfully created.' }
+        format.html { redirect_to panel_index_path, notice: 'Creator was successfully created.' }
         format.json { render :show, status: :created, location: @creator }
       else
         format.html { render :new }
@@ -94,7 +94,7 @@ class CreatorsController < ApplicationController
           #nada aqui
         end
 
-        format.html { redirect_to @creator, notice: 'Creator was successfully updated.' }
+        format.html { redirect_to panel_index_path, notice: 'Creator was successfully updated.' }
         format.json { render :show, status: :ok, location: @creator }
       else
         format.html { render :edit }
