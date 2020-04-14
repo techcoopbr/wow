@@ -1,11 +1,13 @@
 class Game < ApplicationRecord
 
   def self.app_list_steam_api
-    HTTParty.get(ENV['APP_LIST_STEAM_API_URL']).parsed_response['applist']['apps']
+    steam_powered = SteamPowered.new
+    steam_powered.app_list
   end
 
   def self.app_details_steam_api(id)
-    HTTParty.get(ENV['APP_DETAIL_STEAM_API_URL'] + id.to_s).parsed_response[id.to_s]['data']
+    steam_powered_store = SteamPoweredStore.new(id)
+    steam_powered_store.app_details
   end
 
   def get_developers(info_hash)
@@ -42,7 +44,7 @@ class Game < ApplicationRecord
   def self.steam_game_request
     app_list_steam_api.each do |g|
 
-      if Game.exist?(name: g['name'])
+      if !Game.exists?(name: g['name'])
 
         app_details = app_details_steam_api(g['appid'])
 
