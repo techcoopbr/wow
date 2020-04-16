@@ -172,12 +172,31 @@
                 <li class="header-menu">
                   <span>Gerador de Conteúdo</span>
                 </li>
-                <li>
-                  <a href="<%= edit_creator_path(current_user.creator) %>">
+                <li class="sidebar-dropdown">
+                  <a href="#">
                     <i class="fa fa-user"></i>
                     <span>Meu Perfil</span>
+                    <span class="badge badge-pill badge-warning">Atualize</span>
                   </a>
-                </li>
+                  <div class="sidebar-submenu">
+                    <ul>
+                      <li>
+                        <a href="<%= creator_about_path %>">Dados Gerais</a>
+                      </li>
+                      <li>
+                        <a href="<%= creator_meta_path %>">Metadados</a>
+                      </li>
+                      <li>
+                        <a href="<%= creator_social_path %>">Redes Sociais</a>
+                      </li>
+                      <li>
+                        <a href="<%= creator_image_path %>">Imagens/Arquivos</a>
+                      </li>
+                      <li>
+                        <a href="<%= creator_contact_path %>">Contato</a>
+                      </li>
+                    </ul>
+                  </div>
                 <li class="sidebar-dropdown">
                   <a href="#">
                     <i class="fa fa-rss"></i>

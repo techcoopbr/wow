@@ -335,7 +335,7 @@ pt-BR:
         meta_title: Título no Navegador e Metadados
         meta_description: Descrição metadados
         meta_photo: Foto Metadados
-        script_google: Script Google Analytics
+        script_google: Code Google Analytics (Sem UA-)
       email_type:
         type: Tipo
         title: Título

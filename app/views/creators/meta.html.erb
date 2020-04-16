@@ -1,0 +1,28 @@
+<%= simple_form_for(@creator) do |f| %>
+  <div class="card-header">Perfil de criador - Metadados</div>
+<div class="card-body">
+<%= f.error_notification %>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <%= f.input :meta_title, required: false, type: 'url' %>
+      </div>
+      <div class="col-sm-12">
+        <%= f.input :meta_description, required: false %>
+      </div>
+      <div class="col-sm-12">
+        <%= f.label 'Imagem para meta' %><br>
+        <%= f.file_field :meta_photo, required: false %>
+        <br>
+      </div>
+      <div class="col-sm-12">
+        <br>
+        <%= f.input :script_google, required: false %>
+      </div>
+    </div>
+    <br>
+  <div class="form-group">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>

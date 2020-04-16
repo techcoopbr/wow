@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :comments
     resources :anonymous_comments
   end
-
+  resources :uploads
   resources :creators #do
   #resources :blogs, only: [:index, :show]
   #end
@@ -62,6 +62,14 @@ Rails.application.routes.draw do
   authenticate :user do
     mount Sidekiq::Web => '/admin/sidekiq'
   end
+
+  get 'gerador/sobremim', to: 'creators#about', as: :creator_about
+  get 'gerador/imagens', to: 'creators#image', as: :creator_image
+  get 'gerador/social', to: 'creators#social', as: :creator_social
+  get 'gerador/embed', to: 'creators#embed', as: :creator_embed
+  get 'gerador/metadados', to: 'creators#meta', as: :creator_meta
+  get 'gerador/contatos', to: 'creators#contact', as: :creator_contact
+
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

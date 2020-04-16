@@ -29,6 +29,22 @@
       <meta name="twitter:title" content="<%= @blog.title %>">
       <meta name="twitter:description" content="<%= @blog.short_description %>">
       <meta name="twitter:image" content="http://gamershall.gg<%= @blog.cover.showimg %>">
+      <% if @blog.creator.script_google != nil %>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'AU-<%= @blog.creator.script_google.html_safe %>']); // <== PUT YOUR OWN CODE HERE
+                _gaq.push(['_trackPageview']);
+                _gaq.push(['_setDomainName', 'none']);
+                _gaq.push(['_setAllowLinker', true]);
+            (function() {
+                  var ga = document.createElement('script'); ga.type = 'text/javascript';
+                  ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                  var s = document.getElementsByTagName('script')[0];
+                  s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+      <% end %>
     <% else %>
       <% if @creator != nil %>
         <title>Gamers Hall - <%= @creator.meta_title %></title>
@@ -64,9 +80,23 @@
     <% end %>
     <% if @creator != nil %>
       <% if @creator.script_google != nil %>
-        <%= @creator.script_google.html_safe %>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'AU-<%= @creator.script_google.html_safe %>']); // <== PUT YOUR OWN CODE HERE
+                _gaq.push(['_trackPageview']);
+                _gaq.push(['_setDomainName', 'none']);
+                _gaq.push(['_setAllowLinker', true]);
+            (function() {
+                  var ga = document.createElement('script'); ga.type = 'text/javascript';
+                  ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                  var s = document.getElementsByTagName('script')[0];
+                  s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
       <% end %>
     <% end %>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152402311-1"></script>
     <script>
