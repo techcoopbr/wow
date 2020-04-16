@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :publishers
   resources :plataforms
   resources :developers
   resources :games do

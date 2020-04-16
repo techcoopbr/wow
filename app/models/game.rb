@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
   has_many :game_developers
-
+  has_many :game_publishers
 
 
   def self.app_list_steam_api
@@ -35,6 +35,8 @@ class Game < ApplicationRecord
     end
 
     GameDeveloper.create_developer_relation(game, info['developers'])
+
+    GamePublisher.create_publisher_relation(game, info['publishers'])
   end
 
   def self.is_game?(details)

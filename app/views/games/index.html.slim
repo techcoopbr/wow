@@ -4,7 +4,6 @@ table
   thead
     tr
       th Name
-      th Publishers
       th Source
       th Source_id
       th Photo
@@ -16,7 +15,6 @@ table
     - @games.each do |game|
       tr
         td = game.name
-        td = game.publishers
         td = game.source
         td = game.source_id
         td = game.photo

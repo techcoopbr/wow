@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200415130930) do
+ActiveRecord::Schema.define(version: 20200416131513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,15 @@ ActiveRecord::Schema.define(version: 20200415130930) do
     t.index ["game_id"], name: "index_game_developers_on_game_id", using: :btree
   end
 
+  create_table "game_publishers", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "publisher_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["game_id"], name: "index_game_publishers_on_game_id", using: :btree
+    t.index ["publisher_id"], name: "index_game_publishers_on_publisher_id", using: :btree
+  end
+
   create_table "games", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -152,7 +161,6 @@ ActiveRecord::Schema.define(version: 20200415130930) do
     t.datetime "updated_at",        null: false
     t.string   "source"
     t.integer  "source_id"
-    t.string   "publishers"
     t.string   "short_description"
   end
 
@@ -207,6 +215,14 @@ ActiveRecord::Schema.define(version: 20200415130930) do
     t.string   "description"
     t.text     "about"
     t.string   "photo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "publishers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "about"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -275,6 +291,8 @@ ActiveRecord::Schema.define(version: 20200415130930) do
   add_foreign_key "creators", "users"
   add_foreign_key "game_developers", "developers"
   add_foreign_key "game_developers", "games"
+  add_foreign_key "game_publishers", "games"
+  add_foreign_key "game_publishers", "publishers"
   add_foreign_key "meta", "creators"
   add_foreign_key "notices", "users", column: "recipient_id"
   add_foreign_key "notices", "users", column: "sender_id"
