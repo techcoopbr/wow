@@ -1,10 +1,11 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :publishers
   resources :plataforms
   resources :developers
   resources :games do
-    get :steam_game_request, on: :collection, as: :steam_game_request
+    get :get_api_games, on: :collection, as: :get_api_games
   end
   resources :meta
   require 'domain_constraint'
