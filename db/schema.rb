@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200413172702) do
+ActiveRecord::Schema.define(version: 20200415130930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20200413172702) do
     t.string   "cover"
     t.integer  "views"
     t.integer  "impressions_count"
+    t.boolean  "can_anonymous"
     t.boolean  "can_comment"
     t.boolean  "can_anonymous_comment"
-    t.boolean  "can_anonymous"
     t.index ["creator_id"], name: "index_blogs_on_creator_id", using: :btree
     t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
   end
@@ -134,6 +134,15 @@ ActiveRecord::Schema.define(version: 20200413172702) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id", using: :btree
   end
 
+  create_table "game_developers", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "developer_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["developer_id"], name: "index_game_developers_on_developer_id", using: :btree
+    t.index ["game_id"], name: "index_game_developers_on_game_id", using: :btree
+  end
+
   create_table "games", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -143,7 +152,6 @@ ActiveRecord::Schema.define(version: 20200413172702) do
     t.datetime "updated_at",        null: false
     t.string   "source"
     t.integer  "source_id"
-    t.string   "developers"
     t.string   "publishers"
     t.string   "short_description"
   end
@@ -265,6 +273,8 @@ ActiveRecord::Schema.define(version: 20200413172702) do
   add_foreign_key "creator_tags", "creators"
   add_foreign_key "creator_tags", "tags"
   add_foreign_key "creators", "users"
+  add_foreign_key "game_developers", "developers"
+  add_foreign_key "game_developers", "games"
   add_foreign_key "meta", "creators"
   add_foreign_key "notices", "users", column: "recipient_id"
   add_foreign_key "notices", "users", column: "sender_id"
