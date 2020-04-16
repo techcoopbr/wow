@@ -52,11 +52,6 @@ Rails.application.routes.draw do
   get 'result', to: 'perfil#result', as: :public_result
   get ':slug/blog', to: 'perfil#blog', as: :public_creator_blog
   #postagens
-  get ':creator/post/:slug', to: 'perfil#post', as: :public_creator_post
-  get 'post/:slug', to: 'perfil#post', as: :public_post
-
-  get 'perfil/:slug', :to => 'welcome#creator', as: :public_creator
-  get '/:slug', :to => 'perfil#index', as: :public_perfil
 
   require 'sidekiq/web'
   authenticate :user do
@@ -69,8 +64,14 @@ Rails.application.routes.draw do
   get 'gerador/embed', to: 'creators#embed', as: :creator_embed
   get 'gerador/metadados', to: 'creators#meta', as: :creator_meta
   get 'gerador/contatos', to: 'creators#contact', as: :creator_contact
+  get '/game/:id', to: 'games#game_detail', as: :public_game_detail
+  get '/game', to: 'games#game_list', as: :public_game_list
 
+  get ':creator/post/:slug', to: 'perfil#post', as: :public_creator_post
+  get 'post/:slug', to: 'perfil#post', as: :public_post
 
+  get 'perfil/:slug', :to => 'welcome#creator', as: :public_creator
+  get '/:slug', :to => 'perfil#index', as: :public_perfil
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

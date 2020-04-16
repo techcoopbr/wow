@@ -11,6 +11,7 @@ gem 'rails-assets-tether'
 gem 'ckeditor', '4.2.4'
 gem 'slim-rails', '3.1.1'
 gem 'friendly_id', '~> 5.2.4'
+gem 'kaminari'
 # add the line below
 gem 'chosen-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

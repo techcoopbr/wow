@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
   has_many :game_developers
   has_many :game_publishers
-
+  mount_uploader :photo, PhotoUploader
 
   def self.app_list_steam_api
     steam_powered = SteamPowered.new
@@ -22,7 +22,7 @@ class Game < ApplicationRecord
                     about:              info['about_the_game'],
                     short_description:  info['short_description'],
                     source:             'steam')
-    
+
     game
   end
 
@@ -34,9 +34,13 @@ class Game < ApplicationRecord
       game.save
     end
 
-    GameDeveloper.create_developer_relation(game, info['developers'])
+    if !info['developers'].nil?
+      GameDeveloper.create_developer_relation(game, info['developers'])
+    end
 
-    GamePublisher.create_publisher_relation(game, info['publishers'])
+    if !info['publishers'].nil?
+      GamePublisher.create_publisher_relation(game, info['publishers'])
+    end
   end
 
   def self.is_game?(details)
