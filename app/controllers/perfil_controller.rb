@@ -18,15 +18,15 @@ class PerfilController < ApplicationController
   end
 
   def result
-    param_txt = '%' + params[:search] + '%'
-    @creators = Creator.where("page_name ilike ? or slug ilike ? or about ilike ?", param_txt, param_txt, param_txt)
-
+    @q = Creator.ransack(params[:q])
+    @creators = @q.result
   end
 
   def home
     @creators = Creator.where(approved: true).where.not(photo: nil).order("RANDOM()")
     @creators = @creators.first(6)
     @blogs = Blog.where(admin_published: true, creator_published: true).order("RANDOM()")
+    @q = Creator.ransack(params[:q])
   end
 
   def blog
