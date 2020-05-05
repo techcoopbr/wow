@@ -3,64 +3,42 @@ class Game < ApplicationRecord
   has_many :game_publishers
   mount_uploader :photo, PhotoUploader
 
-  def self.app_list_steam_api
-    steam_powered = SteamPowered.new
-    steam_powered.app_list
+  def add_developers(info_hash)
+    GameDeveloper.create_developer_relation(self, info_hash['developers'])
   end
 
-  def self.app_details_steam_api(id)
-    steam_powered_store = SteamPoweredStore.new(id)
-    steam_powered_store.app_details
+  def add_publisher(info_hash)
+    GamePublisher.create_publisher_relation(self, info_hash['publishers'])
   end
 
-
-
-  def self.new_steam_game(info)
-    game = Game.new(name:               info['name'],
-                    source_id:          info['steam_appid'],
-                    description:        info['detailed_description'],
-                    about:              info['about_the_game'],
-                    short_description:  info['short_description'],
-                    source:             'steam')
-
-    game
+  def set_steam_attributes(info_hash)
+    self.name =               info_hash['name']
+    self.source_id =          info_hash['steam_appid']
+    self.description =        info_hash['detailed_description']
+    self.about =              info_hash['about_the_game']
+    self.short_description =  info_hash['short_description']
+    self.source =             'steam'
+    self.add_developers(info_hash)
+    self.add_publisher(info_hash)
   end
 
-  def self.create_steam_game(info)
-    game = Game.find_by(name: info['name'])
+  def self.create_or_update_steam_game(info_hash)
+    game = Game.find_by(name: info_hash['name'])
 
-    if not game
-      game = new_steam_game(info)
-      game.save
-    end
+    game = Game.new if game.nil?
 
-    if !info['developers'].nil?
-      GameDeveloper.create_developer_relation(game, info['developers'])
-    end
-
-    if !info['publishers'].nil?
-      GamePublisher.create_publisher_relation(game, info['publishers'])
-    end
+    game.set_steam_attributes(info_hash)
+    
+    game.save
   end
 
-  def self.is_game?(details)
-    return false if details.nil?
-
-    details['type'].eql?('game')
+  def self.is_game?(info_hash)
+    return false if info_hash.nil?
+    info_hash['type'].eql?('game')
   end
 
   def self.steam_game_request
-    app_list_steam_api.each do |g|
-
-      app_details = app_details_steam_api(g['appid'])
-
-      if is_game?(app_details)
-        Game.create_steam_game(app_details)
-      end
-
-
-      sleep(1)
-    end
+    SteamApiRequestJob.perform_later
   end
 
 end

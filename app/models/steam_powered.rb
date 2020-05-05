@@ -7,7 +7,7 @@ class SteamPowered
   end
 
   def app_list
-    self.class.get('/ISteamApps/GetAppList/v0002/', @options)['applist']['apps']
+    self.class.get('/ISteamApps/GetAppList/v0002/', @options)
   end
   
 end

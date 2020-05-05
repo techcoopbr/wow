@@ -1,22 +1,14 @@
 class Developer < ApplicationRecord
   has_many :game_developers
 
-
-  def self.new_steam_developer(name)
-    dev = Developer.new(name: name)
-
-    dev
-  end
-
-  def self.get_steam_developer(name)    
+  def self.get_or_create_steam_developer(name)    
     dev = Developer.find_by(name: name)
 
-    if not dev
-      dev = new_steam_developer(name)
+    if dev.nil?
+      dev = Developer.new(name: name)
       dev.save
     end
 
     dev
   end
-
 end
