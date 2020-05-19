@@ -1,0 +1,3 @@
+hello-world:
+  every: "30s"
+  class: "HelloWorldJob"
