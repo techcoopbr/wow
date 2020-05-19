@@ -15,6 +15,12 @@ class PerfilController < ApplicationController
     else
       redirect_to sidekiq_web_path
     end
+    
+    @q = Creator.ransack(params[:q])
+    if not @creator.nil?
+      @client = TwitterClient.new_client
+      @tweets = @client.user_timeline(@creator.twitter, count: Twitter::REST::Tweets::MAX_TWEETS_PER_REQUEST)
+    end
   end
 
   def result
