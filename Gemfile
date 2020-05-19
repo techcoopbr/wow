@@ -20,6 +20,7 @@ gem 'rails', '~> 5.0.7'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'redis'
 gem 'sidekiq'
+gem 'sidekiq-scheduler'
 gem 'figaro'
 # Use Puma as the app server
 #gem 'puma', '~> 3.0'
@@ -68,7 +69,8 @@ gem 'unicorn'
 # Use HTTParty for steam-api
 gem 'httparty'
 
-gem 'ransack' 
+gem 'ransack'
+gem 'twitter'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
