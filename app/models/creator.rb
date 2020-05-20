@@ -26,12 +26,12 @@ class Creator < ApplicationRecord
   end
 
   def self.with_twitter
-    where(twitter: !nil)
+    where.not(twitter: nil)
   end
 
-  def self.update_last_tweet
+  def self.start_last_tweet_update
     with_twitter.each do |creator|
-      creator.update_last_tweet
+      UpdateLastTweetJob.perform_later(creator)
     end
   end
 
