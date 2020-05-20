@@ -18,7 +18,7 @@ class PerfilController < ApplicationController
     
     @q = Creator.ransack(params[:q])
     if not @creator.nil?
-      @client = TwitterClient.new_client
+      @client = TwitterRestClient.new_client
       @tweets = @client.user_timeline(@creator.twitter, count: Twitter::REST::Tweets::MAX_TWEETS_PER_REQUEST)
     end
   end
