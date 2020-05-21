@@ -7,13 +7,10 @@ class GamePublisher < ApplicationRecord
   end
 
   def self.create_publisher_relation(game, info)
+    return if info.nil?
     info.each do |pub_name|
-      pub = Publisher.get_steam_publisher(pub_name)
-
-      if not GamePublisher.existent_relation?(game, pub)
-        GamePublisher.new(game: game, publisher: pub).save
-      end
-
+      pub = Publisher.get_or_create_steam_publisher(pub_name)
+      GamePublisher.new(game: game, publisher: pub).save if not GamePublisher.existent_relation?(game, pub)
     end
   end
 end
