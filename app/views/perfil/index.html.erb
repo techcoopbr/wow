@@ -2,65 +2,93 @@
 <section class="blog-content container">
   <div class="mt-40">
       <%= render 'about' %>
-      <nav class="nav-menu nav-bar text-center">
-        <ul class="nav">
-          <li><a data-target="#bio" data-toggle="tab" href="#bio">Sobre</a></li>
-          <li><a href="<%= @creator.slug %>/blog">Blog</a></li>
-          <li><a class="active in" data-target="#stream" data-toggle="tab" href="#stream">Stream</a></li>
-          <li><a data-target="#facebook" data-toggle="tab" href="#facebook">Facebook</a></li>
-          <li><a data-target="#youtube" data-toggle="tab" href="#youtube"">YouTube</a></li>
-          <li><a data-target="#instagram" data-toggle="tab" href="#instagram"">Instagram</a></li>
-          <li><a data-target="#twitter" data-toggle="tab" href="#twitter">Twitter</a></li>
-          <li><a data-target="#contact" data-toggle="tab" href="#contact">Contato</a></li>
-        </ul>
-      </nav>
+      <div style="background-color:#343a40 !important; position: relative"
+      <ul class="nav nav-tabs bg-dark" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="<%= @creator.slug %>/blog">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="twitch-tab" data-toggle="tab" href="#twitch" role="tab" aria-controls="twitch" aria-selected="false">Twitch</a>
+        </li>
 
-     <div id="tabsContent" class="tab-content box-content mdl-shadow--2dp">
-       <div id="bio" class="tab-pane fade active show in">
-        <% if @creator.about != nil %>
-          <% if @creator.about.size >= 10 %>
-            <%= render 'bio' %>
-          <% end %>
-        <% end %>
+        <li class="nav-item">
+          <a class="nav-link" id="stream-tab" data-toggle="tab" href="#stream" role="tab" aria-controls="stream" aria-selected="false">Stream</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="facebook-tab" data-toggle="tab" href="#facebook" role="tab" aria-controls="facebook" aria-selected="false">Facebook</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="youtube-tab" data-toggle="tab" href="#youtube" role="tab" aria-controls="youtube" aria-selected="false">Youtube</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="instagram-tab" data-toggle="tab" href="#instagram" role="tab" aria-controls="instagram" aria-selected="false">Instagram</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="twitter-tab" data-toggle="tab" href="#twitter" role="tab" aria-controls="twitter" aria-selected="false">Twitter</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+        </li>
+      </ul>
       </div>
-       <div id="stream" class="tab-pane fade">
-        <% if @creator.stream_embed != nil %>
-          <% if @creator.stream_embed.size >= 10 %>
-            <%= render 'stream' %>
+      <div class="tab-content box-content" id="myTabContent">
+        <div class="tab-pane fade show in active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <% if @creator.about != nil %>
+            <% if @creator.about.size >= 10 %>
+              <%= render 'bio' %>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <div id="facebook" class="tab-pane fade">
-        <% if @creator.facebook_embed != nil %>
-          <% if @creator.facebook_embed.size >= 10 %>
-            <%= render 'facebook' %>
+        </div>
+        <div class="tab-pane fade" id="twitch" role="tabpanel" aria-labelledby="twitch-tab">
+          <% if @creator.twitch != nil %>
+            <% if @creator.twitch.size >= 10 %>
+              <%= render 'twitch' %>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <div id="youtube" class="tab-pane fade">
-        <% if @creator.youtube_embed != nil %>
-          <% if @creator.youtube_embed.size >= 10 %>
-            <%= render 'youtube' %>
+        </div>
+
+
+        <div id="stream" class="tab-pane fade" role="tabpanel" aria-labelledby="stream-tab">
+          <% if @creator.stream_embed != nil %>
+            <% if @creator.stream_embed.size >= 10 %>
+              <%= render 'stream' %>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <div id="instagram" class="tab-pane fade">
-        <% if @creator.instagram_embed != nil %>
-          <% if @creator.instagram_embed.size >= 10 %>
-            <%= render 'instagram' %>
+        </div>
+        <div id="facebook" class="tab-pane fade" role="tabpanel" aria-labelledby="facebook-tab">
+          <% if @creator.facebook_embed != nil %>
+            <% if @creator.facebook_embed.size >= 10 %>
+              <%= render 'facebook' %>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <div id="twitter" class="tab-pane fade">
-        <% if @creator.twitter_embed != nil %>
-          <% if @creator.twitter_embed.size >= 10 %>
+        </div>
+        <div id="youtube" class="tab-pane fade" role="tabpanel" aria-labelledby="youtube-tab">
+          <% if @creator.youtube_embed != nil %>
+            <% if @creator.youtube_embed.size >= 10 %>
+              <%= render 'youtube' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="instagram" class="tab-pane fade" role="tabpanel" aria-labelledby="instagram-tab">
+          <% if @creator.instagram_embed != nil %>
+            <% if @creator.instagram_embed.size >= 10 %>
+              <%= render 'instagram' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="twitter" class="tab-pane fade" role="tabpanel" aria-labelledby="twitter-tab">
+          <% if @creator.twitter != nil %>
             <%= render 'twitter' %>
           <% end %>
-        <% end %>
+        </div>
+
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
       </div>
-      <div id="contact" class="tab-pane fade">
-        <%= render 'contact' %>
-      </div>
-    </div>
+
+
   </div>
 </section>

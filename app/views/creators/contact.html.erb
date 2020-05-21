@@ -1,0 +1,10 @@
+<%= simple_form_for(@creator) do |f| %>
+  <div class="card-header">Perfil de criador - Contatos</div>
+<div class="card-body">
+<%= f.error_notification %>
+
+  <div class="form-group">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>

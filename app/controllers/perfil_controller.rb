@@ -6,23 +6,33 @@ class PerfilController < ApplicationController
   has_scope :search
 
   def index
-    @creator = Creator.find_by(slug: params[:slug])
-    if @creator.nil?
-      redirect_to root_path
+    if params[:slug] != 'sidekiq'
+      @creator = Creator.find_by(slug: params[:slug])
+      if @creator.nil?
+        redirect_to root_path
+      end
+      impressionist @creator
+    else
+      redirect_to sidekiq_web_path
     end
-    impressionist @creator
+    
+    @q = Creator.ransack(params[:q])
+    if not @creator.nil?
+      @client = TwitterRestClient.new_client
+      @tweets = @client.user_timeline(@creator.twitter, count: Twitter::REST::Tweets::MAX_TWEETS_PER_REQUEST)
+    end
   end
 
   def result
-    param_txt = '%' + params[:search] + '%'
-    @creators = Creator.where("page_name ilike ? or slug ilike ? or about ilike ?", param_txt, param_txt, param_txt)
-
+    @q = Creator.ransack(params[:q])
+    @creators = @q.result
   end
 
   def home
     @creators = Creator.where(approved: true).where.not(photo: nil).order("RANDOM()")
     @creators = @creators.first(6)
     @blogs = Blog.where(admin_published: true, creator_published: true).order("RANDOM()")
+    @q = Creator.ransack(params[:q])
   end
 
   def blog
@@ -39,6 +49,8 @@ class PerfilController < ApplicationController
   #  begin
       @creator = Creator.find_by(slug: params[:creator])
       @blog    = Blog.find_by(slug: params[:slug], admin_published: true, creator_published: true)
+      @comments = Comment.where(blog_id: @blog.id)
+      @newcomment = Comment.new
 
       if @blog.nil? && @creator != nil
         begin

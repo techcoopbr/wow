@@ -1,10 +1,27 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  layout "perfil", only: [:game_list, :game_detail]
+  skip_before_filter :authenticate_user!, only: [:game_list, :game_detail]
+  has_scope :page, default: 1
 
   # GET /games
   # GET /games.json
   def index
     @games = Game.all
+  end
+
+  def game_list
+    if params[:search].nil?
+      @games = Game.all
+    else
+      parametro = '%' + params[:search].to_s + '%'
+      @games = Game.where("name ilike ?", parametro)
+    end
+    @games = @games.page(params[:page]).per(30)
+  end
+
+  def game_detail
+    @game = Game.find(params[:id])
   end
 
   # GET /games/1
@@ -61,6 +78,15 @@ class GamesController < ApplicationController
     end
   end
 
+
+  def get_api_games
+
+    Game.steam_game_request
+
+    redirect_to games_url
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
@@ -69,6 +95,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:name, :description, :about, :photo)
+      params.require(:game).permit(:name, :description, :about, :photo, :short_description, :publishers)
     end
 end

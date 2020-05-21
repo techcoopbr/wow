@@ -1,0 +1,28 @@
+<%= render 'perfil/header_perfil' %>
+<section class="blog-content container">
+  <div class="col col-12">
+    <div id="post" class="col col-12">
+          <div class="col col-12">
+            <div class="text-center">
+              <h2 class="mt-10"><%= @game.name %></h2>
+              <ul class="datecredits">
+                <li class="blog-post-info ">
+                <!--  <a href=""><i class="zmdi zmdi-comments pr-10"></i>51</a> -->
+                </li>
+              </ul>
+            </div>
+            <div class="read col col-12">
+              <%= @game.short_description.html_safe %>
+            </div>
+            <div class="read col col-12">
+              <%= @game.description.html_safe %>
+            </div>
+          </div>
+
+          <hr>
+    </div>
+  </div>
+<br class="clearfix">
+<div class="clearfix"></div>
+
+</section>

@@ -5,10 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'dropzonejs-rails'
+
 gem 'rails-assets-tether'
 gem 'ckeditor', '4.2.4'
 gem 'slim-rails', '3.1.1'
 gem 'friendly_id', '~> 5.2.4'
+gem 'kaminari'
 # add the line below
 gem 'chosen-rails'
 gem 'searchkick'
@@ -16,6 +19,10 @@ gem 'searchkick'
 gem 'rails', '~> 5.0.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'redis'
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
+gem 'figaro'
 # Use Puma as the app server
 #gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -31,6 +38,9 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'tinymce-rails'
 
+#notifications
+#gem 'materialize-sass', '~> 1.0.0.beta'
+
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 
@@ -43,6 +53,7 @@ gem 'has_scope'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem "jquery-fileupload-rails"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 #gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -55,6 +66,12 @@ gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Use HTTParty for steam-api
+gem 'httparty'
+
+gem 'ransack'
+gem 'twitter'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

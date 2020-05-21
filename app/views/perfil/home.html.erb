@@ -2,10 +2,15 @@
   <div class="col col-lg-1 col-4 float-left">
     <a href="#"><img src=".\img\logo.svg" width="80" title="World of Warcraft" alt="World of Warcraft"></a>
   </div>
-  <div class="col col-lg-3 col-8 float-right text-right">
+  <div class="col col-lg-6 col-8 float-right text-right">
   <ul class="menu-top inline">
     <li><a href="<%= public_blog_path %>">BLOG</a></li>
-    <li><a href="/panel">PAINEL</a></li>
+    <% if user_signed_in? %>
+      <li><a href="/panel"><%= current_user.name %></a></li>
+    <% else %>
+      <li><a href="/panel">LOGIN</a></li>
+      <li><%= link_to "Registre-se", new_user_registration_path, class: "btn btn-warning" %></li>
+    <% end %>
   </ul>
   </div>
 </header>
@@ -18,9 +23,12 @@
       <div class="col col-lg-1">
         <img src=".\img\iconlogo.svg" width="35" title="GamersHall" alt="GamersHall">
       </div>
-      <%= simple_form_for OpenStruct.new(current_scopes), as: :search, url:  public_result_path, method: :get do |f| %>
+      <%#= simple_form_for OpenStruct.new(current_scopes), as: :search, url:  public_result_path, method: :get do |f| %>
+      <%= search_form_for @q, url: public_result_path do |f| %>
       <div class="col col-lg-11">
-        <%= f.input_field :search, name: :search, autofocus: true, class: 'top-search' %>
+        <%#= f.input_field :search, name: :search, autofocus: true, class: 'top-search' %>
+        <%= f.search_field :page_name_or_slug_or_about_cont %>
+        <%= f.submit %>
       </div>
       <% end %>
 

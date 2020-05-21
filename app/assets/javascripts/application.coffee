@@ -1,6 +1,9 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery3
+#= require jquery-fileupload
+#= require dropzone
+#= require fileinput.min
 #= require tinymce
 #= require tinymce-jquery
 #= require chosen-jquery

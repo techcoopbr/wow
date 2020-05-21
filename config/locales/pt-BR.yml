@@ -291,8 +291,12 @@ pt-BR:
       faq: Perguntas e Respostas
       faq_ask: Perguntas Executadas
       creator: Criadores
+      comment: Comentários
+      anonymous_comment: Comentários
     attributes:
       blog:
+        can_comment: Permite Comentário
+        can_anonymous_comment: Permite Comentário Anonimo
         cover: Imagem de Destaque
         title: Título
         short_description: Texto de Chamada
@@ -331,7 +335,7 @@ pt-BR:
         meta_title: Título no Navegador e Metadados
         meta_description: Descrição metadados
         meta_photo: Foto Metadados
-        script_google: Script Google Analytics
+        script_google: Code Google Analytics (Sem UA-)
       email_type:
         type: Tipo
         title: Título

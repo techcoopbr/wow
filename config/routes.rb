@@ -1,11 +1,20 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  resources :publishers
   resources :plataforms
   resources :developers
-  resources :games
+  resources :games do
+    get :get_api_games, on: :collection, as: :get_api_games
+  end
   resources :meta
   require 'domain_constraint'
   mount Ckeditor::Engine => '/ckeditor'
-  resources :blogs#, only: [:new, :edit]
+  resources :blogs do #, only: [:new, :edit]
+    resources :comments
+    resources :anonymous_comments
+  end
+  resources :uploads
   resources :creators #do
   #resources :blogs, only: [:index, :show]
   #end
@@ -37,17 +46,32 @@ Rails.application.routes.draw do
 
   #root to: 'welcome#index'
   get 'blog', to: 'perfil#blog', as: :public_blog
+  post '/create-notice', to: 'notices#create'
+  get '/notifications', to: 'notices#notifications'
   #get 'tags/:tag', to: 'blogs#index', as: "tag"
   get 'result', to: 'perfil#result', as: :public_result
   get ':slug/blog', to: 'perfil#blog', as: :public_creator_blog
   #postagens
+
+  require 'sidekiq/web'
+  authenticate :user do
+    mount Sidekiq::Web => '/admin/sidekiq'
+  end
+
+  get 'gerador/sobremim', to: 'creators#about', as: :creator_about
+  get 'gerador/imagens', to: 'creators#image', as: :creator_image
+  get 'gerador/social', to: 'creators#social', as: :creator_social
+  get 'gerador/embed', to: 'creators#embed', as: :creator_embed
+  get 'gerador/metadados', to: 'creators#meta', as: :creator_meta
+  get 'gerador/contatos', to: 'creators#contact', as: :creator_contact
+  get '/game/:id', to: 'games#game_detail', as: :public_game_detail
+  get '/game', to: 'games#game_list', as: :public_game_list
+
   get ':creator/post/:slug', to: 'perfil#post', as: :public_creator_post
   get 'post/:slug', to: 'perfil#post', as: :public_post
 
   get 'perfil/:slug', :to => 'welcome#creator', as: :public_creator
   get '/:slug', :to => 'perfil#index', as: :public_perfil
-
-
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

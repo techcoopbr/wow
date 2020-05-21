@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @publisher.name
+p
+  strong Description:
+  = @publisher.description
+p
+  strong About:
+  = @publisher.about
+
+= link_to 'Edit', edit_publisher_path(@publisher)
+'|
+= link_to 'Back', publishers_path

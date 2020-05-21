@@ -27,6 +27,30 @@ class CreatorsController < ApplicationController
     end
   end
 
+  def about
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
+  def social
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
+  def embed
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
+  def meta
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
+  def contact
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
+  def image
+    @creator = Creator.find_by(user_id: current_user.id)
+  end
+
   # GET /creators/1/edit
   def edit
     @creator = Creator.find(params[:id])
@@ -40,10 +64,11 @@ class CreatorsController < ApplicationController
     if @creator.user_id.nil?
       @creator.user_id = current_user.id
     end
+    @creator.approved = true
 
     respond_to do |format|
       if @creator.save
-        format.html { redirect_to @creator, notice: 'Creator was successfully created.' }
+        format.html { redirect_to panel_index_path, notice: 'Creator was successfully created.' }
         format.json { render :show, status: :created, location: @creator }
       else
         format.html { render :new }
@@ -70,7 +95,7 @@ class CreatorsController < ApplicationController
           #nada aqui
         end
 
-        format.html { redirect_to @creator, notice: 'Creator was successfully updated.' }
+        format.html { redirect_to panel_index_path, notice: 'Creator was successfully updated.' }
         format.json { render :show, status: :ok, location: @creator }
       else
         format.html { render :edit }

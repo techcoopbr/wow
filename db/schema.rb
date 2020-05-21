@@ -10,18 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200116142432) do
+ActiveRecord::Schema.define(version: 20200520194844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "anonymous_comments", force: :cascade do |t|
+    t.text     "commentary"
+    t.integer  "blog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_anonymous_comments_on_blog_id", using: :btree
+  end
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "creator_id"
     t.string   "tags"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.boolean  "creator_published"
     t.boolean  "admin_published"
     t.string   "short_description"
@@ -29,6 +37,9 @@ ActiveRecord::Schema.define(version: 20200116142432) do
     t.string   "cover"
     t.integer  "views"
     t.integer  "impressions_count"
+    t.boolean  "can_anonymous"
+    t.boolean  "can_comment"
+    t.boolean  "can_anonymous_comment"
     t.index ["creator_id"], name: "index_blogs_on_creator_id", using: :btree
     t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
   end
@@ -43,6 +54,16 @@ ActiveRecord::Schema.define(version: 20200116142432) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "blog_id"
+    t.integer  "user_id"
+    t.text     "commentary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_comments_on_blog_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "creator_tags", force: :cascade do |t|
@@ -90,6 +111,7 @@ ActiveRecord::Schema.define(version: 20200116142432) do
     t.string   "meta_photo"
     t.string   "script_google"
     t.integer  "impressions_count"
+    t.bigint   "last_tweet_id"
     t.index ["user_id"], name: "index_creators_on_user_id", using: :btree
   end
 
@@ -113,13 +135,34 @@ ActiveRecord::Schema.define(version: 20200116142432) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id", using: :btree
   end
 
+  create_table "game_developers", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "developer_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["developer_id"], name: "index_game_developers_on_developer_id", using: :btree
+    t.index ["game_id"], name: "index_game_developers_on_game_id", using: :btree
+  end
+
+  create_table "game_publishers", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "publisher_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["game_id"], name: "index_game_publishers_on_game_id", using: :btree
+    t.index ["publisher_id"], name: "index_game_publishers_on_publisher_id", using: :btree
+  end
+
   create_table "games", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.text     "about"
     t.string   "photo"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "source"
+    t.integer  "source_id"
+    t.string   "short_description"
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -158,11 +201,29 @@ ActiveRecord::Schema.define(version: 20200116142432) do
     t.index ["creator_id"], name: "index_meta_on_creator_id", using: :btree
   end
 
+  create_table "notices", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["recipient_id"], name: "index_notices_on_recipient_id", using: :btree
+    t.index ["sender_id"], name: "index_notices_on_sender_id", using: :btree
+  end
+
   create_table "plataforms", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.text     "about"
     t.string   "photo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "publishers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "about"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -181,6 +242,15 @@ ActiveRecord::Schema.define(version: 20200116142432) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_tags_on_name", using: :btree
+  end
+
+  create_table "uploads", force: :cascade do |t|
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -222,11 +292,20 @@ ActiveRecord::Schema.define(version: 20200116142432) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "anonymous_comments", "blogs"
   add_foreign_key "blogs", "creators"
+  add_foreign_key "comments", "blogs"
+  add_foreign_key "comments", "users"
   add_foreign_key "creator_tags", "creators"
   add_foreign_key "creator_tags", "tags"
   add_foreign_key "creators", "users"
+  add_foreign_key "game_developers", "developers"
+  add_foreign_key "game_developers", "games"
+  add_foreign_key "game_publishers", "games"
+  add_foreign_key "game_publishers", "publishers"
   add_foreign_key "meta", "creators"
+  add_foreign_key "notices", "users", column: "recipient_id"
+  add_foreign_key "notices", "users", column: "sender_id"
   add_foreign_key "taggings", "blogs"
   add_foreign_key "taggings", "tags"
 end

@@ -47,7 +47,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, pre, a
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+  scroll-behavior: smooth; }
 
 html, body {
   background-color: #F2F2F2;
@@ -329,7 +330,12 @@ header .menu-top li a{
   height: 480px;
   width: 100%;
   left: 0;
-  top: 0; }
+  top: 0;
+}
+
+.bg-dark {
+  background-color: black;
+}
 
 .blog-header{
   background: transparent;

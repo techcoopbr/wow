@@ -1,0 +1,89 @@
+<%= simple_form_for(@creator) do |f| %>
+  <div class="card-header">Perfil de criador - IMAGENS</div>
+<div class="card-body">
+ <%= f.error_notification %>
+    <div class="row">
+      <div class="col-md-112 text-center">
+        <p>Os tamanhos são sugestões de como utilizar</p>
+      </div>
+
+      <div class="col-md-12">
+        <%= f.label 'Foto Perfil (230 x 230)' %>
+        <%= f.file_field :photo, class: 'photo' %> <!-- data-initial="<img src='/home/leandro/Imagens/Captura de tela de 2018-06-18 09-37-03.png' class='file-preview-image' alt='Desert' title='Desert'"> -->
+        <br />
+      </div>
+      <div class="col-md-12">
+        <%= f.label 'Foto Destaque na HOME (160 x 160)' %>
+        <%= f.file_field :photo_box, class: 'photo_box' %>
+        <br />
+      </div>
+      <br />
+      <br />
+      <div class="col-md-12">
+        <%= f.label 'Foto Capa (1920x600)' %>
+        <%= f.file_field :cover, class: 'cover'%>
+        <br />
+      </div>
+      <br />
+      <br />
+      <div class="col-md-12">
+        <%= f.label 'Curriculo, PDF, Trabalhos' %>
+        <%= f.file_field :contact_file, class: 'form-control'%>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="col-md-12">
+        <%= f.label 'Logo / Arte da page' %>
+        <%= f.file_field :publi_file, class: 'form-control'%>
+      </div>
+      <br>
+    </div>
+<br />
+  <div class="form-group">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function($){
+  $('.photo').fileinput({
+    language: 'pt-BR',
+    overwriteInitial: true,
+    initialPreview:'<% if @creator.photo? %> <img src="<%= @creator.photo.thumb %>" width="100%" height="100%" class="img-responsive file-preview-image" /> <% end %>',
+    showUpload: false,
+    showCaption: false,
+    showClose: false,
+    showRemove: true,
+    allowedFileExtensions : ['jpg', 'png','gif', 'JPG', 'GIF', 'PNG'],
+    maxFileSize: 10000000,
+    maxFilesNum: 1
+  });
+
+  $('.photo_box').fileinput({
+    language: 'pt-BR',
+    overwriteInitial: true,
+    initialPreview:'<% if @creator.photo_box? %> <img src="<%=@creator.photo_box.perfil%>" width="100%" height="100%" class="img-responsive file-preview-image" /> <% end %>',
+    showUpload: false,
+    showCaption: false,
+    showClose: false,
+    showRemove: true,
+    allowedFileExtensions : ['jpg', 'png','gif', 'JPG', 'GIF', 'PNG'],
+    maxFileSize: 10000000,
+    maxFilesNum: 1
+  });
+
+  $('.cover').fileinput({
+    language: 'pt-BR',
+    overwriteInitial: true,
+    initialPreview:'<% if @creator.cover? %> <img src="<%=@creator.cover.thumb%>" width="100%" height="100%" class="img-responsive file-preview-image" /> <% end %>',
+    showUpload: false,
+    showCaption: false,
+    showClose: false,
+    showRemove: true,
+    allowedFileExtensions : ['jpg', 'png','gif', 'JPG', 'GIF', 'PNG'],
+    maxFileSize: 10000000,
+    maxFilesNum: 1
+  });
+});
+  </script>
+<% end %>

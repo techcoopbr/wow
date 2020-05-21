@@ -1,0 +1,52 @@
+<%= render 'perfil/header_perfil' %>
+<section id="main" class="row">
+    <div class="container">
+      <hgroup class="mb40 text-center">
+        <h3>Pesquisar Jogos</h3>
+        <br />
+      </hgroup>
+<div class="box-search">
+  <%= simple_form_for OpenStruct.new(current_scopes), as: :search, url:  public_game_list_path, method: :get do |f| %>
+  <div class="col col-lg-12">
+    <%= f.input_field :search, name: :search, autofocus: true, class: 'top-search' %>
+  </div>
+  <% end %>
+
+  <div class="clearfix"></div>
+</div>
+</div>
+</section>
+<div class="container">
+  <br class="clearfix">
+  <br class="clearfix">
+    <section class="col-xs-12 col-sm-6 col-md-12">
+
+    <% @games.each do |creator| %>
+    <article class="search-result row">
+			<div class="col-xs-12 col-sm-12 col-md-3">
+        <h4><a href="game/<%= creator.id %>"><%= creator.name %></a></h4>
+				<a href="game/<%= creator.id %>" title="<%= creator.name %>" class="thumbnail">
+          <img class="embed-responsive" src="<%= creator.photo.thumb %>" alt="<%= creator.id %>" />
+        </a>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-9 excerpet">
+				<h3><a href="game/<%= creator.id %>" title=""><%= creator.short_description %></a></h3>
+				<pre><code><%=  %><code></pre>
+			</div>
+			<span class="clearfix borda"></span>
+      <br />
+      <br />
+		</article>
+    <% end %>
+	</section>
+</div>
+<div class="container">
+<div class="row">
+  <div class="col-md-6"><%= paginate @games %></div>
+  <div class="col-md-6">
+    <p class="text-right">
+      Exibindo <b><%= @games.count %></b> de <b><%= @games.total_count %></b>
+    </p>
+  </div>
+</div>
+</div>

@@ -5,6 +5,7 @@ class Creator < ApplicationRecord
   has_many :games, through: :game_creators
   has_many :creator_tags
   has_many :tags, through: :creator_tags
+  has_many :blogs
 
   mount_uploader :photo, PhotoUploader
   mount_uploader :photo_box, PhotoBoxUploader
@@ -22,6 +23,16 @@ class Creator < ApplicationRecord
 
   def self.game_counts
     Game.select('games.*, count(game_creators.game_id) as count').joins(:game_creators).group('game_creators.game_id')
+  end
+
+  def self.with_twitter
+    where.not(twitter: nil)
+  end
+
+  def self.start_last_tweet_update
+    with_twitter.each do |creator|
+      UpdateLastTweetJob.perform_later(creator)
+    end
   end
 
   def game_list
@@ -43,4 +54,18 @@ class Creator < ApplicationRecord
       Game.where(name: n.strip).first_or_create!
     end
   end
+
+  def update_last_tweet
+    id = self.new_last_tweet_id
+
+    if self.last_tweet_id != id
+      self.last_tweet_id = id
+      self.save
+    end
+  end
+
+  def new_last_tweet_id
+    TwitterRestClient.new_client.get_last_tweet(self).id
+  end
+
 end

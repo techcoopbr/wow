@@ -1,6 +1,17 @@
 require_relative 'boot'
 
 require 'rails/all'
+require "active_model/railtie"
+require "active_job/railtie"
+require "active_record/railtie"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "action_view/railtie"
+require "sprockets/railtie"
+require 'yaml'
+require 'net/http'
+require 'openssl'
+require 'resolv-replace'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -29,6 +40,7 @@ module Wow
     config.exceptions_app = self.routes
     config.assets.compile = true
     #config.assets.enabled = false
+    config.active_job.queue_adapter = :sidekiq
 
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w( ckeditor/* )
