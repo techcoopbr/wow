@@ -81,10 +81,8 @@
           <% end %>
         </div>
         <div id="twitter" class="tab-pane fade" role="tabpanel" aria-labelledby="twitter-tab">
-          <% if @creator.twitter_embed != nil %>
-            <% if @creator.twitter_embed.size >= 10 %>
-              <%= render 'twitter' %>
-            <% end %>
+          <% if @creator.twitter != nil %>
+            <%= render 'twitter' %>
           <% end %>
         </div>
 
