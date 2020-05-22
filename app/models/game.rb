@@ -33,9 +33,9 @@ class Game < ApplicationRecord
     client = Steam::StoreClient.new(id)
     response = client.app_details
 
-    raise Steam::TooManyRequestsError.new if response.code == 429
-    
     raise Steam::NilResponseError.new if response.nil?
+    
+    raise Steam::TooManyRequestsError.new if response.code == 429
 
     response[id.to_s]['data']
   end
