@@ -1,27 +1,16 @@
 class SteamGameUpdateJob < ApplicationJob
-  queue_as :default
+  queue_as :steam_api
 
-  def perform(games)
-    games.each do |g|
-      app_details = SteamGameUpdateJob.get_details(g['appid'])
+  include Steam
+
+  def perform(id)
+    begin
+      app_details = Game.get_details(id)
       Game.create_or_update_steam_game(app_details) if Game.is_game?(app_details)
+    rescue Steam::TooManyRequestsError
+      sleep 60
+      retry
     end
+
   end
-
-  private
-
-    def self.get_details(id)
-      begin
-        steam_powered_store = SteamPoweredStore.new(id)
-        res = steam_powered_store.app_details
-
-        raise if res.code == 429
-      rescue
-        sleep(60)
-        retry
-      end
-
-      res[id.to_s]['data']
-    end
-
 end

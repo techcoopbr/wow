@@ -1,16 +1,10 @@
 class SteamApiRequestJob < ApplicationJob
-  queue_as :default
+  queue_as :steam_api
 
   def perform
-
-    for count in 1..10
-      steam_powered = SteamPowered.new
-      res = steam_powered.app_list
-      break if res.code == 200
-      sleep(60)
+    Game.steam_games_list.each do |g|
+      SteamGameUpdateJob.perform_later(g['appid'])
     end
-
-    SteamGameUpdateJob.perform_later(res['applist']['apps'])
   end
 
 end
