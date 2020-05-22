@@ -1,4 +1,5 @@
 class Developer < ApplicationRecord
+  validates :name, uniqueness: true
   has_many :game_developers
 
   def self.get_or_create_steam_developer(name)    
