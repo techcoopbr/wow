@@ -1,4 +1,5 @@
 class GamePublisher < ApplicationRecord
+  validates :game_id, uniqueness: { scope: [:publisher_id] }
   belongs_to :game
   belongs_to :publisher
 
@@ -10,7 +11,8 @@ class GamePublisher < ApplicationRecord
     return if info.nil?
     info.each do |pub_name|
       pub = Publisher.get_or_create_steam_publisher(pub_name)
-      GamePublisher.new(game: game, publisher: pub).save if not GamePublisher.existent_relation?(game, pub)
+      gp = GamePublisher.new(game: game, publisher: pub)
+      gp.save if gp.valid?
     end
   end
 end

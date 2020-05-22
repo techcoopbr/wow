@@ -1,4 +1,5 @@
 class GameDeveloper < ApplicationRecord
+  validates :game_id, uniqueness: { scope: [:developer_id] } 
   belongs_to :game
   belongs_to :developer
 
@@ -11,7 +12,8 @@ class GameDeveloper < ApplicationRecord
     return if info.nil?
     info.each do |dev_name|
       dev = Developer.get_or_create_steam_developer(dev_name)
-      GameDeveloper.new(game: game, developer: dev).save if not GameDeveloper.existent_relation?(game, dev)
+      gd = GameDeveloper.new(game: game, developer: dev)
+      gd.save if gd.valid?
     end
   end
 
