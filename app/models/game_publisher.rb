@@ -3,10 +3,6 @@ class GamePublisher < ApplicationRecord
   belongs_to :game
   belongs_to :publisher
 
-  def self.existent_relation?(game, publisher)
-    GamePublisher.where(game: game, publisher: publisher).exists?
-  end
-
   def self.create_publisher_relation(game, info)
     return if info.nil?
     info.each do |pub_name|

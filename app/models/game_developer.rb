@@ -3,11 +3,6 @@ class GameDeveloper < ApplicationRecord
   belongs_to :game
   belongs_to :developer
 
-
-  def self.existent_relation?(game, developer)
-    GameDeveloper.where(game: game, developer: developer).exists?
-  end
-
   def self.create_developer_relation(game, info)
     return if info.nil?
     info.each do |dev_name|
