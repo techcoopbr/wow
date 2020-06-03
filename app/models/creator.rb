@@ -17,6 +17,22 @@ class Creator < ApplicationRecord
   is_impressionable counter_cache: true
   validates :page_name, :about, presence: true
 
+  def self.streamers
+    where.not(twitch: ["", nil])
+  end
+
+  def self.get_twitch_logins
+    logins = Array.new
+    streamers.each do |s|
+      logins << s.twitch
+    end
+    logins
+  end
+
+  def self.find_by_twitch(name)
+    find_by(twitch: name.downcase)
+  end
+
   def self.game_with(name)
     Game.find_by!(name: name).creators
   end
