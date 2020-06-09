@@ -24,13 +24,18 @@ class Creator < ApplicationRecord
   def self.get_twitch_logins
     logins = Array.new
     streamers.each do |s|
-      logins << s.twitch
+      if s.twitch.split('/')[-1] == ''
+        logins << s.twitch
+      else
+        logins << s.twitch.split('/')[-1]
+      end
     end
     logins
   end
 
   def self.find_by_twitch(name)
-    find_by(twitch: name.downcase)
+    name_str = '%' + name.downcase.to_s + '%'
+    find_by("twitch ilike ? ", name_str )
   end
 
   def self.game_with(name)

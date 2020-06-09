@@ -5,6 +5,7 @@
   <div class="col col-lg-6 col-8 float-right text-right">
   <ul class="menu-top inline">
     <li><a href="<%= public_blog_path %>">BLOG</a></li>
+    <li><i id="tt4" class="zmdi zmdi-twitch"></i> <a href="<%= twitch_live_path %>">AO VIVO</a></li>
     <% if user_signed_in? %>
       <li><a href="/panel"><%= current_user.name %></a></li>
     <% else %>

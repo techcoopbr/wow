@@ -1,5 +1,6 @@
 class TwitchController < ApplicationController
   skip_before_filter :authenticate_user!
+  layout "perfil"
 
   before_action :set_streamers
 
