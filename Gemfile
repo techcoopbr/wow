@@ -14,12 +14,14 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'kaminari'
 # add the line below
 gem 'chosen-rails'
+gem 'searchkick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'redis'
 gem 'sidekiq'
+gem 'sidekiq-scheduler'
 gem 'figaro'
 # Use Puma as the app server
 #gem 'puma', '~> 3.0'
@@ -68,7 +70,8 @@ gem 'unicorn'
 # Use HTTParty for steam-api
 gem 'httparty'
 
-gem 'ransack' 
+gem 'ransack'
+gem 'twitter'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
