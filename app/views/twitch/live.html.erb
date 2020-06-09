@@ -1,0 +1,31 @@
+
+<%= render 'perfil/header_perfil' %>
+<div class="container">
+  <br class="clearfix">
+  <br class="clearfix">
+  <hgroup class="mb20">
+		<h1>Resultados da Busca</h1>
+    <h2 class="lead"><strong class="text-danger"><%= @lives.count %></strong> resultados encontrados para <strong class="text-danger">Ao Vivo</strong></h2>
+  </hgroup>
+
+    <section class="col-xs-12 col-sm-6 col-md-12">
+<% @lives.each do |live| %>
+<% creator = Creator.find_by_twitch(live['user_name']) %>
+<a href="/<%= creator.slug.to_s unless creator.slug.nil? %>" target="_blank">
+    <article class="search-result row">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="<%= live['thumbnail_url'].sub('{width}', '1280').sub('{height}', '720') %>" class="img-thumbnail">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= live['user_name'] %></h5>
+          <p class="card-text"><%= live['title'] %></p>
+          <p class="card-text">Viewers: <%= live['viewer_count'] %></p>
+        </div>
+      </div>
+    </div>
+  </article>
+</a>
+<% end %>
+</section>
