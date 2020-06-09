@@ -3,6 +3,8 @@ class PerfilController < ApplicationController
   layout "perfil"
   impressionist actions: [:post, :blog, :index]
 
+  before_action :set_ransack_params
+
   has_scope :search
 
   def index
@@ -16,15 +18,13 @@ class PerfilController < ApplicationController
       redirect_to sidekiq_web_path
     end
     
-    @q = Creator.ransack(params[:q])
-    if not @creator.nil?
+    unless @creator.twitter.nil?
       @client = TwitterRestClient.new_client
       @tweets = @client.user_timeline(@creator.twitter, count: Twitter::REST::Tweets::MAX_TWEETS_PER_REQUEST)
     end
   end
 
   def result
-    @q = Creator.ransack(params[:q])
     @creators = @q.result
   end
 
@@ -32,7 +32,6 @@ class PerfilController < ApplicationController
     @creators = Creator.where(approved: true).where.not(photo: nil).order("RANDOM()")
     @creators = @creators.first(6)
     @blogs = Blog.where(admin_published: true, creator_published: true).order("RANDOM()")
-    @q = Creator.ransack(params[:q])
   end
 
   def blog
@@ -71,4 +70,10 @@ class PerfilController < ApplicationController
   #    redirect_to panel_path
   #  end
   end
+
+  private
+
+    def set_ransack_params
+      @q = Creator.ransack(params[:q])
+    end
 end

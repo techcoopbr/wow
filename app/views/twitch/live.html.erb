@@ -1,0 +1,20 @@
+<h1>Em Live</h1>
+
+<% @lives.each do |live| %>
+<a href="/<%= Creator.find_by_twitch(live['user_name']).slug %>" target="_blank">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="<%= live['thumbnail_url'].sub('{width}', '1280').sub('{height}', '720') %>" class="card-img">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= live['user_name'] %></h5>
+          <p class="card-text"><%= live['title'] %></p>
+          <p class="card-text">Viewers: <%= live['viewer_count'] %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
+<% end %>
