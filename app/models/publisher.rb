@@ -1,4 +1,5 @@
 class Publisher < ApplicationRecord
+  validates :name, uniqueness: true
   has_many :game_publishers
 
   def self.get_or_create_steam_publisher(name)    
