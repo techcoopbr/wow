@@ -11,8 +11,7 @@
     <section class="col-xs-12 col-sm-6 col-md-12">
 
 <% @lives.each do |live| %>
-<% creator = Creator.find_by_twitch(live['user_name']) %>
-<a href="/<%= creator.slug.to_s unless creator.slug.nil? %>" target="_blank">
+
     <article class="search-result row">
     <div class="row no-gutters">
       <div class="col-md-4">
