@@ -14,7 +14,6 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'kaminari'
 # add the line below
 gem 'chosen-rails'
-gem 'searchkick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
 # Use postgresql as the database for Active Record

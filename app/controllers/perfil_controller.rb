@@ -34,6 +34,7 @@ class PerfilController < ApplicationController
 
   def result
     @creators = @q.result
+#    @blogs = @b.result
   end
 
   def home
@@ -82,6 +83,7 @@ class PerfilController < ApplicationController
   private
 
     def set_ransack_params
-      @q = Creator.ransack(params[:q])
+      @q = Creator.ransack(page_name_or_slug_or_about_cont: params[:search])
+#      @b = Blog.ransack(title_or_body_cont: params[:search])
     end
 end

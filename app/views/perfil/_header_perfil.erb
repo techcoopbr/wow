@@ -5,6 +5,7 @@
   <div class="col col-lg-3 col-8 float-right text-right">
       <%= simple_form_for OpenStruct.new(current_scopes), as: :search, id: 'search', url:  public_result_path, method: :get do |f| %>
         <%= f.input_field :search, name: :search, class: 'top-search', autofocus: true, placeholder: 'Buscar...' %>
+        <button type="submit"><i class="fas fa-search fa-flip-horizontal"></i></button>
       <% end %>
     </div>
   <div class="clearfix"></div>
