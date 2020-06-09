@@ -51,8 +51,11 @@ class Creator < ApplicationRecord
   end
 
   def self.start_last_tweet_update
-    with_twitter.each do |creator|
-      UpdateLastTweetJob.perform_later(creator)
+    begin
+      with_twitter.each do |creator|
+        UpdateLastTweetJob.perform_later(creator)
+      end
+    rescue
     end
   end
 
