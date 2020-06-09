@@ -13,7 +13,10 @@ class PerfilController < ApplicationController
       if @creator.nil?
         redirect_to root_path
       end
-      impressionist @creator
+      begin
+        impressionist @creator
+      rescue
+      end
     else
       redirect_to sidekiq_web_path
     end
@@ -48,7 +51,11 @@ class PerfilController < ApplicationController
     if @creator.nil?
       @blogs = Blog.where(admin_published: true, creator_published: true).order(created_at: :desc)
     else
-      impressionist @creator
+      begin
+        impressionist @creator
+      rescue
+
+      end
       @blogs = Blog.where(creator_id: @creator.id, admin_published: true, creator_published: true).order(created_at: :desc)
     end
   end
@@ -74,10 +81,11 @@ class PerfilController < ApplicationController
         end
         @blog.save!
       end
-      impressionist @blog
-  #  rescue
+      begin
+        impressionist @blog
+      rescue
   #    redirect_to panel_path
-  #  end
+      end
   end
 
   private
