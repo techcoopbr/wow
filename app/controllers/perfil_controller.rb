@@ -8,7 +8,7 @@ class PerfilController < ApplicationController
   has_scope :search
 
   def index
-    if params[:slug] != 'sidekiq' && params[:slug] != '500'
+    if params[:slug] != 'sidekiq'
       @creator = Creator.find_by(slug: params[:slug])
       if @creator.nil?
         redirect_to root_path
