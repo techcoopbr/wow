@@ -7,7 +7,7 @@ class TwitchController < ApplicationController
   include Twitch
 
   def live
-    @lives = get_lives
+  #  @lives = get_lives
   end
 
   private
