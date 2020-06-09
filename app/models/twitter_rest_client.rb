@@ -1,5 +1,5 @@
 class TwitterRestClient < Twitter::REST::Client
-  
+
   def self.new_client
     client = TwitterRestClient.new do |config|
       config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']

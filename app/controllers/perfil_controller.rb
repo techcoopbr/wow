@@ -17,10 +17,14 @@ class PerfilController < ApplicationController
     else
       redirect_to sidekiq_web_path
     end
-    
+
     unless @creator.twitter.nil?
-      @client = TwitterRestClient.new_client
-      @tweets = @client.user_timeline(@creator.twitter, count: Twitter::REST::Tweets::MAX_TWEETS_PER_REQUEST)
+      begin
+        @client = TwitterRestClient.new_client
+        @tweets = @client.user_timeline(@creator.twitter, exclude_replies: true, count: Twitter::REST::Tweets::MAX_TWEETS_PER_REQUEST)
+      rescue
+
+      end
     end
   end
 

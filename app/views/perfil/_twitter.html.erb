@@ -2,15 +2,41 @@
   <div class="row">
     <div class="container-fluid col-sm-12 text-center">
       <h2>TWITTER</h2>
-      <% @tweets.each do |tweet| %>
+      <% unless @tweets.nil? %>
+        <% @tweets.each do |tweet| %>
+          <div class="twitter-box card dark-nav">
+            <div class="card-body">
+              <a href="<%= tweet.url %>" target="_blank">
+              <%= tweet.full_text %>
+              <% tweet.media.each do |media| %>
+                <img src="<%= media.media_url.to_s %>" class="img-thumbnail" alt="img post">
+              <% end %>
+              <% var_i = tweet.user_mentions.count %>
+              <br />
+              <br />
+              <%= 'Menções: ' if var_i > 0 %>
+              <% tweet.user_mentions.each do |user_mention| %>
+                <% var_i = var_i - 1 %>
+                <a href="https://twitter.com/<%= user_mention.screen_name %>" target="_blank"><%= user_mention.name %></a>
+                <%= ',' if var_i > 0 %>
+              <% end %>
 
-        <div class="twitter-box card">
-          <div class="card-body">
-          <%= tweet.full_text %>  
+                <% var_i = tweet.urls.count %>
+                <br />
+                <%= 'Links: ' if var_i > 0 %>
+                <% tweet.urls.each do |url| %>
+                <% var_i = var_i - 1 %>
+                <a href="url.url" target="_blank"><%= url.url %></a>
+                <%= ',' if var_i > 0 %>
+                <% end %>
+              </a>
+
+
+            </div>
           </div>
-        </div>
-      
+        <% end %>
       <% end %>
     </div>
+    <a href="https://twitter.com/<%= @creator.twitter %>" target="_blank">Veja seu Perfil</a>
   </div>
 </section>

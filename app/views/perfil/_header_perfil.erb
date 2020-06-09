@@ -3,14 +3,9 @@
     <a href="<%= root_path %>"><img src="../../img/logo.svg" width="80" title="Gamers Hall" alt="Gamers Hall"></a>
   </div>
   <div class="col col-lg-3 col-8 float-right text-right">
-    <%#= simple_form_for OpenStruct.new(current_scopes), as: :search, id: 'search', url:  public_result_path, method: :get do |f| %>
-      <%#= f.input_field :search, name: :search, class: 'top-search', autofocus: true, placeholder: 'Buscar...' %>
-      <!-- <button type="submit"><i class="fas fa-search fa-flip-horizontal"></i></button> -->
-    <%# end %>
-    <%= search_form_for @q, url: public_result_path do |f| %>
-      <%= f.search_field :page_name_or_slug_or_about_cont %>
-      <%= f.submit %>
-    <% end %>
-  </div>
+      <%= simple_form_for OpenStruct.new(current_scopes), as: :search, id: 'search', url:  public_result_path, method: :get do |f| %>
+        <%= f.input_field :search, name: :search, class: 'top-search', autofocus: true, placeholder: 'Buscar...' %>
+      <% end %>
+    </div>
   <div class="clearfix"></div>
 </header>

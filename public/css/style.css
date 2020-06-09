@@ -446,7 +446,10 @@ header .menu-top li a{
   width: 100%;
   position: relative;
   max-width: 600px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .blog-content .box-content .not-found {
   position: relative;

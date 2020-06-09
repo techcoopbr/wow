@@ -26,9 +26,8 @@
       <%#= simple_form_for OpenStruct.new(current_scopes), as: :search, url:  public_result_path, method: :get do |f| %>
       <%= search_form_for @q, url: public_result_path do |f| %>
       <div class="col col-lg-11">
-        <%#= f.input_field :search, name: :search, autofocus: true, class: 'top-search' %>
-        <%= f.search_field :page_name_or_slug_or_about_cont %>
-        <%= f.submit %>
+        <%#= f.input_field :search,  %>
+        <%= f.search_field :page_name_or_slug_or_about_cont, name: :search, autofocus: true, class: 'top-search' %>
       </div>
       <% end %>
 
