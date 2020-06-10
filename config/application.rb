@@ -45,7 +45,6 @@ module Wow
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w( ckeditor/* )
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-    config.eager_load_paths << Rails.root.join('lib/twitch/client.rb')
 
     config.to_prepare do
         Devise::SessionsController.layout "login"
