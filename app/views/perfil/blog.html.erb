@@ -56,12 +56,7 @@
 
       <!-- Pagination -->
       <ul class="pagination justify-content-center mb-4">
-        <li class="page-item">
-          <a class="page-link" href="#">&larr; Voltar</a>
-        </li>
-        <li class="page-item disabled">
-          <a class="page-link" href="#">Avançar &rarr;</a>
-        </li>
+          <div class="col-md-12"><%= paginate @blogs %></div>
       </ul>
 
     </div>
@@ -73,12 +68,14 @@
       <div class="card my-4">
         <h5 class="card-header">Procurar Postagem</h5>
         <div class="card-body">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Me diga o que procurar.">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Pokébola, vai!</button>
-            </span>
-          </div>
+            <%= simple_form_for OpenStruct.new(current_scopes), as: :search, id: 'search', url:  public_blog_path, method: :get do |f| %>
+            <div class="input-group">
+              <%= f.input :search, name: :search, class: 'top-search', autofocus: true, placeholder: 'Me diga o que procurar', label: false %>
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="submit">Pokébola, vai!</button>
+              </span>
+            </div>
+            <% end %>
         </div>
       </div>
 

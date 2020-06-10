@@ -6,6 +6,8 @@ class PerfilController < ApplicationController
   before_action :set_ransack_params
 
   has_scope :search
+  respond_to :html, :json
+  has_scope :page, default: 1
 
   def index
     if params[:slug] != 'sidekiq'
@@ -58,6 +60,10 @@ class PerfilController < ApplicationController
       end
       @blogs = Blog.where(creator_id: @creator.id, admin_published: true, creator_published: true).order(created_at: :desc)
     end
+    @q= @blogs.ransack(title_or_body_cont: params[:search])
+    @blogs = @q.result
+
+    @blogs = @blogs.page(params[:page]).per(5)
   end
 
   def post
