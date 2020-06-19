@@ -32,7 +32,7 @@
             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">BLOG</div>
             <div class="text-xs mb-0 font-weight-bold text-gray-800">Posts: <%= @blogs.count %></div>
             <div class="text-xs mb-0 font-weight-bold text-gray-800">Acessos: <%= @blogs.sum(:impressions_count) %></div>
-            <div class="text-xs mb-0 font-weight-bold text-gray-800">Comentários: <%= @comments.count + @anonymous_comments.count %></div>
+            <div class="text-xs mb-0 font-weight-bold text-gray-800">Comentários: <%= @comments_count %></div>
           </div>
           <div class="col-auto">
             <i class="fas fa-book fa-2x text-gray-300"></i>

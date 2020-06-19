@@ -2,11 +2,11 @@ class PanelController < ApplicationController
   before_action :authenticate_user!
   before_action :set_creator
   before_action :set_blogs, if: -> { @creator }
-  before_action :set_comments, if: -> { @blogs }
   layout "application"
 
   def index
     @users = User.all#where.not(id: current_user.id)
+    @comments_count = @creator.comments.count + @creator.anonymous_comments.count
   end
 
   private
@@ -18,15 +18,4 @@ class PanelController < ApplicationController
     def set_blogs
       @blogs = @creator.blogs
     end
-
-    def set_comments
-      @comments = Array.new
-      @anonymous_comments = Array.new
-
-      @blogs.each do |b|
-        @comments += b.comments
-        @anonymous_comments += b.anonymous_comments
-      end
-    end
-
 end
