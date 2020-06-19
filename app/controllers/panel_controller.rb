@@ -6,7 +6,7 @@ class PanelController < ApplicationController
 
   def index
     @users = User.all#where.not(id: current_user.id)
-    @comments_count = @creator.comments.count + @creator.anonymous_comments.count
+    @comments_count = @creator.posts_comments.count + @creator.posts_anonymous_comments.count
   end
 
   private

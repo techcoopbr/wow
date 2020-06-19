@@ -6,8 +6,8 @@ class Creator < ApplicationRecord
   has_many :creator_tags
   has_many :tags, through: :creator_tags
   has_many :blogs
-  has_many :comments, through: :blogs
-  has_many :anonymous_comments, through: :blogs
+  has_many :posts_comments, through: :blogs, source: :comments
+  has_many :posts_anonymous_comments, through: :blogs, source: :anonymous_comments
 
   mount_uploader :photo, PhotoUploader
   mount_uploader :photo_box, PhotoBoxUploader
