@@ -3,6 +3,7 @@ class User < ApplicationRecord
   belongs_to :creator
   has_many :comments
   has_many :notices
+  has_many :followed_creators, class_name: CreatorFollow, dependent: :destroy
   #validates :facebook, :youtube, :twitch, :intagram, :twitter, :website, :podcast, format: URI::regexp(%w[http https])
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
