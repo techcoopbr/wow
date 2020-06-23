@@ -1,7 +1,16 @@
-<p>Olá <%= @resource.email %>!</p>
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4 well">
+  </div>
+  <div class="col-lg-4 col-lg-offset-4 well" style="margin-top:120px;">
+    <div class="text-center">
+      <img class="img-fluid" alt="Responsive image" src="https://gamershall.gg/logo.png">
+    </div>
+    <p>Olá <%= @resource.email %>!</p>
 
-<p>Seu login foi bloqueado pelo grande numero de tentativas de acesso.</p>
+    <p>Seu login foi bloqueado pelo grande numero de tentativas de acesso.</p>
 
-<p>Clique no link abaixo para desbloquear sua conta</p>
+    <p>Clique no link abaixo para desbloquear sua conta</p>
 
-<p><%= link_to 'Desbloquear minha conta', unlock_url(@resource, unlock_token: @token) %></p>
+    <p><%= link_to 'Desbloquear minha conta', unlock_url(@resource, unlock_token: @token) %></p>
+  </div>
+</div>

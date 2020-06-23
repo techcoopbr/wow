@@ -5,10 +5,6 @@ class CreatorMailer < ApplicationMailer
 
       @user = user
       mail(to: @user.email, subject: 'CADASTRO APROVADO, ' + @user.name)
-      puts '**************'
-      puts '**************'
-      puts '**************'
-      puts '**************'
 
       render :status => 200, :json => {:status => true}.to_json, :content_type => 'application/json'
     rescue

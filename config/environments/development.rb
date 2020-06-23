@@ -49,9 +49,10 @@ Rails.application.configure do
       :enable_starttls_auto => true,
       :address              => 'smtp.weblink.com.br',
       :port                 => 587,
-      :domain               => 'wowmorreu.com.br',
-      :user_name            => 'site@wowmorreu.com.br',
-      :password             => '2311maje2311',
+      :domain               => 'gamershall.gg',
+      :authentication       => :login,
+      :user_name            => 'api@gamershall.gg',
+      :password             => 'nr^agJ6!',
       :tsl                  => true,
       :openssl_verify_mode  => 'none'
   }
