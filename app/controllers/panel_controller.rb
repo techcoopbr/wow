@@ -3,19 +3,22 @@ class PanelController < ApplicationController
   layout "application"
 
   def index
-    @creator = Creator.find_by!(user_id: current_user.id)
+    begin
+      @creator = Creator.find_by!(user_id: current_user.id)
+      @blogs = @creator.blogs
 
-    @users = User.all#where.not(id: current_user.id)
+      @comments = Array.new
+      @anonymous_comments = Array.new
 
-    @blogs = @creator.blogs
-
-    @comments = Array.new
-    @anonymous_comments = Array.new
-
-    @blogs.each do |b|
-      @comments += b.comments
-      @anonymous_comments += b.anonymous_comments
+      @blogs.each do |b|
+        @comments += b.comments
+        @anonymous_comments += b.anonymous_comments
+      end
+    rescue
+      @creator = nil
+      @blogs = nil
     end
 
+    @users = User.all#where.not(id: current_user.id)
   end
 end
