@@ -57,6 +57,8 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   authenticate :user do
     mount Sidekiq::Web => '/admin/sidekiq'
+    post 'import', to: 'import#create', as: :import
+    delete 'import', to: 'import#destroy'    
   end
 
   get 'gerador/sobremim', to: 'creators#about', as: :creator_about

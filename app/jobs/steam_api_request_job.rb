@@ -3,7 +3,7 @@ class SteamApiRequestJob < ApplicationJob
 
   def perform
     Game.steam_games_list.each do |g|
-      SteamGameUpdateJob.perform_later(g['appid'])
+      SteamGameUpdateJob.set(wait: 5.seconds).perform_later(g['appid'])
     end
   end
 
