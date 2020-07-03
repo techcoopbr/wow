@@ -1,1 +1,12 @@
-<p><%= creator_follow.user.name %></p>
+<article class="row">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <%= image_tag(creator_follow.user.photo.thumb, style: "padding: 10px; height: 100px; width: auto;", class: 'img-thumbnail') %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= creator_follow.user.name %></h5>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,13 @@
+<%= render 'perfil/header_perfil' %>
+<div class="container">
+  <br class="clearfix">
+  <br class="clearfix">
+  <hgroup class="mb20">
+    <h1>Seguidores de <%= @creator.page_name %></h1>
+    <h2 class="lead"><strong class="text-danger"><%= @followers.count %></strong> seguidor<%= 'es' if @followers.count > 1 %></h2>
+  </hgroup>
+
+  <section class="col-xs-12 col-sm-6 col-md-12">
+    <%= render @followers %>
+  </section>
+</div>
