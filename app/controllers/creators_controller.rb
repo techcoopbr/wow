@@ -27,6 +27,12 @@ class CreatorsController < ApplicationController
     end
   end
 
+  def followers
+    @creator = Creator.find(params[:id])
+    authorize @creator
+    @followers = @creator.followers
+  end
+
   def about
     @creator = Creator.find_by(user_id: current_user.id)
   end

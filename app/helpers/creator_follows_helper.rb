@@ -1,0 +1,2 @@
+module CreatorFollowsHelper
+end

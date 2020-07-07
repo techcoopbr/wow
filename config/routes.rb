@@ -66,7 +66,9 @@ Rails.application.routes.draw do
   get 'gerador/social', to: 'creators#social', as: :creator_social
   get 'gerador/embed', to: 'creators#embed', as: :creator_embed
   get 'gerador/metadados', to: 'creators#meta', as: :creator_meta
-  get 'gerador/contatos', to: 'creators#contact', as: :creator_contact
+  get 'gerador/contatos', to: 'creators#contact', as: :creator_contact  
+  get 'gerador/seguidores', to: 'creators#followers', as: :creator_followers
+
   get '/game/:id', to: 'games#game_detail', as: :public_game_detail
   get '/game', to: 'games#game_list', as: :public_game_list
   get 'twitch/live'
@@ -79,4 +81,9 @@ Rails.application.routes.draw do
   get '/:slug', :to => 'perfil#index', as: :public_perfil
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  post 'creator_follows/create', as: :creator_follows
+  delete 'creator_follows/destroy', as: :creator_follows_destroy
+  get 'creator_follows/show', as: :creator_follows_show
+
 end

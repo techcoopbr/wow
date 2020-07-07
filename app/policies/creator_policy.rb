@@ -18,6 +18,10 @@ class CreatorPolicy
     user.admin? || creator.user_id == user.id
   end
 
+  def followers?
+    creator.user_id == user.id
+  end
+
   def create?
     true
   end

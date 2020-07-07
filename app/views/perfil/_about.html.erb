@@ -85,7 +85,26 @@
       </div>
       <div class="col-md-7 col-xs-12">
         <div class="info-wrap">
-          <h1><%= @creator.page_name %></h1>
+          <div class="row">
+            <div class="col-10">
+              <h1><%= @creator.page_name %></h1>
+            </div>
+
+            <div class="col-2" id="follow_button" style="<%= 'display: none;' if @creator.followers&.find_by(user_id: current_user&.id) %>;">
+              <%= link_to creator_follows_path(creator_id: @creator.try(:id)), method: :post, remote: true, class: 'btn btn-warning btn-sm', style: "width: 100%" do %>
+                <i class="fas fa-user" style="width: 2.2em; height: 2.2em; color: #FFF;"></i>
+                <p>Seguir</p>
+              <% end %>
+            </div>
+
+            <div class="col-2" id="unfollow_button" style="<%= 'display: none;' unless @creator.followers&.find_by(user_id: current_user&.id) %>;">
+              <%= link_to creator_follows_destroy_path(creator_id: @creator.try(:id)), method: :delete, remote: true, class: 'btn btn-success btn-sm', style: "width: 100%" do %>
+                <i class="fas fa-user" style="width: 2.2em; height: 2.2em; color: #FFF;"></i>
+                <p>Seguindo</p>
+              <% end %>
+            </div>
+
+          </div>
           <h5><%= @creator.short_description %></h5>
           <div class="pv-20">
             <% if @creator.publi_file != nil  %>
