@@ -12,7 +12,7 @@ class Game < ApplicationRecord
     game = Game.new if game.nil?
 
     game.set_steam_attributes(info_hash)
-    
+
     game.save
   end
 
@@ -34,7 +34,7 @@ class Game < ApplicationRecord
     response = client.app_details
 
     raise Steam::NilResponseError.new if response.nil?
-    
+
     raise Steam::TooManyRequestsError.new if response.code == 429
 
     response[id.to_s]['data']
@@ -49,12 +49,13 @@ class Game < ApplicationRecord
   end
 
   def set_steam_attributes(info_hash)
-    self.name =               info_hash['name']
-    self.source_id =          info_hash['steam_appid']
-    self.description =        info_hash['detailed_description']
-    self.about =              info_hash['about_the_game']
-    self.short_description =  info_hash['short_description']
-    self.source =             'steam'
+    self.name               = info_hash['name']
+    self.source_id          = info_hash['steam_appid']
+    self.description        = info_hash['detailed_description']
+    self.about              = info_hash['about_the_game']
+    self.short_description  = info_hash['short_description']
+    self.photo              = info_hash['header_image']
+    self.source             = 'steam'
     self.add_developers(info_hash)
     self.add_publishers(info_hash)
   end

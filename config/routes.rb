@@ -57,6 +57,8 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   authenticate :user do
     mount Sidekiq::Web => '/admin/sidekiq'
+    post 'import', to: 'import#create', as: :import
+    delete 'import', to: 'import#destroy'    
   end
 
   get 'gerador/sobremim', to: 'creators#about', as: :creator_about
@@ -69,7 +71,8 @@ Rails.application.routes.draw do
 
   get '/game/:id', to: 'games#game_detail', as: :public_game_detail
   get '/game', to: 'games#game_list', as: :public_game_list
-  get 'twitch/live'#, to: 'twitch#live', as: twitch_live
+  get 'twitch/live'
+  get 'twitch/get_lives'
 
   get ':creator/post/:slug', to: 'perfil#post', as: :public_creator_post
   get 'post/:slug', to: 'perfil#post', as: :public_post

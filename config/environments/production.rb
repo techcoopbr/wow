@@ -78,8 +78,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.assets.raise_runtime_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.asset_host = 'elfabandida.com.br'
-  config.action_mailer.default_url_options = { :host => "elfabandida.com.br" }
+  config.action_mailer.asset_host = 'gamershall.gg'
+  config.action_mailer.default_url_options = { :host => "gamershall.gg" }
   #config.action_mailer.delivery_method = :sendmail
 
   # Raises error for missing translations
@@ -90,10 +90,10 @@ Rails.application.configure do
       :enable_starttls_auto => true,
       :address              => 'smtp.weblink.com.br',
       :port                 => 587,
-      :domain               => 'wowmorreu.com.br',
+      :domain               => 'gamershall.gg',
       :authentication       => :login,
-      :user_name            => 'site@wowmorreu.com.br',
-      :password             => '2311maje2311',
+      :user_name            => 'api@gamershall.gg',
+      :password             => 'nr^agJ6!',
       :tsl                  => true,
       :openssl_verify_mode  => 'none'
   }

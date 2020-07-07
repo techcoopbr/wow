@@ -37,6 +37,11 @@ class PerfilController < ApplicationController
     end
   end
 
+  def games
+    @creators = @q.result
+#    @blogs = @b.result
+  end
+
   def result
     @creators = @q.result
 #    @blogs = @b.result

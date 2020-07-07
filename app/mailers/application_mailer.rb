@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'site@wowmorreu.com.br'
+  default from: 'api@gamershall.gg'
   layout 'mailer'
 end
