@@ -69,7 +69,8 @@ Rails.application.routes.draw do
   get 'gerador/contatos', to: 'creators#contact', as: :creator_contact
   get '/game/:id', to: 'games#game_detail', as: :public_game_detail
   get '/game', to: 'games#game_list', as: :public_game_list
-  get 'twitch/live'#, to: 'twitch#live', as: twitch_live
+  get 'twitch/live'
+  get 'twitch/get_lives'
 
   get ':creator/post/:slug', to: 'perfil#post', as: :public_creator_post
   get 'post/:slug', to: 'perfil#post', as: :public_post
