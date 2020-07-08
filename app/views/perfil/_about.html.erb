@@ -92,15 +92,15 @@
 
             <div class="col-2" id="follow_button" style="<%= 'display: none;' if @creator.followers&.find_by(user_id: current_user&.id) %>;">
               <%= link_to creator_follows_path(creator_id: @creator.try(:id)), method: :post, remote: true, class: 'btn btn-warning btn-sm', style: "width: 100%" do %>
-                <i class="fas fa-user" style="width: 2.2em; height: 2.2em; color: #FFF;"></i>
-                <p>Seguir</p>
+                <i class="fas fa-gamepad"></i><br>
+                <span>Juntar-se</span>
               <% end %>
             </div>
 
             <div class="col-2" id="unfollow_button" style="<%= 'display: none;' unless @creator.followers&.find_by(user_id: current_user&.id) %>;">
               <%= link_to creator_follows_destroy_path(creator_id: @creator.try(:id)), method: :delete, remote: true, class: 'btn btn-success btn-sm', style: "width: 100%" do %>
-                <i class="fas fa-user" style="width: 2.2em; height: 2.2em; color: #FFF;"></i>
-                <p>Seguindo</p>
+                <i class="fas fa-gamepad"></i><br>
+                <span>Abandonar</span>
               <% end %>
             </div>
 

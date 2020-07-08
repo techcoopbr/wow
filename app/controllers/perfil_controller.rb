@@ -1,6 +1,7 @@
 class PerfilController < ApplicationController
   skip_before_filter :authenticate_user!
-  layout "perfil"
+  layout "perfil" 
+
   impressionist actions: [:post, :blog, :index]
 
   before_action :set_ransack_params
