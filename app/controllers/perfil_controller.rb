@@ -20,22 +20,23 @@ class PerfilController < ApplicationController
         impressionist @creator
       rescue
       end
+
+      unless @creator.twitter.nil?
+        begin
+          if @creator.twitter.include? "/"
+            @creator.twitter = @creator.twitter.partition('twitter.com/').last
+          end
+
+          @client = TwitterRestClient.new_client
+          @tweets = @client.user_timeline(@creator.twitter, exclude_replies: true, count: Twitter::REST::Tweets::MAX_TWEETS_PER_REQUEST)
+        rescue
+        end
+      end
+
     else
       redirect_to sidekiq_web_path
     end
 
-    unless @creator.twitter.nil?
-      begin
-        if @creator.twitter.include? "/"
-          @creator.twitter = @creator.twitter.partition('twitter.com/').last
-        end
-
-        @client = TwitterRestClient.new_client
-        @tweets = @client.user_timeline(@creator.twitter, exclude_replies: true, count: Twitter::REST::Tweets::MAX_TWEETS_PER_REQUEST)
-      rescue
-
-      end
-    end
   end
 
   def games
