@@ -154,8 +154,8 @@ ActiveRecord::Schema.define(version: 20200727181625) do
   end
 
   create_table "game_follows", force: :cascade do |t|
-    t.integer  "game_id"
-    t.integer  "user_id"
+    t.integer  "game_id",    null: false
+    t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_game_follows_on_game_id", using: :btree
