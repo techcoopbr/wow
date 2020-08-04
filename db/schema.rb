@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200619143215) do
+ActiveRecord::Schema.define(version: 20200727181625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,15 @@ ActiveRecord::Schema.define(version: 20200619143215) do
     t.datetime "updated_at",   null: false
     t.index ["developer_id"], name: "index_game_developers_on_developer_id", using: :btree
     t.index ["game_id"], name: "index_game_developers_on_game_id", using: :btree
+  end
+
+  create_table "game_follows", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_game_follows_on_game_id", using: :btree
+    t.index ["user_id"], name: "index_game_follows_on_user_id", using: :btree
   end
 
   create_table "game_publishers", force: :cascade do |t|
@@ -302,6 +311,8 @@ ActiveRecord::Schema.define(version: 20200619143215) do
   add_foreign_key "creators", "users"
   add_foreign_key "game_developers", "developers"
   add_foreign_key "game_developers", "games"
+  add_foreign_key "game_follows", "games"
+  add_foreign_key "game_follows", "users"
   add_foreign_key "game_publishers", "games"
   add_foreign_key "game_publishers", "publishers"
   add_foreign_key "notices", "users", column: "recipient_id"
