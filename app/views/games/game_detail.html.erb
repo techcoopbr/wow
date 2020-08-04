@@ -11,6 +11,21 @@
                 </li>
               </ul>
             </div>
+            <div class="row">
+              <div class="col-2 center-block" id="follow_button" style="display: <%= 'none' if @game.followers&.find_by(user_id: current_user&.id) %>;" >
+                <%= link_to game_follows_create_path(game_id: @game.id), method: :post, remote: true, class: 'btn btn-warning btn-sm', style: "width: 100%" do %>
+                  <i class="fas fa-gamepad"></i><br>
+                  <span>Juntar-se</span>
+                <% end %>
+              </div>
+
+              <div class="col-2 center-block" id="unfollow_button" style="display: <%= 'none' unless @game.followers&.find_by(user_id: current_user&.id) %>;" >
+                <%= link_to game_follows_destroy_path(game_id: @game.id), method: :delete, remote: true, class: 'btn btn-success btn-sm', style: "width: 100%" do %>
+                  <i class="fas fa-gamepad"></i><br>
+                  <span>Abandonar</span>
+                <% end %>
+              </div>
+            </div>
             <div class="read col col-12">
               <%= @game.short_description.html_safe %>
             </div>

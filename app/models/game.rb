@@ -2,6 +2,7 @@ class Game < ApplicationRecord
   validates :name, uniqueness: true
   has_many :game_developers
   has_many :game_publishers
+  has_many :followers, class_name: GameFollow, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
   include Steam

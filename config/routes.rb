@@ -86,4 +86,6 @@ Rails.application.routes.draw do
   delete 'creator_follows/destroy', as: :creator_follows_destroy
   get 'creator_follows/show', as: :creator_follows_show
 
+  post 'game_follows/create'
+  delete 'game_follows/destroy'
 end
